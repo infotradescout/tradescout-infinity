@@ -10,11 +10,13 @@ import type {
 
 import {
   infinityConversionEvidence,
+  infinityAttributionTouches,
   infinityPassActions,
   infinityPasses,
 } from "./schema.js";
 import type {
   RegistryStore,
+  StoredAttributionTouch,
   StoredConversionEvidence,
   StoredPass,
 } from "./store.js";
@@ -179,5 +181,22 @@ export class PostgresRegistryStore implements RegistryStore {
       throw new Error("Idempotency key reused with different payload");
     }
     return { created: false, record: rowToEvidence(current) };
+  }
+
+  async recordAttributionTouch(record: StoredAttributionTouch): Promise<void> {
+    const touch = record.touch;
+    await this.db.insert(infinityAttributionTouches).values({
+      id: touch.id,
+      tenantId: touch.tenantId,
+      programId: touch.programId,
+      partnerId: touch.partnerId,
+      linkId: touch.linkId ?? null,
+      passPublicId: touch.passId ?? null,
+      carrier: touch.carrier,
+      target: touch.target,
+      occurredAt: new Date(touch.occurredAt),
+      evidenceDigest: touch.evidenceDigest,
+      verified: touch.verified,
+    });
   }
 }
