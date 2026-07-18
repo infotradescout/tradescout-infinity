@@ -5,8 +5,12 @@ import {
   assertResolutionTrust,
   filterAllowlistedActions,
   validateVisualPayload,
+  type AttributionCarrier,
+  type AttributionTouch,
   type ConversionEvidence,
   type InfinityObjectReference,
+  type PartnerId,
+  type ProgramId,
   type PublicPassId,
   type ScreenPass,
   type ScreenPassAction,
@@ -66,6 +70,22 @@ export interface ResolvePassInput {
   now?: string;
 }
 
+export interface RecordAttributionTouchInput {
+  tenantId: TenantId;
+  programId: ProgramId;
+  partnerId: PartnerId;
+  linkId?: string;
+  carrier: AttributionCarrier;
+  target: {
+    tenantId: TenantId;
+    object: InfinityObjectReference;
+    canonicalPath: string;
+    actionId?: string;
+  };
+  occurredAt?: string;
+  evidence: unknown;
+}
+
 export class RegistryService {
   constructor(
     private readonly store: RegistryStore,
@@ -123,6 +143,36 @@ export class RegistryService {
       actions: structuredClone(input.actions),
     });
     return { pass, visualPayload, actions: structuredClone(input.actions) };
+  }
+
+  async recordAttributionTouch(
+    input: RecordAttributionTouchInput,
+  ): Promise<AttributionTouch> {
+    if (
+      input.target.tenantId !== input.tenantId ||
+      input.target.object.tenantId !== input.tenantId
+    ) {
+      throw new Error(
+        "Touch target tenant does not match authenticated tenant",
+      );
+    }
+    if (!isSafeDestination(input.target.canonicalPath)) {
+      throw new Error("Touch contains a blocked target destination");
+    }
+    const touch: AttributionTouch = {
+      id: randomUUID() as AttributionTouch["id"],
+      tenantId: input.tenantId,
+      programId: input.programId,
+      partnerId: input.partnerId,
+      ...(input.linkId ? { linkId: input.linkId } : {}),
+      carrier: input.carrier,
+      target: input.target,
+      occurredAt: input.occurredAt ?? new Date().toISOString(),
+      evidenceDigest: digestJson(input.evidence),
+      verified: false,
+    };
+    await this.store.recordAttributionTouch({ touch });
+    return touch;
   }
 
   async getPass(
