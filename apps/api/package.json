@@ -1,0 +1,21 @@
+{
+  "name": "@tradescout-infinity/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/src/main.js",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/src/main.js",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "dependencies": {
+    "@tradescout-infinity/contracts": "workspace:*",
+    "@tradescout-infinity/registry": "workspace:*",
+    "drizzle-orm": "^0.44.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.0"
+  }
+}

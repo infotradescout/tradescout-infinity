@@ -2,6 +2,8 @@
   "files": [],
   "references": [
     { "path": "./packages/contracts" },
-    { "path": "./packages/provider-core" }
+    { "path": "./packages/provider-core" },
+    { "path": "./packages/registry" },
+    { "path": "./apps/api" }
   ]
 }

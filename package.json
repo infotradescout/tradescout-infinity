@@ -13,7 +13,7 @@
     "clean": "tsc -b --clean",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js",
+    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js packages/registry/dist/test/*.test.js",
     "typecheck": "tsc -b --pretty false"
   },
   "devDependencies": {
