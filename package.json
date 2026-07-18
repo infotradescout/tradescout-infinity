@@ -1,0 +1,24 @@
+{
+  "name": "tradescout-infinity",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tenant-ready attribution, Screen Pass recognition, and partner-commerce infrastructure.",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check": "pnpm run format:check && pnpm run typecheck && pnpm run test",
+    "clean": "tsc -b --clean",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js",
+    "typecheck": "tsc -b --pretty false"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prettier": "^3.6.0",
+    "typescript": "^5.9.0"
+  }
+}
