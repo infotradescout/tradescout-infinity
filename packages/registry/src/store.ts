@@ -1,4 +1,5 @@
 import type {
+  AttributionTouch,
   ConversionEvidence,
   PublicPassId,
   ScreenPass,
@@ -16,6 +17,10 @@ export interface StoredConversionEvidence {
   payloadDigest: string;
 }
 
+export interface StoredAttributionTouch {
+  touch: AttributionTouch;
+}
+
 export interface RegistryStore {
   createPass(record: StoredPass): Promise<void>;
   findPass(publicId: PublicPassId): Promise<StoredPass | null>;
@@ -24,6 +29,7 @@ export interface RegistryStore {
     publicId: PublicPassId;
     revokedAt: string;
   }): Promise<StoredPass | null>;
+  recordAttributionTouch(record: StoredAttributionTouch): Promise<void>;
   recordConversionEvidence(
     record: StoredConversionEvidence,
   ): Promise<{ created: boolean; record: StoredConversionEvidence }>;
