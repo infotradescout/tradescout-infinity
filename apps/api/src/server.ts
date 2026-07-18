@@ -6,6 +6,9 @@ import {
 
 import type {
   InfinityObjectReference,
+  AttributionCarrier,
+  PartnerId,
+  ProgramId,
   PublicPassId,
   ScreenPassAction,
   ScreenPassAttribution,
@@ -127,6 +130,34 @@ export function createInfinityServer(params: {
             : {}),
         });
         sendJson(res, 201, issued);
+        return;
+      }
+
+      if (method === "POST" && url.pathname === "/v1/attribution-touches") {
+        const auth = await authenticate(req, res, params.authenticator);
+        if (!auth) return;
+        const body = await readJson(req);
+        const targetBody = body.target as JsonObject;
+        const touch = await params.registry.recordAttributionTouch({
+          tenantId: auth.tenantId,
+          programId: String(body.programId || "") as ProgramId,
+          partnerId: String(body.partnerId || "") as PartnerId,
+          ...(typeof body.linkId === "string" ? { linkId: body.linkId } : {}),
+          carrier: String(body.carrier || "") as AttributionCarrier,
+          target: {
+            tenantId: auth.tenantId,
+            object: asObjectReference(targetBody?.object),
+            canonicalPath: String(targetBody?.canonicalPath || ""),
+            ...(typeof targetBody?.actionId === "string"
+              ? { actionId: targetBody.actionId }
+              : {}),
+          },
+          ...(typeof body.occurredAt === "string"
+            ? { occurredAt: body.occurredAt }
+            : {}),
+          evidence: body.evidence ?? {},
+        });
+        sendJson(res, 201, { touch });
         return;
       }
 
