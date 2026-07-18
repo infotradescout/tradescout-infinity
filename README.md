@@ -4,11 +4,10 @@ TradeScout Infinity is tenant-ready attribution, conversion-proof, and
 live-object recovery infrastructure. Screen Pass is its visual recognition
 capability.
 
-This repository is contract-first. The current baseline defines the trust
-boundaries, shared types, provider interface, threat model, and integration
-plans. It does **not** contain a production watermark implementation and makes
-no durability claim about screenshots, crops, recompression, or screen
-photography.
+This repository contains the shared contracts, signed registry service,
+PostgreSQL persistence schema, and tenant-authenticated HTTP API. It does
+**not** contain a production watermark implementation and makes no durability
+claim about screenshots, crops, recompression, or screen photography.
 
 ## Trust chain
 
@@ -22,6 +21,10 @@ No earlier stage can directly trigger a later money decision.
 
 - `packages/contracts`: shared domain types and runtime trust guards.
 - `packages/provider-core`: provider-neutral watermark interface.
+- `packages/registry`: signed pass issuance, verification, revocation, and
+  conversion-evidence persistence.
+- `apps/api`: tenant-authenticated registry HTTP API.
+- `migrations`: deployable PostgreSQL schema.
 - `docs`: product doctrine, security boundaries, ADRs, and application adapter
   plans.
 
@@ -35,6 +38,6 @@ pnpm build
 
 ## Current boundary
 
-This baseline does not modify TradeScout or MealScout. Their adapters must be
-implemented in their own repositories only after the shared attribution contract
-is accepted.
+TradeScout and MealScout integrate through thin adapters. During shadow rollout,
+their current attribution and payout behavior remains authoritative while
+Infinity records compatible evidence for comparison.
