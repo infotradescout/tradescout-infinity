@@ -2,6 +2,7 @@ import type { PublicPassId } from "@tradescout-infinity/contracts";
 
 import type {
   RegistryStore,
+  StoredAttributionTouch,
   StoredConversionEvidence,
   StoredPass,
 } from "./store.js";
@@ -13,6 +14,7 @@ function copyPass(record: StoredPass): StoredPass {
 export class MemoryRegistryStore implements RegistryStore {
   readonly #passes = new Map<string, StoredPass>();
   readonly #conversionEvidence = new Map<string, StoredConversionEvidence>();
+  readonly #touches = new Map<string, StoredAttributionTouch>();
 
   async createPass(record: StoredPass): Promise<void> {
     if (this.#passes.has(record.pass.publicId)) {
@@ -55,5 +57,11 @@ export class MemoryRegistryStore implements RegistryStore {
     }
     this.#conversionEvidence.set(key, structuredClone(record));
     return { created: true, record: structuredClone(record) };
+  }
+
+  async recordAttributionTouch(record: StoredAttributionTouch): Promise<void> {
+    if (this.#touches.has(record.touch.id))
+      throw new Error("Touch already exists");
+    this.#touches.set(record.touch.id, structuredClone(record));
   }
 }
