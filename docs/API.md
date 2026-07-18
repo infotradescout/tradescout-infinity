@@ -37,6 +37,8 @@ of the full bearer token; only tokens beginning with `inf_` are accepted.
 
 - `GET /health`: liveness response.
 - `POST /v1/passes`: issue a signed pass. Requires bearer authentication.
+- `POST /v1/attribution-touches`: record a non-payable, unverified shadow touch.
+  Requires bearer authentication.
 - `GET /v1/passes/:publicId`: tenant-scoped pass lookup. Requires
   authentication.
 - `POST /v1/passes/:publicId/revoke`: revoke a pass. Requires authentication.
