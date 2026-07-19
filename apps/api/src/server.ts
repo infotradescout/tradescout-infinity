@@ -4,6 +4,7 @@ import {
   type ServerResponse,
 } from "node:http";
 
+import { evaluateSelectiveInheritance } from "@tradescout-infinity/contracts";
 import type {
   InfinityObjectReference,
   AttributionCarrier,
@@ -13,6 +14,9 @@ import type {
   ScreenPassAction,
   ScreenPassAttribution,
   ScreenPassScope,
+  SelectiveInheritanceCandidate,
+  SelectiveInheritanceOverride,
+  SelectiveInheritancePolicy,
   TenantId,
   VisualPassPayload,
 } from "@tradescout-infinity/contracts";
@@ -227,6 +231,28 @@ export function createInfinityServer(params: {
             : {}),
         });
         sendJson(res, result.created ? 201 : 200, result);
+        return;
+      }
+
+      if (
+        method === "POST" &&
+        url.pathname === "/v1/selective-inheritance/evaluations"
+      ) {
+        const auth = await authenticate(req, res, params.authenticator);
+        if (!auth) return;
+        const body = await readJson(req);
+        const result = evaluateSelectiveInheritance({
+          evaluationId: String(body.evaluationId || ""),
+          tenantId: auth.tenantId,
+          target: asObjectReference(body.target),
+          targetVersion: String(body.targetVersion || ""),
+          policy: body.policy as unknown as SelectiveInheritancePolicy,
+          candidates: (body.candidates ||
+            []) as SelectiveInheritanceCandidate[],
+          overrides: (body.overrides || []) as SelectiveInheritanceOverride[],
+          evaluatedAt: String(body.evaluatedAt || ""),
+        });
+        sendJson(res, 200, { evaluation: result });
         return;
       }
 
