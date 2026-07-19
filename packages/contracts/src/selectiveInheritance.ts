@@ -14,10 +14,7 @@ export type SelectiveInheritanceSourceKind =
   | "public_website";
 
 export type SelectiveInheritanceDecisionStatus =
-  | "inherited"
-  | "overridden"
-  | "excluded"
-  | "unresolved";
+  "inherited" | "overridden" | "excluded" | "unresolved";
 
 export interface SelectiveInheritanceFieldRule {
   field: string;
@@ -251,7 +248,9 @@ export function evaluateSelectiveInheritance(
     throw new Error("Policy object type does not match target object type");
   }
 
-  const rules = new Map(request.policy.fields.map((rule) => [rule.field, rule]));
+  const rules = new Map(
+    request.policy.fields.map((rule) => [rule.field, rule]),
+  );
   const overrides = new Map<string, SelectiveInheritanceOverride>();
   for (const override of request.overrides) {
     assertNonEmpty(override.field, "override.field");
@@ -290,7 +289,9 @@ export function evaluateSelectiveInheritance(
         return {
           field,
           status: "excluded",
-          reasonCodes: [rule ? "field_excluded_by_policy" : "field_not_allowlisted"],
+          reasonCodes: [
+            rule ? "field_excluded_by_policy" : "field_not_allowlisted",
+          ],
         };
       }
 
