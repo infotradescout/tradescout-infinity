@@ -45,5 +45,5 @@ Infinity owns the portable Screen Pass and Selective Inheritance contracts.
 TradeScout and MealScout integrate through thin adapters and retain the
 separately authorized product operation that applies inherited values. During
 shadow rollout, their current attribution, payout, and profile mutation behavior
-remains authoritative while Infinity records compatible evidence and
-evaluations for comparison.
+remains authoritative while Infinity records compatible evidence and evaluations
+for comparison.
