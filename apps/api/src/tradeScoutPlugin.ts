@@ -38,6 +38,7 @@ export interface TradeScoutOwnerAdapter {
     selectedActions: ChangeAction[];
     idempotencyKey: string;
     publishAt: string | "now";
+    authorizedTargetConnectionIds: string[];
   }): Promise<ChangeSetReceipt>;
 }
 
@@ -169,6 +170,7 @@ export class TradeScoutPluginService {
       selectedActions: actions,
       idempotencyKey: input.idempotencyKey,
       publishAt: input.publishAt,
+      authorizedTargetConnectionIds: input.authorizedTargetConnectionIds,
     });
     this.receipts.set(`${auth.subject}:${input.idempotencyKey}`, receipt);
     return receipt;
