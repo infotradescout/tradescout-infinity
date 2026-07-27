@@ -27,9 +27,9 @@ mutation.
 - `packages/registry`: signed pass issuance, verification, revocation, and
   conversion-evidence persistence.
 - `apps/api`: tenant-authenticated registry HTTP API.
-- `plugins/selective-intelligence`: installable ChatGPT/Codex plugin, portable
-  SI skill, and MCP adapter for intent recovery, governed planning,
-  verification, and repair.
+- `integrations/selective-intelligence`: immutable SI source metadata and
+  compatibility/drift verification. The SI engine and plugin remain canonical in
+  `Platynum-47/Selective-Intelligence`.
 - `migrations`: deployable PostgreSQL schema.
 - `docs`: product doctrine, security boundaries, ADRs, and application adapter
   plans.
@@ -42,13 +42,6 @@ pnpm check
 pnpm build
 ```
 
-Selective Intelligence has an independent Python validation gate:
-
-```bash
-python -m unittest discover -s plugins/selective-intelligence/tests -p 'test_*.py'
-python /root/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/selective-intelligence
-```
-
 ## Current boundary
 
 Infinity owns the portable Screen Pass and Selective Inheritance contracts.
@@ -57,3 +50,9 @@ separately authorized product operation that applies inherited values. During
 shadow rollout, their current attribution, payout, and profile mutation behavior
 remains authoritative while Infinity records compatible evidence and evaluations
 for comparison.
+
+Selective Intelligence is a separate canonical product capability. Infinity
+catalogs and composes a pinned SI release but does not vendor its engine,
+PolicyGuard, sessions, councils, evidence logic, MCP business logic, portable
+skill, or plugin package. See
+[`docs/capability-ownership.md`](docs/capability-ownership.md).

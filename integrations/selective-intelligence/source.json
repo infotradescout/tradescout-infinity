@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "selective-intelligence",
+  "source": "github:Platynum-47/Selective-Intelligence",
+  "expectedPluginVersion": "0.1.0",
+  "pinnedCommit": "66bec2c0107afe34368874c237c973b7b708dac7",
+  "status": "awaiting_canonical_release",
+  "installable": false,
+  "blocker": "Canonical plugin commit is validated locally but not published because the GitHub integration cannot create refs in Platynum-47/Selective-Intelligence."
+}
