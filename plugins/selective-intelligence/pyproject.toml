@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "selective-intelligence-mcp"
+version = "0.3.0"
+description = "MCP adapter for the Selective Intelligence lane and checkpoint engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "CC0-1.0" }
+dependencies = [
+  "mcp>=1.12,<2"
+]
+
+[project.scripts]
+selective-intelligence-mcp = "mcp_server.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_server"]
