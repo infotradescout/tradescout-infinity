@@ -27,6 +27,9 @@ mutation.
 - `packages/registry`: signed pass issuance, verification, revocation, and
   conversion-evidence persistence.
 - `apps/api`: tenant-authenticated registry HTTP API.
+- `plugins/selective-intelligence`: installable ChatGPT/Codex plugin, portable
+  SI skill, and MCP adapter for intent recovery, governed planning,
+  verification, and repair.
 - `migrations`: deployable PostgreSQL schema.
 - `docs`: product doctrine, security boundaries, ADRs, and application adapter
   plans.
@@ -37,6 +40,13 @@ mutation.
 pnpm install
 pnpm check
 pnpm build
+```
+
+Selective Intelligence has an independent Python validation gate:
+
+```bash
+python -m unittest discover -s plugins/selective-intelligence/tests -p 'test_*.py'
+python /root/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/selective-intelligence
 ```
 
 ## Current boundary
