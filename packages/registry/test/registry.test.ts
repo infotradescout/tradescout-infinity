@@ -79,7 +79,7 @@ test("modified signatures fail closed", async () => {
   const { registry, issued } = await issue();
   const payload: VisualPassPayload = {
     ...issued.visualPayload,
-    signature: `${issued.visualPayload.signature.slice(0, -1)}x`,
+    signature: `${issued.visualPayload.signature.startsWith("a") ? "b" : "a"}${issued.visualPayload.signature.slice(1)}`,
   };
   const result = await registry.resolve({ payload });
   assert.equal(result.resolution.authoritative, false);
