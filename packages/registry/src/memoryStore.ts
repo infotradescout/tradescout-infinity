@@ -13,7 +13,10 @@ function copyPass(record: StoredPass): StoredPass {
 
 export class MemoryRegistryStore implements RegistryStore {
   readonly #passes = new Map<string, StoredPass>();
-  readonly #conversionEvidence = new Map<string, StoredConversionEvidence>();
+  readonly #conversionEvidence = new Map<
+    string,
+    Map<string, StoredConversionEvidence>
+  >();
   readonly #touches = new Map<string, StoredAttributionTouch>();
 
   async createPass(record: StoredPass): Promise<void> {
@@ -47,15 +50,19 @@ export class MemoryRegistryStore implements RegistryStore {
   async recordConversionEvidence(
     record: StoredConversionEvidence,
   ): Promise<{ created: boolean; record: StoredConversionEvidence }> {
-    const key = `${record.evidence.tenantId}:${record.evidence.idempotencyKey}`;
-    const current = this.#conversionEvidence.get(key);
+    let tenantEvidence = this.#conversionEvidence.get(record.evidence.tenantId);
+    if (!tenantEvidence) {
+      tenantEvidence = new Map<string, StoredConversionEvidence>();
+      this.#conversionEvidence.set(record.evidence.tenantId, tenantEvidence);
+    }
+    const current = tenantEvidence.get(record.evidence.idempotencyKey);
     if (current) {
       if (current.payloadDigest !== record.payloadDigest) {
         throw new Error("Idempotency key reused with different payload");
       }
       return { created: false, record: structuredClone(current) };
     }
-    this.#conversionEvidence.set(key, structuredClone(record));
+    tenantEvidence.set(record.evidence.idempotencyKey, structuredClone(record));
     return { created: true, record: structuredClone(record) };
   }
 

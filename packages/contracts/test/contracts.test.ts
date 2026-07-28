@@ -115,6 +115,15 @@ test("conversion evidence requires idempotency and cannot trigger payout", () =>
       }),
     /cannot trigger payout/,
   );
+  assert.throws(
+    () =>
+      assertConversionEvidence({
+        ...base,
+        idempotencyKey: "x".repeat(161) as any,
+        payoutTriggered: false,
+      }),
+    /exceeds 160/,
+  );
 });
 
 test("partner programs reject self-attribution and require explicit conversions", () => {
