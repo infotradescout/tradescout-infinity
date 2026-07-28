@@ -29,6 +29,9 @@ importers:
       drizzle-orm:
         specifier: ^0.44.0
         version: 0.44.7(@types/pg@8.20.0)(pg@8.22.0)
+      jose:
+        specifier: ^6.1.0
+        version: 6.2.4
       pg:
         specifier: ^8.16.0
         version: 8.22.0
@@ -161,6 +164,9 @@ packages:
       sqlite3:
         optional: true
 
+  jose@6.2.4:
+    resolution: {integrity: sha512-N8acGzVsQy6M/fjFcxtysNc4Q379TcM5dM/qKkNtsHFji88yANnXTr7BLeP75iPnFwBfQzM/jg2BZ9+HZrHCZA==}
+
   pg-cloudflare@1.4.0:
     resolution: {integrity: sha512-Vo7z/6rrQYxpNRylp4Tlob2elzbh+N/MOQbxFVWCxS7oEx6jF53GTJFxK2WWpKuBRkmiin4Mt+xofFDjx09R0A==}
 
@@ -248,6 +254,8 @@ snapshots:
     optionalDependencies:
       '@types/pg': 8.20.0
       pg: 8.22.0
+
+  jose@6.2.4: {}
 
   pg-cloudflare@1.4.0:
     optional: true

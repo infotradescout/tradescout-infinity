@@ -23,7 +23,9 @@ import type {
 import type { RegistryService } from "@tradescout-infinity/registry";
 
 import type { ApiKeyAuthenticator, AuthenticatedTenant } from "./auth.js";
+import { handleMcpRequest, type OwnerTokenAuthenticator } from "./mcp.js";
 import { FixedWindowRateLimiter } from "./rateLimit.js";
+import type { TradeScoutPluginService } from "./tradeScoutPlugin.js";
 
 const MAX_BODY_BYTES = 1_000_000;
 
@@ -92,6 +94,13 @@ export function createInfinityServer(params: {
   registry: RegistryService;
   authenticator: ApiKeyAuthenticator;
   rateLimiter?: FixedWindowRateLimiter;
+  tradeScoutPlugin?: {
+    service: TradeScoutPluginService;
+    ownerAuthenticator: OwnerTokenAuthenticator;
+    issuer: string;
+    authorizationServer: string;
+    resource: string;
+  };
 }) {
   const limiter = params.rateLimiter ?? new FixedWindowRateLimiter(120, 60_000);
 
@@ -109,6 +118,59 @@ export function createInfinityServer(params: {
     try {
       if (method === "GET" && url.pathname === "/health") {
         sendJson(res, 200, { status: "ok" });
+        return;
+      }
+
+      if (
+        method === "GET" &&
+        url.pathname === "/.well-known/oauth-protected-resource"
+      ) {
+        if (!params.tradeScoutPlugin) {
+          sendJson(res, 404, { error: "not_found" });
+          return;
+        }
+        sendJson(res, 200, {
+          resource: params.tradeScoutPlugin.resource,
+          authorization_servers: [params.tradeScoutPlugin.authorizationServer],
+          scopes_supported: [
+            "business.read",
+            "profile.write",
+            "services.write",
+            "documents.write",
+          ],
+          bearer_methods_supported: ["header"],
+        });
+        return;
+      }
+
+      if (method === "POST" && url.pathname === "/mcp") {
+        if (!params.tradeScoutPlugin) {
+          sendJson(res, 503, { error: "plugin_not_configured" });
+          return;
+        }
+        const token = bearerToken(req);
+        const owner = token
+          ? await params.tradeScoutPlugin.ownerAuthenticator.authenticateOwner(
+              token,
+            )
+          : null;
+        if (!owner) {
+          res.setHeader(
+            "www-authenticate",
+            `Bearer resource_metadata="${params.tradeScoutPlugin.resource}/.well-known/oauth-protected-resource"`,
+          );
+          sendJson(res, 401, { error: "unauthorized" });
+          return;
+        }
+        const body = await readJson(req);
+        const response = await handleMcpRequest({
+          body,
+          req,
+          res,
+          auth: owner,
+          service: params.tradeScoutPlugin.service,
+        });
+        sendJson(res, 200, response);
         return;
       }
 
