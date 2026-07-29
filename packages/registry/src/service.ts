@@ -282,14 +282,20 @@ export class RegistryService {
     if (input.object.tenantId !== input.tenantId) {
       throw new Error("Object tenant does not match authenticated tenant");
     }
+    const idempotencyKey = input.idempotencyKey.trim();
+    const requestedOccurredAt = input.occurredAt ?? null;
     const evidence: ConversionEvidence = {
       evidenceId: randomUUID(),
       tenantId: input.tenantId,
-      object: input.object,
+      object: {
+        tenantId: input.object.tenantId,
+        objectType: input.object.objectType,
+        objectId: input.object.objectId,
+      },
       idempotencyKey:
-        input.idempotencyKey as ConversionEvidence["idempotencyKey"],
+        idempotencyKey as ConversionEvidence["idempotencyKey"],
       eventType: input.eventType,
-      occurredAt: input.occurredAt ?? new Date().toISOString(),
+      occurredAt: requestedOccurredAt ?? new Date().toISOString(),
       payoutTriggered: false,
     };
     if (input.attributionProofId) {
@@ -307,7 +313,10 @@ export class RegistryService {
       object: evidence.object,
       idempotencyKey: evidence.idempotencyKey,
       eventType: evidence.eventType,
-      occurredAt: evidence.occurredAt,
+      // A server-assigned timestamp is response state, not part of the
+      // caller's request identity. Replays that omit occurredAt must hash the
+      // same null marker and return the first stored timestamp.
+      occurredAt: requestedOccurredAt,
       attributionProofId: evidence.attributionProofId ?? null,
       attributionAssignmentId: evidence.attributionAssignmentId ?? null,
     });

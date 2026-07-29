@@ -106,6 +106,11 @@ export function assertConversionEvidence(evidence: ConversionEvidence): void {
   if (!evidence.idempotencyKey || evidence.idempotencyKey.length < 8) {
     throw new Error("Conversion evidence requires an idempotency key");
   }
+  if (evidence.idempotencyKey.length > 160) {
+    throw new Error(
+      "Conversion evidence idempotency key exceeds 160 characters",
+    );
+  }
   if (evidence.payoutTriggered !== false) {
     throw new Error("Conversion evidence cannot trigger payout");
   }

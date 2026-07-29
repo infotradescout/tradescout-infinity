@@ -13,6 +13,7 @@ import {
   MemoryRegistryStore,
   RegistryService,
   SigningKeyRing,
+  type StoredConversionEvidence,
 } from "../src/index.js";
 
 const tenantA = "tenant_a" as TenantId;
@@ -23,9 +24,12 @@ const objectA: InfinityObjectReference = {
   objectId: "cristallo-backlit" as InfinityObjectReference["objectId"],
 };
 
-function service(keys?: SigningKeyRing) {
+function service(
+  store: MemoryRegistryStore = new MemoryRegistryStore(),
+  keys?: SigningKeyRing,
+) {
   return new RegistryService(
-    new MemoryRegistryStore(),
+    store,
     keys ??
       new SigningKeyRing([
         {
@@ -35,6 +39,41 @@ function service(keys?: SigningKeyRing) {
         },
       ]),
   );
+}
+
+class ObservedMemoryRegistryStore extends MemoryRegistryStore {
+  createdConversionCount = 0;
+
+  override async recordConversionEvidence(record: StoredConversionEvidence) {
+    const result = await super.recordConversionEvidence(record);
+    if (result.created) this.createdConversionCount += 1;
+    return result;
+  }
+}
+
+class FailBeforeWriteOnceStore extends ObservedMemoryRegistryStore {
+  #failed = false;
+
+  override async recordConversionEvidence(record: StoredConversionEvidence) {
+    if (!this.#failed) {
+      this.#failed = true;
+      throw new Error("simulated_pre_write_failure");
+    }
+    return super.recordConversionEvidence(record);
+  }
+}
+
+class FailAfterWriteOnceStore extends ObservedMemoryRegistryStore {
+  #failed = false;
+
+  override async recordConversionEvidence(record: StoredConversionEvidence) {
+    const result = await super.recordConversionEvidence(record);
+    if (!this.#failed) {
+      this.#failed = true;
+      throw new Error("simulated_response_failure");
+    }
+    return result;
+  }
 }
 
 async function issue(registry = service(), expiresAt?: string) {
@@ -217,6 +256,157 @@ test("conversion evidence is idempotent and rejects payload drift", async () => 
     registry.recordConversion({ ...input, eventType: "signup_completed" }),
     /different payload/,
   );
+});
+
+test("conversion evidence normalizes keys and replays server-assigned timestamps", async () => {
+  const registry = service();
+  const input = {
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: "  request:normalized-key  ",
+    eventType: "request_created",
+  };
+
+  const first = await registry.recordConversion(input);
+  const replay = await registry.recordConversion({
+    ...input,
+    idempotencyKey: "request:normalized-key",
+  });
+
+  assert.equal(first.created, true);
+  assert.equal(replay.created, false);
+  assert.equal(first.evidence.idempotencyKey, "request:normalized-key");
+  assert.deepEqual(replay.evidence, first.evidence);
+});
+
+test("concurrent conversion duplicates create one record and replay one response", async () => {
+  const store = new ObservedMemoryRegistryStore();
+  const registry = service(store);
+  const input = {
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: "request:concurrent-key",
+    eventType: "request_created",
+  };
+
+  const results = await Promise.all(
+    Array.from({ length: 8 }, () => registry.recordConversion(input)),
+  );
+
+  assert.equal(
+    results.filter((result) => result.created).length,
+    1,
+  );
+  assert.equal(store.createdConversionCount, 1);
+  for (const result of results) {
+    assert.deepEqual(result.evidence, results[0]?.evidence);
+  }
+});
+
+test("conversion idempotency keys are isolated by authenticated tenant", async () => {
+  const store = new ObservedMemoryRegistryStore();
+  const registry = service(store);
+  const objectB: InfinityObjectReference = {
+    tenantId: tenantB,
+    objectType: objectA.objectType,
+    objectId: objectA.objectId,
+  };
+  const sharedKey = "request:tenant-scoped-key";
+
+  const tenantAResult = await registry.recordConversion({
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: sharedKey,
+    eventType: "request_created",
+  });
+  const tenantBResult = await registry.recordConversion({
+    tenantId: tenantB,
+    object: objectB,
+    idempotencyKey: sharedKey,
+    eventType: "request_created",
+  });
+
+  assert.equal(tenantAResult.created, true);
+  assert.equal(tenantBResult.created, true);
+  assert.notEqual(
+    tenantAResult.evidence.evidenceId,
+    tenantBResult.evidence.evidenceId,
+  );
+  assert.equal(store.createdConversionCount, 2);
+});
+
+test("tenant idempotency scopes cannot collide on delimiter-shaped identifiers", async () => {
+  const registry = service();
+  const tenantWithDelimiter = "tenant:a" as TenantId;
+  const tenantWithoutDelimiter = "tenant" as TenantId;
+
+  const first = await registry.recordConversion({
+    tenantId: tenantWithDelimiter,
+    object: {
+      tenantId: tenantWithDelimiter,
+      objectType: "stone",
+      objectId: objectA.objectId,
+    },
+    idempotencyKey: "shared:collision-key",
+    eventType: "request_created",
+  });
+  const second = await registry.recordConversion({
+    tenantId: tenantWithoutDelimiter,
+    object: {
+      tenantId: tenantWithoutDelimiter,
+      objectType: "stone",
+      objectId: objectA.objectId,
+    },
+    idempotencyKey: "a:shared:collision-key",
+    eventType: "request_created",
+  });
+
+  assert.equal(first.created, true);
+  assert.equal(second.created, true);
+  assert.notEqual(first.evidence.evidenceId, second.evidence.evidenceId);
+});
+
+test("a failed conversion before persistence can be retried", async () => {
+  const store = new FailBeforeWriteOnceStore();
+  const registry = service(store);
+  const input = {
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: "request:pre-write-retry",
+    eventType: "request_created",
+  };
+
+  await assert.rejects(
+    registry.recordConversion(input),
+    /simulated_pre_write_failure/,
+  );
+  const retry = await registry.recordConversion(input);
+  const replay = await registry.recordConversion(input);
+
+  assert.equal(retry.created, true);
+  assert.equal(replay.created, false);
+  assert.deepEqual(replay.evidence, retry.evidence);
+  assert.equal(store.createdConversionCount, 1);
+});
+
+test("a retry after a lost successful response replays the stored conversion", async () => {
+  const store = new FailAfterWriteOnceStore();
+  const registry = service(store);
+  const input = {
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: "request:post-write-retry",
+    eventType: "request_created",
+  };
+
+  await assert.rejects(
+    registry.recordConversion(input),
+    /simulated_response_failure/,
+  );
+  const retry = await registry.recordConversion(input);
+
+  assert.equal(retry.created, false);
+  assert.equal(store.createdConversionCount, 1);
 });
 
 test("objects cannot cross authenticated tenant boundaries", async () => {
