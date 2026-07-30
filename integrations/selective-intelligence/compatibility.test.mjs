@@ -12,7 +12,7 @@ const copiedPlugin = new URL(
 test("SI remains an immutable external integration", () => {
   assert.equal(source.name, "selective-intelligence");
   assert.equal(source.source, "github:Platynum-47/Selective-Intelligence");
-  assert.match(source.expectedPluginVersion, /^\d+\.\d+\.\d+$/);
+  assert.equal(source.expectedPluginVersion, "0.2.0");
   assert.match(source.pinnedCommit, /^[0-9a-f]{40}$/);
   assert.equal(existsSync(copiedPlugin), false);
 });
@@ -21,5 +21,6 @@ test("an unpublished SI release is not advertised as installable", () => {
   if (source.status === "awaiting_canonical_release") {
     assert.equal(source.installable, false);
     assert.ok(source.blocker);
+    assert.match(source.blocker, /model\/client behavior evidence/i);
   }
 });
