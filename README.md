@@ -29,8 +29,11 @@ preserves working value.
 See [`registry/ecosystem.json`](registry/ecosystem.json),
 [`registry/capabilities.json`](registry/capabilities.json),
 [`registry/convergence.json`](registry/convergence.json),
+[`registry/vocabulary.json`](registry/vocabulary.json),
+[`registry/identity-boundaries.json`](registry/identity-boundaries.json),
 [`docs/REALIGNMENT_WAVE_1.md`](docs/REALIGNMENT_WAVE_1.md), and
-[`docs/REALIGNMENT_WAVE_2.md`](docs/REALIGNMENT_WAVE_2.md).
+[`docs/REALIGNMENT_WAVE_2.md`](docs/REALIGNMENT_WAVE_2.md), and
+[`docs/REALIGNMENT_WAVE_3.md`](docs/REALIGNMENT_WAVE_3.md).
 
 ## Transitional runtime in this repository
 

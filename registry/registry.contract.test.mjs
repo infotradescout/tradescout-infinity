@@ -69,3 +69,110 @@ test("component convergence records remain inputs, not false ecosystem owners", 
     ),
   );
 });
+
+test("vocabulary separates identity, presentation, authority, and money", async () => {
+  const vocabulary = await readJson("./vocabulary.json");
+  const terms = new Map(vocabulary.terms.map((entry) => [entry.term, entry]));
+
+  assert.equal(
+    vocabulary.decisionState,
+    "draft-target-from-repository-evidence",
+  );
+  assert.equal(terms.size, vocabulary.terms.length);
+
+  for (const required of [
+    "person",
+    "account",
+    "product-membership",
+    "business",
+    "profile",
+    "role",
+    "connection",
+    "request",
+    "job",
+    "project",
+    "property",
+    "asset",
+    "estimate",
+    "payment",
+    "verification",
+  ]) {
+    assert.ok(terms.has(required), `missing vocabulary term: ${required}`);
+  }
+
+  assert.match(terms.get("profile").meaning, /not the identity/i);
+  assert.match(terms.get("role").meaning, /not a human type/i);
+  assert.match(terms.get("payment").meaning, /movement of money/i);
+  assert.match(
+    terms.get("verification").meaning,
+    /specific subject and claim/i,
+  );
+});
+
+test("identity remains unassigned until product boundaries are proved", async () => {
+  const [identity, convergence] = await Promise.all([
+    readJson("./identity-boundaries.json"),
+    readJson("./convergence.json"),
+  ]);
+  const systems = new Map(
+    identity.currentSystems.map((entry) => [entry.repository, entry]),
+  );
+  const mealScoutAuth = convergence.records.find(
+    (record) => record.id === "mealscout-auth-owner",
+  );
+  const mealScoutOAuth = convergence.records.find(
+    (record) => record.id === "mealscout-oauth-identity",
+  );
+  const tradeScoutAuthority = convergence.records.find(
+    (record) => record.id === "tradescout-authority-guards",
+  );
+  const tradeScoutOAuth = convergence.records.find(
+    (record) => record.id === "tradescout-oauth-identity",
+  );
+
+  assert.equal(identity.canonicalOwner, null);
+  assert.equal(identity.decisionState, "evidence-mapped-owner-required");
+  assert.equal(
+    systems.get("infotradescout/tradescout-infinity").disposition,
+    "registry-not-default-identity-runtime",
+  );
+  assert.ok(
+    identity.invariants.some((rule) => /profile.*never.*identity/i.test(rule)),
+  );
+  assert.ok(
+    identity.invariants.some((rule) => /email coincidence/i.test(rule)),
+  );
+  assert.ok(identity.riskRegister.every((risk) => risk.requiredProof));
+  assert.equal(mealScoutAuth.implementationOwner, "server/unifiedAuth.ts");
+  assert.match(mealScoutAuth.dependsOn, /MealScout\/pull\/370$/);
+  assert.ok(
+    mealScoutAuth.retired.includes(
+      "silent email-based cross-product account linking",
+    ),
+  );
+  assert.match(
+    systems.get("infotradescout/MealScout").migrationEvidence,
+    /MealScout\/pull\/372$/,
+  );
+  assert.equal(mealScoutOAuth.implementationOwner, "server/unifiedAuth.ts");
+  assert.match(mealScoutOAuth.dependsOn, /MealScout\/pull\/371$/);
+  assert.match(mealScoutOAuth.securityRule, /cannot silently attach/i);
+  assert.ok(
+    mealScoutOAuth.converged.includes(
+      "no active provider-token writes to user rows",
+    ),
+  );
+  assert.equal(tradeScoutAuthority.implementationOwner, "server/auth.ts");
+  assert.match(tradeScoutAuthority.dependsOn, /tradescoutAI\/pull\/569$/);
+  assert.match(tradeScoutAuthority.securityCorrection, /no longer/i);
+  assert.match(
+    systems.get("infotradescout/tradescoutAI").migrationEvidence,
+    /tradescoutAI\/pull\/571$/,
+  );
+  assert.equal(tradeScoutOAuth.implementationOwner, "server/auth.ts");
+  assert.match(tradeScoutOAuth.dependsOn, /tradescoutAI\/pull\/570$/);
+  assert.match(tradeScoutOAuth.securityRule, /cannot silently attach/i);
+  assert.ok(
+    tradeScoutOAuth.converged.includes("provider-subject login authority"),
+  );
+});

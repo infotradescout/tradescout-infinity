@@ -1,0 +1,95 @@
+{
+  "$schemaVersion": "1.0",
+  "updatedAt": "2026-09-04",
+  "decisionState": "evidence-mapped-owner-required",
+  "canonicalOwner": null,
+  "whyUnassigned": "The inspected products contain incompatible identity, role, profile, ownership, and permission boundaries. Assigning an owner before reconciliation would turn one legacy model into ecosystem law.",
+  "invariants": [
+    "A person is not an authentication account.",
+    "An account is not a role, business, membership, or profile.",
+    "A business can exist without a currently authenticated owner.",
+    "Business ownership and staff access are explicit, auditable relationships.",
+    "A profile presents a subject but never becomes identity authority.",
+    "Roles and permissions are scoped and cannot be inferred from presentation labels.",
+    "Consent records include purpose, subject, scope, decision, provenance, and lifecycle.",
+    "Verification applies to one subject and claim and cannot be generalized from an unrelated approval.",
+    "Cross-product identity links are opaque, reversible, auditable, and never created from email coincidence alone."
+  ],
+  "currentSystems": [
+    {
+      "repository": "infotradescout/tradescoutAI",
+      "accountSource": "shared/schema.ts users",
+      "personState": "combined-with-account",
+      "roles": ["role", "roles", "activeRole", "participationModes"],
+      "businessState": "first-class businesses with nullable ownerUserId",
+      "profileState": "userProfiles and public-site profiles are separate but share the profile name",
+      "permissionState": "contactPermissions is explicit; business ownership remains a direct owner field",
+      "oauthState": "Draft PR 571 places Local, Google, and Facebook strategies behind server/auth.ts; provider subject governs login and email is collision evidence only.",
+      "migrationEvidence": "https://github.com/infotradescout/tradescoutAI/pull/571",
+      "disposition": "migration-source"
+    },
+    {
+      "repository": "infotradescout/MealScout",
+      "accountSource": "shared/schema/legacy.ts users",
+      "personState": "combined-with-account",
+      "roles": ["userType", "appContext"],
+      "businessState": "restaurants, suppliers, and hosts are separate owner-bearing models",
+      "profileState": "public settings live on users while worker and driver profiles are separate",
+      "permissionState": "businessStaffMemberships is explicit but restaurant-scoped",
+      "crossProductLink": "users.tradescoutId",
+      "oauthState": "Draft PR 372 makes provider subject the login proof, rejects the retired cross-product app context, and stops active provider-token writes; legacy columns remain stored-data evidence.",
+      "migrationEvidence": "https://github.com/infotradescout/MealScout/pull/372",
+      "disposition": "migration-source"
+    },
+    {
+      "repository": "infotradescout/tradescout-infinity",
+      "accountSource": "infinity_api_keys",
+      "personState": "not-implemented",
+      "roles": [],
+      "businessState": "not-implemented",
+      "profileState": "not-implemented",
+      "permissionState": "tenant API-key boundary only",
+      "disposition": "registry-not-default-identity-runtime"
+    }
+  ],
+  "riskRegister": [
+    {
+      "id": "cross-product-person-collision",
+      "severity": "high",
+      "finding": "MealScout carries a TradeScout ID on a separate local user row, but no inspected reconciliation contract proves one-to-one identity, unlinking, conflict handling, or consent.",
+      "requiredProof": "Link, unlink, collision, recovery, account-deletion, and audit behavior across both products."
+    },
+    {
+      "id": "role-and-authority-conflation",
+      "severity": "high",
+      "finding": "Product roles, business type, occupation, staff state, and administrative authority are represented in overlapping scalar and array fields.",
+      "requiredProof": "A permission matrix derived from explicit memberships and grants, with denial tests for every privileged mutation."
+    },
+    {
+      "id": "oauth-token-storage-boundary",
+      "severity": "high",
+      "finding": "MealScout draft PR 372 found no runtime consumer for user-row Facebook or Google access tokens and stops new writes, but existing production values and safe retirement have not been measured.",
+      "requiredProof": "Stored-value inventory, retention decision, backup and rollback plan, deletion migration, and post-migration proof before removing the legacy columns."
+    },
+    {
+      "id": "verification-promotion",
+      "severity": "high",
+      "finding": "Generic and claim-specific verification flags coexist, creating a risk that one approval unlocks an unrelated capability.",
+      "requiredProof": "Every protected action names the exact claim, evidence level, expiry, and authority it requires."
+    },
+    {
+      "id": "business-membership-gap",
+      "severity": "medium",
+      "finding": "TradeScout has first-class businesses but the inspected core model exposes direct owner linkage; MealScout staff membership is limited to restaurant-scoped businesses.",
+      "requiredProof": "Owner, administrator, staff, delegate, transfer, revocation, and orphaned-business lifecycle tests."
+    }
+  ],
+  "migrationGates": [
+    "Complete live authentication-provider, session, recovery, and logout inventories in each product; both provider owners and callback policies are draft evidence, not deployed truth.",
+    "Reconcile person and account records without using email as silent identity proof; both products now have draft fail-closed collision policies but no authenticated link workflow.",
+    "Approve product-membership, business-membership, role, permission, and consent vocabulary.",
+    "Select the canonical owner only after its deletion, export, audit, tenant, and recovery boundaries are proven.",
+    "Introduce adapters and shadow reconciliation before changing any live login or authorization path.",
+    "Retire legacy role and identity fields only after every consumer and privileged mutation has migrated."
+  ]
+}

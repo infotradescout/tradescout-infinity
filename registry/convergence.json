@@ -98,6 +98,147 @@
       },
       "boundary": "This establishes product-local Button, ShareButton, and Scout-page owners. It does not yet select the Infinity-wide experience-system repository.",
       "nextGate": "Merge the boundary cleanup first, then use the product owner inventory as evidence for the shared experience-system decision."
+    },
+    {
+      "id": "mealscout-auth-owner",
+      "scope": "product-identity-boundary",
+      "product": "MealScout",
+      "repository": "infotradescout/MealScout",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/MealScout/pull/370",
+      "implementationOwner": "server/unifiedAuth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 371,
+          "url": "https://github.com/infotradescout/MealScout/pull/371",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedContractsPassed": 14,
+        "typecheck": "passed",
+        "clientBuild": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0
+      },
+      "retired": [
+        "unreachable Facebook auth owner",
+        "unreachable restaurant auth owner",
+        "dormant TradeScout SSO endpoint",
+        "silent email-based cross-product account linking",
+        "unconsumed MealScout library entrypoint"
+      ],
+      "boundary": "This establishes MealScout's product-local authentication owner. It does not select the Infinity-wide human identity owner or remove retained database evidence before reconciliation.",
+      "nextGate": "Trace provider callbacks, token storage, recovery, logout, and every privileged mutation before changing live identity or permission data."
+    },
+    {
+      "id": "mealscout-oauth-identity",
+      "scope": "product-identity-boundary",
+      "product": "MealScout",
+      "repository": "infotradescout/MealScout",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/MealScout/pull/371",
+      "implementationOwner": "server/unifiedAuth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 372,
+          "url": "https://github.com/infotradescout/MealScout/pull/372",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "policyAndMessageTestsPassed": 7,
+        "focusedContractsPassed": 12,
+        "typecheck": "passed",
+        "clientBuild": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0,
+        "lintWarnings": 0
+      },
+      "converged": [
+        "provider-subject login authority",
+        "email treated as discovery and collision evidence",
+        "fail-closed link-required, collision, and disabled-account outcomes",
+        "no active provider-token writes to user rows",
+        "retired cross-product OAuth app context",
+        "canonical login and business-signup failure explanation"
+      ],
+      "securityRule": "MealScout cannot silently attach a provider by email, issue a TradeScout login, or persist new provider access tokens on the user record.",
+      "boundary": "This establishes MealScout's product-local OAuth identity policy. Legacy token and app-context columns remain stored-data evidence; authenticated linking, production reconciliation, schema removal, and the Infinity-wide owner remain unproved.",
+      "nextGate": "Measure stored legacy token and app-context values, then build and prove authenticated link, unlink, recovery, collision review, and an auditable data-retirement migration."
+    },
+    {
+      "id": "tradescout-authority-guards",
+      "scope": "product-identity-boundary",
+      "product": "TradeScout",
+      "repository": "infotradescout/tradescoutAI",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/tradescoutAI/pull/569",
+      "implementationOwner": "server/auth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 570,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/570",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedTestFilesPassed": 4,
+        "focusedTestsPassed": 26,
+        "broaderAuthorityTestsPassed": 123,
+        "authorityAudit": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0
+      },
+      "retired": [
+        "duplicate requireAuth implementation",
+        "duplicate requireAdmin implementation",
+        "route-local admin guard",
+        "standalone super-admin guard implementations"
+      ],
+      "securityCorrection": "A generic isAdmin flag no longer supplies super-admin authority.",
+      "boundary": "This establishes TradeScout's product-local request-authority guard owner. It does not yet converge OAuth strategies, approve legacy alias authority, or select the Infinity-wide human identity owner.",
+      "nextGate": "Move provider strategies behind one owner and replace email-coincidence account association with explicit link and collision behavior."
+    },
+    {
+      "id": "tradescout-oauth-identity",
+      "scope": "product-identity-boundary",
+      "product": "TradeScout",
+      "repository": "infotradescout/tradescoutAI",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/tradescoutAI/pull/570",
+      "implementationOwner": "server/auth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 571,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/571",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedTestFilesPassed": 6,
+        "focusedTestsPassed": 27,
+        "databaseDependentTestsSkipped": 1,
+        "authorityAudit": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0,
+        "typecheck": "same 8 inherited errors as dependency"
+      },
+      "converged": [
+        "one Local, Google, and Facebook Passport strategy owner",
+        "one provider-availability decision",
+        "provider-subject login authority",
+        "email treated as discovery and collision evidence",
+        "fail-closed link-required and identity-collision outcomes",
+        "canonical auth-surface failure explanation"
+      ],
+      "securityRule": "A matching email cannot silently attach Google or Facebook to an existing account.",
+      "boundary": "This establishes TradeScout's product-local OAuth owner and collision policy. It does not provide authenticated provider linking, reconcile production rows, migrate schemas, or select the Infinity-wide human identity owner.",
+      "nextGate": "Build and prove authenticated link, unlink, collision review, recovery, duplicate-row reconciliation, and provider-subject uniqueness before any live identity migration."
     }
   ]
 }

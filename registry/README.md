@@ -8,6 +8,11 @@ register of the ecosystem.
 - `capabilities.json` records canonical ownership and transitional duplicates.
 - `convergence.json` records implementation evidence and delivery state without
   confusing an open draft with merged or live truth.
+- `vocabulary.json` separates shared meanings from product-specific names and
+  records the migration rule for each conflict.
+- `identity-boundaries.json` records identity, membership, role, permission,
+  consent, and verification invariants while their canonical owner remains
+  unresolved.
 
 Rules:
 
