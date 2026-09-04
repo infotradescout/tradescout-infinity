@@ -45,6 +45,15 @@ focused auth and boundary contracts, typechecking, linting, and both production
 builds passed. This is product-local convergence evidence, not an ecosystem
 identity-owner selection.
 
+TradeScout draft PR
+[\#570](https://github.com/infotradescout/tradescoutAI/pull/570) now makes its
+existing request-authority spine the product-local owner for authentication,
+admin, and super-admin route guards. It retires four independent guard paths and
+fixes a privilege-promotion defect where a generic admin flag could satisfy a
+super-admin gate. Twenty-six focused tests, 123 broader authority tests, the
+authority audit, linting, and the server build passed. OAuth provider ownership
+and email-based account association remain explicit next gates.
+
 ## Highest-risk evidence
 
 - MealScout links a local user to a TradeScout ID without an inspected

@@ -131,6 +131,40 @@
       ],
       "boundary": "This establishes MealScout's product-local authentication owner. It does not select the Infinity-wide human identity owner or remove retained database evidence before reconciliation.",
       "nextGate": "Trace provider callbacks, token storage, recovery, logout, and every privileged mutation before changing live identity or permission data."
+    },
+    {
+      "id": "tradescout-authority-guards",
+      "scope": "product-identity-boundary",
+      "product": "TradeScout",
+      "repository": "infotradescout/tradescoutAI",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/tradescoutAI/pull/569",
+      "implementationOwner": "server/auth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 570,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/570",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedTestFilesPassed": 4,
+        "focusedTestsPassed": 26,
+        "broaderAuthorityTestsPassed": 123,
+        "authorityAudit": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0
+      },
+      "retired": [
+        "duplicate requireAuth implementation",
+        "duplicate requireAdmin implementation",
+        "route-local admin guard",
+        "standalone super-admin guard implementations"
+      ],
+      "securityCorrection": "A generic isAdmin flag no longer supplies super-admin authority.",
+      "boundary": "This establishes TradeScout's product-local request-authority guard owner. It does not yet converge OAuth strategies, approve legacy alias authority, or select the Infinity-wide human identity owner.",
+      "nextGate": "Move provider strategies behind one owner and replace email-coincidence account association with explicit link and collision behavior."
     }
   ]
 }

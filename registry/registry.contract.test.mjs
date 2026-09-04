@@ -120,6 +120,9 @@ test("identity remains unassigned until product boundaries are proved", async ()
   const mealScoutAuth = convergence.records.find(
     (record) => record.id === "mealscout-auth-owner",
   );
+  const tradeScoutAuthority = convergence.records.find(
+    (record) => record.id === "tradescout-authority-guards",
+  );
 
   assert.equal(identity.canonicalOwner, null);
   assert.equal(identity.decisionState, "evidence-mapped-owner-required");
@@ -144,5 +147,12 @@ test("identity remains unassigned until product boundaries are proved", async ()
   assert.match(
     systems.get("infotradescout/MealScout").migrationEvidence,
     /MealScout\/pull\/371$/,
+  );
+  assert.equal(tradeScoutAuthority.implementationOwner, "server/auth.ts");
+  assert.match(tradeScoutAuthority.dependsOn, /tradescoutAI\/pull\/569$/);
+  assert.match(tradeScoutAuthority.securityCorrection, /no longer/i);
+  assert.match(
+    systems.get("infotradescout/tradescoutAI").migrationEvidence,
+    /tradescoutAI\/pull\/570$/,
   );
 });

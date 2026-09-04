@@ -24,6 +24,7 @@
       "businessState": "first-class businesses with nullable ownerUserId",
       "profileState": "userProfiles and public-site profiles are separate but share the profile name",
       "permissionState": "contactPermissions is explicit; business ownership remains a direct owner field",
+      "migrationEvidence": "https://github.com/infotradescout/tradescoutAI/pull/570",
       "disposition": "migration-source"
     },
     {
