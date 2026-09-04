@@ -40,12 +40,19 @@ The evidence endpoints remain inside the Infinity boundary for now:
 - `POST /v1/attribution-touches`
 - `POST /v1/conversion-evidence`
 
+## Companion migration state
+
+The dormant Infinity Selective Inheritance calls and stale Screen Pass claims
+have been removed in companion TradeScout and MealScout draft branches. Their
+real attribution and conversion-evidence consumers remain intact. These
+cross-repository changes are implemented but are not merged or live.
+
 ## Next migration gates
 
-1. Remove the dormant Infinity Selective Inheritance calls from product shadow
-   adapters.
-2. Prove product mutation and money boundaries.
-3. Continue repository classification and shared-capability ownership.
+1. Prove product mutation and money boundaries.
+2. Continue repository classification and shared-capability ownership.
+3. Select one canonical owner for the Infinity experience system before
+   component consolidation begins.
 
 ## Proof statement
 
