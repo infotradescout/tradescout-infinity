@@ -2,7 +2,7 @@
   "name": "tradescout-infinity",
   "version": "0.1.0",
   "private": true,
-  "description": "Tenant-ready attribution, Screen Pass recognition, and partner-commerce infrastructure.",
+  "description": "Infinity ecosystem registry and tenant-ready cross-product evidence infrastructure.",
   "packageManager": "pnpm@11.7.0",
   "engines": {
     "node": ">=22"
@@ -13,7 +13,7 @@
     "clean": "tsc -b --clean",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js packages/registry/dist/test/*.test.js integrations/selective-intelligence/compatibility.test.mjs",
+    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/registry/dist/test/*.test.js integrations/selective-intelligence/compatibility.test.mjs",
     "typecheck": "tsc -b --pretty false"
   },
   "devDependencies": {

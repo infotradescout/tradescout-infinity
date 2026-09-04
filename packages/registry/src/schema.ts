@@ -14,9 +14,6 @@ import type {
   AttributionCarrier,
   AttributionRule,
   InfinityObjectReference,
-  ScreenPassAction,
-  ScreenPassAttribution,
-  ScreenPassScope,
 } from "@tradescout-infinity/contracts";
 
 export const infinityTenants = pgTable(
@@ -145,52 +142,6 @@ export const infinityObjects = pgTable(
   ],
 );
 
-export const infinityPasses = pgTable(
-  "infinity_passes",
-  {
-    publicId: varchar("public_id", { length: 80 }).primaryKey(),
-    tenantId: varchar("tenant_id", { length: 64 })
-      .notNull()
-      .references(() => infinityTenants.id),
-    objectReference: jsonb("object_reference")
-      .$type<InfinityObjectReference>()
-      .notNull(),
-    scopes: jsonb("scopes").$type<ScreenPassScope[]>().notNull(),
-    actionIds: jsonb("action_ids").$type<string[]>().notNull(),
-    attribution: jsonb("attribution").$type<ScreenPassAttribution>(),
-    objectVersion: varchar("object_version", { length: 120 }).notNull(),
-    renderedAt: timestamp("rendered_at", { withTimezone: true }).notNull(),
-    expiresAt: timestamp("expires_at", { withTimezone: true }),
-    signatureVersion: integer("signature_version").notNull(),
-    status: varchar("status", { length: 24 }).notNull().default("active"),
-    revokedAt: timestamp("revoked_at", { withTimezone: true }),
-    supersededBy: varchar("superseded_by", { length: 80 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .notNull()
-      .defaultNow(),
-  },
-  (table) => [
-    index("infinity_passes_tenant_idx").on(table.tenantId),
-    index("infinity_passes_object_idx").on(table.tenantId, table.objectVersion),
-  ],
-);
-
-export const infinityPassActions = pgTable(
-  "infinity_pass_actions",
-  {
-    id: varchar("id", { length: 80 }).primaryKey(),
-    tenantId: varchar("tenant_id", { length: 64 }).notNull(),
-    passPublicId: varchar("pass_public_id", { length: 80 })
-      .notNull()
-      .references(() => infinityPasses.publicId, { onDelete: "cascade" }),
-    action: jsonb("action").$type<ScreenPassAction>().notNull(),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .notNull()
-      .defaultNow(),
-  },
-  (table) => [index("infinity_pass_actions_pass_idx").on(table.passPublicId)],
-);
-
 export const infinityAttributionTouches = pgTable(
   "infinity_attribution_touches",
   {
@@ -199,7 +150,9 @@ export const infinityAttributionTouches = pgTable(
     programId: varchar("program_id", { length: 64 }).notNull(),
     partnerId: varchar("partner_id", { length: 64 }).notNull(),
     linkId: varchar("link_id", { length: 64 }),
-    passPublicId: varchar("pass_public_id", { length: 80 }),
+    sourceEvidenceReference: varchar("source_evidence_reference", {
+      length: 160,
+    }),
     carrier: varchar("carrier", { length: 40 })
       .$type<AttributionCarrier>()
       .notNull(),

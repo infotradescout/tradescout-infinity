@@ -39,12 +39,6 @@ importers:
 
   packages/contracts: {}
 
-  packages/provider-core:
-    dependencies:
-      '@tradescout-infinity/contracts':
-        specifier: workspace:*
-        version: link:../contracts
-
   packages/registry:
     dependencies:
       '@tradescout-infinity/contracts':

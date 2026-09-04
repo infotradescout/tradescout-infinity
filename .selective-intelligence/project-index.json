@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "index_version": "0.1.0",
+  "generated_at": "2026-09-04T16:34:38Z",
+  "source": {
+    "kind": "git",
+    "revision": "1cf46ca279171c46f0325e6af580d6f08cc65ac5",
+    "dirty": true,
+    "inventory_sha256": "86213cf40e7548c5a39ddbcf554f8d8d578faae224213121587da22e96119f61"
+  },
+  "inventory": {
+    "directories": [
+      {
+        "path": "apps/api/src",
+        "source_file_count": 4
+      },
+      {
+        "path": "integrations/selective-intelligence",
+        "source_file_count": 1
+      },
+      {
+        "path": "packages/contracts/src",
+        "source_file_count": 3
+      },
+      {
+        "path": "packages/contracts/test",
+        "source_file_count": 1
+      },
+      {
+        "path": "packages/registry/src",
+        "source_file_count": 6
+      },
+      {
+        "path": "packages/registry/test",
+        "source_file_count": 1
+      }
+    ],
+    "files": [
+      {
+        "path": "apps/api/src/auth.ts",
+        "language": "ts",
+        "sha256": "1e10bcab367dcf371aa6acafc41f7c7ebe18a1b3e1d36e26baf442da2b323ba9",
+        "bytes": 1445
+      },
+      {
+        "path": "apps/api/src/main.ts",
+        "language": "ts",
+        "sha256": "c2ca670c8182136b1fac3ed0a1316350817f04df180c982a87b733f26ed2c3c2",
+        "bytes": 1039
+      },
+      {
+        "path": "apps/api/src/rateLimit.ts",
+        "language": "ts",
+        "sha256": "99f6ec973fbbdc3e7a7b6c116402b1d2e256841ddef1e5aa156aeb2ad694ca36",
+        "bytes": 829
+      },
+      {
+        "path": "apps/api/src/server.ts",
+        "language": "ts",
+        "sha256": "3923145de118d5d258a2fda0088c70f72928bd6d2a5cfe5be7591cd1c46a5895",
+        "bytes": 6037
+      },
+      {
+        "path": "integrations/selective-intelligence/compatibility.test.mjs",
+        "language": "mjs",
+        "sha256": "878aca81eaea880debdf7071ebddc3a1a11e403811120e3081c81549eb9651dc",
+        "bytes": 976
+      },
+      {
+        "path": "packages/contracts/src/guards.ts",
+        "language": "ts",
+        "sha256": "88bd4ea3dd4eba9210149b5ad931383a5104e021d876d8ad5c698a3e3624fc39",
+        "bytes": 1460
+      },
+      {
+        "path": "packages/contracts/src/index.ts",
+        "language": "ts",
+        "sha256": "3882e05b6b4c53b66910e55152f9357f4499c8e1b8e9694f544979c64b31097f",
+        "bytes": 57
+      },
+      {
+        "path": "packages/contracts/src/types.ts",
+        "language": "ts",
+        "sha256": "0c9c678409020447533d9725835b36bade01ad0bf3cfbea0d05c5f54d847bee2",
+        "bytes": 3497
+      },
+      {
+        "path": "packages/contracts/test/contracts.test.ts",
+        "language": "ts",
+        "sha256": "a972526f62a5394567f02b99df3e24fca253d3e8d58271e749aa7f8dea7e617b",
+        "bytes": 2271
+      },
+      {
+        "path": "packages/registry/src/index.ts",
+        "language": "ts",
+        "sha256": "8a0b5b04d3d5f0a7f2a0d0d9f30c34c33de697cf83be9a6f39502464639925ab",
+        "bytes": 157
+      },
+      {
+        "path": "packages/registry/src/memoryStore.ts",
+        "language": "ts",
+        "sha256": "2df5a549aea0e0ba1b5062c078e4b012be16a832142218fa6fc44f895a9f24c0",
+        "bytes": 1198
+      },
+      {
+        "path": "packages/registry/src/postgresStore.ts",
+        "language": "ts",
+        "sha256": "d9765c2747901a7f659dfbd1d4affb75c3723dabae0017f952fc757a4f0c3258",
+        "bytes": 3633
+      },
+      {
+        "path": "packages/registry/src/schema.ts",
+        "language": "ts",
+        "sha256": "77fbb708b51279906401a1073d5409da085b21a92fdf121f237421e6d08e260d",
+        "bytes": 7573
+      },
+      {
+        "path": "packages/registry/src/service.ts",
+        "language": "ts",
+        "sha256": "f28db3004589da89995cd955eec355df41ad39a1cdbb8000a829ee23290b6443",
+        "bytes": 4027
+      },
+      {
+        "path": "packages/registry/src/store.ts",
+        "language": "ts",
+        "sha256": "b899ae21ac2951493d8ccc6db986cc76074f47c951425474bbabef3210447b0c",
+        "bytes": 518
+      },
+      {
+        "path": "packages/registry/test/registry.test.ts",
+        "language": "ts",
+        "sha256": "1cb6f4a51b7eb0cb0d38e4fbe0311161b99f8a285c298c6d56ef4e0dc1932ecb",
+        "bytes": 2594
+      }
+    ],
+    "symbols": [
+      {
+        "name": "AuthenticatedTenant",
+        "kind": "type",
+        "path": "apps/api/src/auth.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "ApiKeyAuthenticator",
+        "kind": "type",
+        "path": "apps/api/src/auth.ts",
+        "line": 13,
+        "exported": true
+      },
+      {
+        "name": "hashApiKey",
+        "kind": "function",
+        "path": "apps/api/src/auth.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "PostgresApiKeyAuthenticator",
+        "kind": "class",
+        "path": "apps/api/src/auth.ts",
+        "line": 21,
+        "exported": true
+      },
+      {
+        "name": "required",
+        "kind": "function",
+        "path": "apps/api/src/main.ts",
+        "line": 11,
+        "exported": false
+      },
+      {
+        "name": "shutdown",
+        "kind": "function",
+        "path": "apps/api/src/main.ts",
+        "line": 30,
+        "exported": false
+      },
+      {
+        "name": "FixedWindowRateLimiter",
+        "kind": "class",
+        "path": "apps/api/src/rateLimit.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "IncomingMessage",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 3,
+        "exported": false
+      },
+      {
+        "name": "ServerResponse",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 4,
+        "exported": false
+      },
+      {
+        "name": "JsonObject",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 20,
+        "exported": false
+      },
+      {
+        "name": "sendJson",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 22,
+        "exported": false
+      },
+      {
+        "name": "readJson",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 33,
+        "exported": false
+      },
+      {
+        "name": "bearerToken",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 50,
+        "exported": false
+      },
+      {
+        "name": "authenticate",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 55,
+        "exported": false
+      },
+      {
+        "name": "asObjectReference",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 66,
+        "exported": false
+      },
+      {
+        "name": "createInfinityServer",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 81,
+        "exported": true
+      },
+      {
+        "name": "assertConversionEvidence",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "assertPartnerProgram",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "assertRewardDecision",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 33,
+        "exported": true
+      },
+      {
+        "name": "Brand",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "TenantId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 2,
+        "exported": true
+      },
+      {
+        "name": "ObjectId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 4,
+        "exported": true
+      },
+      {
+        "name": "IdempotencyKey",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 5,
+        "exported": true
+      },
+      {
+        "name": "PartnerId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "ProgramId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 7,
+        "exported": true
+      },
+      {
+        "name": "AttributionTouchId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "AttributionAssignmentId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "Tenant",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 10,
+        "exported": true
+      },
+      {
+        "name": "InfinityObjectReference",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "AttributionRule",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 23,
+        "exported": true
+      },
+      {
+        "name": "AttributionCarrier",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 26,
+        "exported": true
+      },
+      {
+        "name": "PartnerProgram",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 35,
+        "exported": true
+      },
+      {
+        "name": "PartnerIdentity",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 47,
+        "exported": true
+      },
+      {
+        "name": "ShareTarget",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 56,
+        "exported": true
+      },
+      {
+        "name": "PartnerLink",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 63,
+        "exported": true
+      },
+      {
+        "name": "AttributionTouch",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 75,
+        "exported": true
+      },
+      {
+        "name": "AttributionAssignment",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 89,
+        "exported": true
+      },
+      {
+        "name": "AttributionProof",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 102,
+        "exported": true
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 113,
+        "exported": true
+      },
+      {
+        "name": "RewardEvaluationRequest",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 125,
+        "exported": true
+      },
+      {
+        "name": "RewardDecision",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 132,
+        "exported": true
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "PartnerProgram",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 9,
+        "exported": false
+      },
+      {
+        "name": "RewardDecision",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 10,
+        "exported": false
+      },
+      {
+        "name": "MemoryRegistryStore",
+        "kind": "class",
+        "path": "packages/registry/src/memoryStore.ts",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "RegistryDatabase",
+        "kind": "type",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 15,
+        "exported": false
+      },
+      {
+        "name": "rowToEvidence",
+        "kind": "function",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 17,
+        "exported": false
+      },
+      {
+        "name": "PostgresRegistryStore",
+        "kind": "class",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 40,
+        "exported": true
+      },
+      {
+        "name": "AttributionCarrier",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 5,
+        "exported": false
+      },
+      {
+        "name": "AttributionTouch",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 6,
+        "exported": false
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 7,
+        "exported": false
+      },
+      {
+        "name": "InfinityObjectReference",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "PartnerId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 9,
+        "exported": false
+      },
+      {
+        "name": "ProgramId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 10,
+        "exported": false
+      },
+      {
+        "name": "TenantId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 11,
+        "exported": false
+      },
+      {
+        "name": "isSafeDestination",
+        "kind": "function",
+        "path": "packages/registry/src/service.ts",
+        "line": 14,
+        "exported": false
+      },
+      {
+        "name": "digestJson",
+        "kind": "function",
+        "path": "packages/registry/src/service.ts",
+        "line": 29,
+        "exported": false
+      },
+      {
+        "name": "RecordAttributionTouchInput",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 33,
+        "exported": true
+      },
+      {
+        "name": "RegistryService",
+        "kind": "class",
+        "path": "packages/registry/src/service.ts",
+        "line": 49,
+        "exported": true
+      },
+      {
+        "name": "StoredConversionEvidence",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 5,
+        "exported": true
+      },
+      {
+        "name": "StoredAttributionTouch",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 10,
+        "exported": true
+      },
+      {
+        "name": "RegistryStore",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 14,
+        "exported": true
+      },
+      {
+        "name": "service",
+        "kind": "function",
+        "path": "packages/registry/test/registry.test.ts",
+        "line": 20,
+        "exported": false
+      }
+    ],
+    "ui": {
+      "primitive_candidates": [],
+      "raw_elements": []
+    },
+    "duplicates": {
+      "exact_files": [],
+      "justified_generated_projections": [],
+      "exported_symbol_collisions": []
+    }
+  },
+  "canonical": {
+    "directories": [],
+    "ui_primitives": [],
+    "shared_symbols": []
+  },
+  "reuse_decisions": [],
+  "findings": [],
+  "summary": {
+    "directories": 6,
+    "source_files": 16,
+    "symbols": 63,
+    "components": 0,
+    "functions_and_hooks": 16,
+    "raw_ui_elements": 0,
+    "errors": 0,
+    "warnings": 0
+  }
+}

@@ -1,36 +1,39 @@
 # Infinity realignment — Wave 1
 
 Status: Draft migration slice  
-Authority: Infinity System Convergence Standard, approved by Thomas on 2026-09-04
+Authority: Infinity System Convergence Standard, approved by Thomas on
+2026-09-04
 
 ## Corrected system identity
 
-Infinity is the canonical register of the ecosystem. It records products, repositories, capabilities, owners, boundaries, relationships, evidence, exceptions, and convergence state.
+Infinity is the canonical register of the ecosystem. It records products,
+repositories, capabilities, owners, boundaries, relationships, evidence,
+exceptions, and convergence state.
 
-Infinity is not the owner of every shared runtime merely because code accumulated in this repository.
+Infinity is not the owner of every shared runtime merely because code
+accumulated in this repository.
 
 ## Decisions applied
 
-| Existing concern | Canonical destination | Wave 1 treatment |
-| --- | --- | --- |
-| Screen Pass issuance, lookup, revoke, resolve | Continuum | Canonical contracts and reference registry added to Continuum; old endpoints retained temporarily |
-| Camera and AI media recognition | Continuum | Ownership recorded; provider and visual proof remain future evidence gates |
-| Selective Inheritance evaluator | Selective Intelligence | Legacy copy recorded as migration-required; no destructive removal |
-| Cross-brand partner attribution evidence | Infinity register boundary | Retained as transitional runtime; cannot trigger payout |
-| Cross-brand conversion evidence | Infinity register boundary | Retained as transitional runtime; product still owns conversion meaning and money decisions |
-| Ecosystem/capability register | Infinity | Machine-readable register established in this repository |
+| Existing concern                              | Canonical destination                                      | Wave 1 treatment                                                                            |
+| --------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Screen Pass issuance, lookup, revoke, resolve | Continuum                                                  | Moved to Continuum; unused Infinity implementation removed                                  |
+| Camera and AI media recognition               | Continuum                                                  | Ownership recorded; provider and visual proof remain future evidence gates                  |
+| Central Selective Inheritance evaluator       | Product-owned behavior + Selective Intelligence governance | Unused Infinity endpoint and duplicate contract removed                                     |
+| Cross-brand partner attribution evidence      | Infinity register boundary                                 | Retained as transitional runtime; cannot trigger payout                                     |
+| Cross-brand conversion evidence               | Infinity register boundary                                 | Retained as transitional runtime; product still owns conversion meaning and money decisions |
+| Ecosystem/capability register                 | Infinity                                                   | Machine-readable register established in this repository                                    |
 
-## Legacy compatibility surface
+## Consumer evidence
 
-The following endpoints still exist in this repository and are explicitly transitional:
+An organization-wide code search found no callers of the four Screen Pass API
+routes. The Infinity routes, store, schema, signing code, provider package, and
+tests were therefore removed instead of preserved as a false compatibility
+layer. New Screen Pass work belongs in Continuum.
 
-- `POST /v1/passes`
-- `GET /v1/passes/:publicId`
-- `POST /v1/passes/:publicId/revoke`
-- `POST /v1/resolve`
-- `POST /v1/selective-inheritance/evaluations`
-
-They must not be deleted until consumers, data, authentication, failure behavior, and rollback have been proved. New consumers must integrate with the canonical owner, not deepen the duplicate.
+The same search found only dormant product shadow adapters and tests for the
+central Selective Inheritance endpoint. Infinity's unused endpoint and evaluator
+were removed. Product-owned inheritance behavior remains untouched.
 
 The evidence endpoints remain inside the Infinity boundary for now:
 
@@ -39,14 +42,13 @@ The evidence endpoints remain inside the Infinity boundary for now:
 
 ## Next migration gates
 
-1. Inventory every consumer of each transitional endpoint.
-2. Define the Continuum production store and authenticated API adapter.
-3. Backfill or bridge Screen Pass records without creating two writable truths.
-4. Run contract comparison against every known consumer.
-5. Route Selective Inheritance evaluation to the pinned Selective Intelligence owner.
-6. Prove product mutation and money boundaries.
-7. Retire a duplicate only in a separately reviewed change with rollback.
+1. Remove the dormant Infinity Selective Inheritance calls from product shadow
+   adapters.
+2. Prove product mutation and money boundaries.
+3. Continue repository classification and shared-capability ownership.
 
 ## Proof statement
 
-This wave establishes ownership, a machine-readable ecosystem register, migration boundaries, and a Continuum reference implementation. It does not claim deployment, consumer migration, data migration, visual watermark durability, or duplicate retirement.
+This wave establishes ownership, a machine-readable ecosystem register, and a
+Continuum Screen Pass reference implementation. It removes the unused Infinity
+duplicate. It does not claim deployment or visual watermark durability.

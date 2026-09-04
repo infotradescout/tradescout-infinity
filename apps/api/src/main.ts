@@ -4,8 +4,6 @@ import { Pool } from "pg";
 import {
   PostgresRegistryStore,
   RegistryService,
-  SigningKeyRing,
-  type SigningKey,
 } from "@tradescout-infinity/registry";
 
 import { PostgresApiKeyAuthenticator } from "./auth.js";
@@ -19,13 +17,7 @@ function required(name: string): string {
 
 const pool = new Pool({ connectionString: required("DATABASE_URL") });
 const db = drizzle(pool);
-const signingKeys = JSON.parse(
-  required("INFINITY_SIGNING_KEYS_JSON"),
-) as SigningKey[];
-const registry = new RegistryService(
-  new PostgresRegistryStore(db),
-  new SigningKeyRing(signingKeys),
-);
+const registry = new RegistryService(new PostgresRegistryStore(db));
 const server = createInfinityServer({
   registry,
   authenticator: new PostgresApiKeyAuthenticator(db),

@@ -11,8 +11,7 @@
     {
       "id": "screen-pass",
       "canonicalOwner": "infotradescout/continuum",
-      "state": "migration-started",
-      "legacyHosts": ["infotradescout/tradescout-infinity"],
+      "state": "moved",
       "boundary": "Issuance, resolution, revocation, visual payloads, provider adapters, and safe media actions."
     },
     {
@@ -28,11 +27,10 @@
       "boundary": "Watermark, visible code, QR/barcode, metadata, perceptual, and AI recognition adapters."
     },
     {
-      "id": "selective-intelligence",
+      "id": "ecosystem-alignment-and-drift-prevention",
       "canonicalOwner": "infotradescout/Selective-Intelligence",
-      "state": "migration-required",
-      "legacyHosts": ["infotradescout/tradescout-infinity"],
-      "boundary": "Evaluation engine, policy guard, sessions, councils, and evidence logic; products use thin adapters."
+      "state": "canonical",
+      "boundary": "Intent recovery, repository realignment, reuse rules, evidence discipline, and ongoing drift prevention."
     },
     {
       "id": "partner-attribution-evidence",

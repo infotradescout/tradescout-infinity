@@ -4,21 +4,12 @@ import {
   type ServerResponse,
 } from "node:http";
 
-import { evaluateSelectiveInheritance } from "@tradescout-infinity/contracts";
 import type {
   InfinityObjectReference,
   AttributionCarrier,
   PartnerId,
   ProgramId,
-  PublicPassId,
-  ScreenPassAction,
-  ScreenPassAttribution,
-  ScreenPassScope,
-  SelectiveInheritanceCandidate,
-  SelectiveInheritanceOverride,
-  SelectiveInheritancePolicy,
   TenantId,
-  VisualPassPayload,
 } from "@tradescout-infinity/contracts";
 import type { RegistryService } from "@tradescout-infinity/registry";
 
@@ -112,31 +103,6 @@ export function createInfinityServer(params: {
         return;
       }
 
-      if (method === "POST" && url.pathname === "/v1/passes") {
-        const auth = await authenticate(req, res, params.authenticator);
-        if (!auth) return;
-        const body = await readJson(req);
-        const object = asObjectReference(body.object);
-        const issued = await params.registry.issuePass({
-          tenantId: auth.tenantId,
-          object,
-          scopes: body.scopes as ScreenPassScope[],
-          actions: (body.actions || []) as ScreenPassAction[],
-          ...(body.attribution
-            ? { attribution: body.attribution as ScreenPassAttribution }
-            : {}),
-          objectVersion: String(body.objectVersion || ""),
-          ...(typeof body.renderedAt === "string"
-            ? { renderedAt: body.renderedAt }
-            : {}),
-          ...(typeof body.expiresAt === "string"
-            ? { expiresAt: body.expiresAt }
-            : {}),
-        });
-        sendJson(res, 201, issued);
-        return;
-      }
-
       if (method === "POST" && url.pathname === "/v1/attribution-touches") {
         const auth = await authenticate(req, res, params.authenticator);
         if (!auth) return;
@@ -165,50 +131,6 @@ export function createInfinityServer(params: {
         return;
       }
 
-      const passMatch = url.pathname.match(/^\/v1\/passes\/([^/]+)$/);
-      if (method === "GET" && passMatch?.[1]) {
-        const auth = await authenticate(req, res, params.authenticator);
-        if (!auth) return;
-        const record = await params.registry.getPass(
-          auth.tenantId,
-          decodeURIComponent(passMatch[1]) as PublicPassId,
-        );
-        sendJson(
-          res,
-          record ? 200 : 404,
-          record ?? { error: "pass_not_found" },
-        );
-        return;
-      }
-
-      const revokeMatch = url.pathname.match(/^\/v1\/passes\/([^/]+)\/revoke$/);
-      if (method === "POST" && revokeMatch?.[1]) {
-        const auth = await authenticate(req, res, params.authenticator);
-        if (!auth) return;
-        const record = await params.registry.revokePass(
-          auth.tenantId,
-          decodeURIComponent(revokeMatch[1]) as PublicPassId,
-        );
-        sendJson(
-          res,
-          record ? 200 : 404,
-          record ?? { error: "pass_not_found" },
-        );
-        return;
-      }
-
-      if (method === "POST" && url.pathname === "/v1/resolve") {
-        const body = await readJson(req);
-        const result = await params.registry.resolve({
-          payload: body.payload as VisualPassPayload,
-          ...(typeof body.currentObjectVersion === "string"
-            ? { currentObjectVersion: body.currentObjectVersion }
-            : {}),
-        });
-        sendJson(res, 200, result);
-        return;
-      }
-
       if (method === "POST" && url.pathname === "/v1/conversion-evidence") {
         const auth = await authenticate(req, res, params.authenticator);
         if (!auth) return;
@@ -231,28 +153,6 @@ export function createInfinityServer(params: {
             : {}),
         });
         sendJson(res, result.created ? 201 : 200, result);
-        return;
-      }
-
-      if (
-        method === "POST" &&
-        url.pathname === "/v1/selective-inheritance/evaluations"
-      ) {
-        const auth = await authenticate(req, res, params.authenticator);
-        if (!auth) return;
-        const body = await readJson(req);
-        const result = evaluateSelectiveInheritance({
-          evaluationId: String(body.evaluationId || ""),
-          tenantId: auth.tenantId,
-          target: asObjectReference(body.target),
-          targetVersion: String(body.targetVersion || ""),
-          policy: body.policy as unknown as SelectiveInheritancePolicy,
-          candidates: (body.candidates ||
-            []) as SelectiveInheritanceCandidate[],
-          overrides: (body.overrides || []) as SelectiveInheritanceOverride[],
-          evaluatedAt: String(body.evaluatedAt || ""),
-        });
-        sendJson(res, 200, { evaluation: result });
         return;
       }
 

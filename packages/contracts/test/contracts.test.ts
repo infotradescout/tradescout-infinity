@@ -4,92 +4,16 @@ import test from "node:test";
 import {
   assertConversionEvidence,
   assertPartnerProgram,
-  assertResolutionTrust,
   assertRewardDecision,
-  filterAllowlistedActions,
-  isResolutionMethod,
-  methodCanBeAuthoritative,
-  validateVisualPayload,
   type ConversionEvidence,
   type PartnerProgram,
   type RewardDecision,
-  type ScreenPassResolution,
 } from "../src/index.js";
 
 const ids = {
   tenantId: "tenant_test" as any,
   programId: "program_test" as any,
 };
-
-test("accepts the compact signed visual payload", () => {
-  assert.doesNotThrow(() =>
-    validateVisualPayload({
-      publicId: "pass_01J00000000000000000000000",
-      signatureVersion: 1,
-      signature: "a".repeat(64),
-    }),
-  );
-});
-
-test("rejects PII and internal identity fields in visual payloads", () => {
-  for (const forbidden of [
-    "userId",
-    "affiliateId",
-    "email",
-    "phone",
-    "customerId",
-  ]) {
-    assert.throws(
-      () =>
-        validateVisualPayload({
-          publicId: "pass_01J00000000000000000000000",
-          signatureVersion: 1,
-          signature: "a".repeat(64),
-          [forbidden]: "private-value",
-        }),
-      new RegExp(forbidden),
-    );
-  }
-});
-
-test("rejects unknown resolution methods", () => {
-  assert.equal(isResolutionMethod("pixel_guess"), false);
-  assert.equal(isResolutionMethod("signed_watermark"), true);
-});
-
-test("keeps perceptual and AI matches assistive", () => {
-  assert.equal(methodCanBeAuthoritative("perceptual_match"), false);
-  assert.equal(methodCanBeAuthoritative("ai_object_match"), false);
-
-  const invalid: ScreenPassResolution = {
-    tenantId: ids.tenantId,
-    method: "perceptual_match",
-    confidence: "likely",
-    authoritative: true,
-    payableAttribution: false,
-    changed: null,
-    safeActionIds: [],
-    reasons: [],
-  };
-  assert.throws(
-    () => assertResolutionTrust(invalid),
-    /cannot be authoritative/,
-  );
-});
-
-test("ambiguous or non-authoritative resolution cannot enable payable attribution", () => {
-  const invalid: ScreenPassResolution = {
-    tenantId: ids.tenantId,
-    method: "visible_short_code",
-    confidence: "ambiguous",
-    authoritative: true,
-    payableAttribution: true,
-    changed: null,
-    safeActionIds: [],
-    reasons: [],
-  };
-  assert.throws(() => assertResolutionTrust(invalid), /Ambiguous/);
-});
 
 test("conversion evidence requires idempotency and cannot trigger payout", () => {
   const base: ConversionEvidence = {
@@ -154,31 +78,5 @@ test("reward decisions stay separate from payment execution", () => {
     () =>
       assertRewardDecision({ ...decision, paymentTriggered: true as false }),
     /cannot trigger payment/,
-  );
-});
-
-test("action recovery returns only requested and allowlisted actions", () => {
-  const actions = [
-    {
-      id: "ask",
-      kind: "direct_connect" as const,
-      label: "Ask",
-      destination: "/ask",
-    },
-    {
-      id: "admin",
-      kind: "open" as const,
-      label: "Admin",
-      destination: "/admin",
-    },
-  ];
-  const recovered = filterAllowlistedActions(
-    ["ask", "admin"],
-    actions,
-    new Set(["direct_connect"]),
-  );
-  assert.deepEqual(
-    recovered.map((action) => action.id),
-    ["ask"],
   );
 });

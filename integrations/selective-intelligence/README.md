@@ -3,9 +3,8 @@
 This directory contains only Infinity's integration contract for the canonical
 Selective Intelligence product.
 
-`source.json` records the expected plugin version and eventual immutable source
-pin. The integration is currently blocked on publishing and verifying that
-canonical SI plugin release; it is not presented as installable before then.
+`source.json` records the canonical repository, public-directory version,
+repository candidate version, and immutable source pin.
 
 The compatibility test fails if Infinity recreates the former copied plugin tree
 or if the source record stops using an immutable commit-shaped pin.

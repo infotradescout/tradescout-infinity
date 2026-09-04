@@ -1,15 +1,10 @@
 # Privacy and Trust
 
-## Visual payload
+## Evidence boundary
 
-The visual payload contains only:
-
-- opaque public pass ID;
-- signature version;
-- signature.
-
-It must not contain raw user IDs, affiliate IDs, emails, phone numbers, customer
-IDs, or private object data.
+Shared evidence uses opaque references and digests. It must not contain raw
+emails, phone numbers, private customer records, secrets, or payment details.
+Media payload privacy belongs to Continuum with Screen Pass.
 
 ## Public versus disclosed tracing
 
@@ -20,9 +15,7 @@ separate authorization.
 
 ## Failure posture
 
-- Unknown, altered, expired, revoked, cross-tenant, or ambiguous passes fail
-  closed.
-- Provider failure returns an unresolved result and no attribution.
-- Assistive image matching never creates payable attribution.
-- Recovered actions are allowlisted by the owning application.
-- Recognition never executes payment.
+- Cross-tenant evidence fails closed.
+- Missing configuration leaves product shadow adapters disabled.
+- Evidence recording never executes payment.
+- Product mutations remain separately authorized by the product.
