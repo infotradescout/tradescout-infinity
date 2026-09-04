@@ -24,7 +24,8 @@
       "businessState": "first-class businesses with nullable ownerUserId",
       "profileState": "userProfiles and public-site profiles are separate but share the profile name",
       "permissionState": "contactPermissions is explicit; business ownership remains a direct owner field",
-      "migrationEvidence": "https://github.com/infotradescout/tradescoutAI/pull/570",
+      "oauthState": "Draft PR 571 places Local, Google, and Facebook strategies behind server/auth.ts; provider subject governs login and email is collision evidence only.",
+      "migrationEvidence": "https://github.com/infotradescout/tradescoutAI/pull/571",
       "disposition": "migration-source"
     },
     {
@@ -83,8 +84,8 @@
     }
   ],
   "migrationGates": [
-    "Inventory live authentication providers, sessions, callbacks, and account-recovery paths in each product.",
-    "Reconcile person and account records without using email as silent identity proof.",
+    "Complete live authentication-provider, session, callback, recovery, and logout inventories in each product; TradeScout's provider owner is draft evidence, not deployed truth.",
+    "Reconcile person and account records without using email as silent identity proof; TradeScout now has a draft fail-closed collision policy but no authenticated link workflow.",
     "Approve product-membership, business-membership, role, permission, and consent vocabulary.",
     "Select the canonical owner only after its deletion, export, audit, tenant, and recovery boundaries are proven.",
     "Introduce adapters and shadow reconciliation before changing any live login or authorization path.",

@@ -165,6 +165,43 @@
       "securityCorrection": "A generic isAdmin flag no longer supplies super-admin authority.",
       "boundary": "This establishes TradeScout's product-local request-authority guard owner. It does not yet converge OAuth strategies, approve legacy alias authority, or select the Infinity-wide human identity owner.",
       "nextGate": "Move provider strategies behind one owner and replace email-coincidence account association with explicit link and collision behavior."
+    },
+    {
+      "id": "tradescout-oauth-identity",
+      "scope": "product-identity-boundary",
+      "product": "TradeScout",
+      "repository": "infotradescout/tradescoutAI",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/tradescoutAI/pull/570",
+      "implementationOwner": "server/auth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 571,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/571",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedTestFilesPassed": 6,
+        "focusedTestsPassed": 27,
+        "databaseDependentTestsSkipped": 1,
+        "authorityAudit": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0,
+        "typecheck": "same 8 inherited errors as dependency"
+      },
+      "converged": [
+        "one Local, Google, and Facebook Passport strategy owner",
+        "one provider-availability decision",
+        "provider-subject login authority",
+        "email treated as discovery and collision evidence",
+        "fail-closed link-required and identity-collision outcomes",
+        "canonical auth-surface failure explanation"
+      ],
+      "securityRule": "A matching email cannot silently attach Google or Facebook to an existing account.",
+      "boundary": "This establishes TradeScout's product-local OAuth owner and collision policy. It does not provide authenticated provider linking, reconcile production rows, migrate schemas, or select the Infinity-wide human identity owner.",
+      "nextGate": "Build and prove authenticated link, unlink, collision review, recovery, duplicate-row reconciliation, and provider-subject uniqueness before any live identity migration."
     }
   ]
 }

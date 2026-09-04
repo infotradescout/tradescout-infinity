@@ -52,7 +52,18 @@ admin, and super-admin route guards. It retires four independent guard paths and
 fixes a privilege-promotion defect where a generic admin flag could satisfy a
 super-admin gate. Twenty-six focused tests, 123 broader authority tests, the
 authority audit, linting, and the server build passed. OAuth provider ownership
-and email-based account association remain explicit next gates.
+and email-based account association were the next gates from that draft.
+
+TradeScout draft PR
+[\#571](https://github.com/infotradescout/tradescoutAI/pull/571) now puts Local,
+Google, and Facebook strategies behind that same product-local auth owner. It
+uses provider subjects as login proof, treats email as collision evidence, and
+stops before any account write when authenticated linking or collision review is
+required. Failed callbacks return to the canonical auth surface with an explicit
+explanation. Twenty-seven focused tests, the authority audit, and the server
+build passed; one database-dependent test was skipped. Authenticated linking,
+unlinking, recovery, duplicate-row reconciliation, schema constraints, and live
+provider callbacks remain unproved gates.
 
 ## Highest-risk evidence
 
@@ -67,8 +78,9 @@ and email-based account association remain explicit next gates.
 
 ## Next gates
 
-1. Trace real sign-in, session, callback, recovery, and logout paths in both
-   products.
+1. Finish the sign-in, session, callback, recovery, and logout traces in both
+   products; TradeScout provider registration and collision behavior are now
+   draft-mapped.
 2. Build the product and business membership/permission matrix from actual
    mutation guards.
 3. Prove cross-product link, unlink, collision, deletion, and audit behavior.

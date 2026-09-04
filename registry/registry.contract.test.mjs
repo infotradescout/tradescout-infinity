@@ -123,6 +123,9 @@ test("identity remains unassigned until product boundaries are proved", async ()
   const tradeScoutAuthority = convergence.records.find(
     (record) => record.id === "tradescout-authority-guards",
   );
+  const tradeScoutOAuth = convergence.records.find(
+    (record) => record.id === "tradescout-oauth-identity",
+  );
 
   assert.equal(identity.canonicalOwner, null);
   assert.equal(identity.decisionState, "evidence-mapped-owner-required");
@@ -153,6 +156,12 @@ test("identity remains unassigned until product boundaries are proved", async ()
   assert.match(tradeScoutAuthority.securityCorrection, /no longer/i);
   assert.match(
     systems.get("infotradescout/tradescoutAI").migrationEvidence,
-    /tradescoutAI\/pull\/570$/,
+    /tradescoutAI\/pull\/571$/,
+  );
+  assert.equal(tradeScoutOAuth.implementationOwner, "server/auth.ts");
+  assert.match(tradeScoutOAuth.dependsOn, /tradescoutAI\/pull\/570$/);
+  assert.match(tradeScoutOAuth.securityRule, /cannot silently attach/i);
+  assert.ok(
+    tradeScoutOAuth.converged.includes("provider-subject login authority"),
   );
 });
