@@ -120,6 +120,9 @@ test("identity remains unassigned until product boundaries are proved", async ()
   const mealScoutAuth = convergence.records.find(
     (record) => record.id === "mealscout-auth-owner",
   );
+  const mealScoutOAuth = convergence.records.find(
+    (record) => record.id === "mealscout-oauth-identity",
+  );
   const tradeScoutAuthority = convergence.records.find(
     (record) => record.id === "tradescout-authority-guards",
   );
@@ -149,7 +152,15 @@ test("identity remains unassigned until product boundaries are proved", async ()
   );
   assert.match(
     systems.get("infotradescout/MealScout").migrationEvidence,
-    /MealScout\/pull\/371$/,
+    /MealScout\/pull\/372$/,
+  );
+  assert.equal(mealScoutOAuth.implementationOwner, "server/unifiedAuth.ts");
+  assert.match(mealScoutOAuth.dependsOn, /MealScout\/pull\/371$/);
+  assert.match(mealScoutOAuth.securityRule, /cannot silently attach/i);
+  assert.ok(
+    mealScoutOAuth.converged.includes(
+      "no active provider-token writes to user rows",
+    ),
   );
   assert.equal(tradeScoutAuthority.implementationOwner, "server/auth.ts");
   assert.match(tradeScoutAuthority.dependsOn, /tradescoutAI\/pull\/569$/);

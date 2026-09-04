@@ -45,6 +45,15 @@ focused auth and boundary contracts, typechecking, linting, and both production
 builds passed. This is product-local convergence evidence, not an ecosystem
 identity-owner selection.
 
+MealScout draft PR [\#372](https://github.com/infotradescout/MealScout/pull/372)
+now makes provider subject the social-login proof, blocks email-only linking and
+identity collisions before writes, rejects the dormant cross-product OAuth
+context, and stops persisting new provider access tokens on user rows.
+Repository search found no runtime consumer for those login tokens. Seven
+policy/message tests, twelve focused contracts, typechecking, linting, and both
+production builds passed. Existing token values, authenticated linking,
+recovery, and schema retirement remain explicit migration gates.
+
 TradeScout draft PR
 [\#570](https://github.com/infotradescout/tradescoutAI/pull/570) now makes its
 existing request-authority spine the product-local owner for authentication,
@@ -71,8 +80,9 @@ provider callbacks remain unproved gates.
   link/unlink/collision contract.
 - Role and privileged authority are spread across overlapping fields in both
   products.
-- MealScout declares provider access-token columns on the user row; their real
-  storage protection and active consumers still require proof.
+- MealScout retains provider access-token columns as stored-data evidence. New
+  writes are blocked, but existing values require measurement and an auditable
+  retirement migration.
 - Verification flags can only converge after each protected action identifies
   the exact claim and authority it needs.
 

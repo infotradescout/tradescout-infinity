@@ -133,6 +133,43 @@
       "nextGate": "Trace provider callbacks, token storage, recovery, logout, and every privileged mutation before changing live identity or permission data."
     },
     {
+      "id": "mealscout-oauth-identity",
+      "scope": "product-identity-boundary",
+      "product": "MealScout",
+      "repository": "infotradescout/MealScout",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/MealScout/pull/371",
+      "implementationOwner": "server/unifiedAuth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 372,
+          "url": "https://github.com/infotradescout/MealScout/pull/372",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "policyAndMessageTestsPassed": 7,
+        "focusedContractsPassed": 12,
+        "typecheck": "passed",
+        "clientBuild": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0,
+        "lintWarnings": 0
+      },
+      "converged": [
+        "provider-subject login authority",
+        "email treated as discovery and collision evidence",
+        "fail-closed link-required, collision, and disabled-account outcomes",
+        "no active provider-token writes to user rows",
+        "retired cross-product OAuth app context",
+        "canonical login and business-signup failure explanation"
+      ],
+      "securityRule": "MealScout cannot silently attach a provider by email, issue a TradeScout login, or persist new provider access tokens on the user record.",
+      "boundary": "This establishes MealScout's product-local OAuth identity policy. Legacy token and app-context columns remain stored-data evidence; authenticated linking, production reconciliation, schema removal, and the Infinity-wide owner remain unproved.",
+      "nextGate": "Measure stored legacy token and app-context values, then build and prove authenticated link, unlink, recovery, collision review, and an auditable data-retirement migration."
+    },
+    {
       "id": "tradescout-authority-guards",
       "scope": "product-identity-boundary",
       "product": "TradeScout",

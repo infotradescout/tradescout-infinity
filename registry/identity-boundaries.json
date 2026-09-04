@@ -37,7 +37,8 @@
       "profileState": "public settings live on users while worker and driver profiles are separate",
       "permissionState": "businessStaffMemberships is explicit but restaurant-scoped",
       "crossProductLink": "users.tradescoutId",
-      "migrationEvidence": "https://github.com/infotradescout/MealScout/pull/371",
+      "oauthState": "Draft PR 372 makes provider subject the login proof, rejects the retired cross-product app context, and stops active provider-token writes; legacy columns remain stored-data evidence.",
+      "migrationEvidence": "https://github.com/infotradescout/MealScout/pull/372",
       "disposition": "migration-source"
     },
     {
@@ -67,8 +68,8 @@
     {
       "id": "oauth-token-storage-boundary",
       "severity": "high",
-      "finding": "MealScout declares Facebook and Google access-token columns on users; encryption, expiry, rotation, revocation, and active use were not established by this inventory.",
-      "requiredProof": "Runtime call-site audit and storage controls before retaining, moving, or deleting any token data."
+      "finding": "MealScout draft PR 372 found no runtime consumer for user-row Facebook or Google access tokens and stops new writes, but existing production values and safe retirement have not been measured.",
+      "requiredProof": "Stored-value inventory, retention decision, backup and rollback plan, deletion migration, and post-migration proof before removing the legacy columns."
     },
     {
       "id": "verification-promotion",
@@ -84,8 +85,8 @@
     }
   ],
   "migrationGates": [
-    "Complete live authentication-provider, session, callback, recovery, and logout inventories in each product; TradeScout's provider owner is draft evidence, not deployed truth.",
-    "Reconcile person and account records without using email as silent identity proof; TradeScout now has a draft fail-closed collision policy but no authenticated link workflow.",
+    "Complete live authentication-provider, session, recovery, and logout inventories in each product; both provider owners and callback policies are draft evidence, not deployed truth.",
+    "Reconcile person and account records without using email as silent identity proof; both products now have draft fail-closed collision policies but no authenticated link workflow.",
     "Approve product-membership, business-membership, role, permission, and consent vocabulary.",
     "Select the canonical owner only after its deletion, export, audit, tenant, and recovery boundaries are proven.",
     "Introduce adapters and shadow reconciliation before changing any live login or authorization path.",
