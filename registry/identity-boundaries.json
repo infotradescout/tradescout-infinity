@@ -35,6 +35,7 @@
       "profileState": "public settings live on users while worker and driver profiles are separate",
       "permissionState": "businessStaffMemberships is explicit but restaurant-scoped",
       "crossProductLink": "users.tradescoutId",
+      "migrationEvidence": "https://github.com/infotradescout/MealScout/pull/371",
       "disposition": "migration-source"
     },
     {

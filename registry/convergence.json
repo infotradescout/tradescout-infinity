@@ -98,6 +98,39 @@
       },
       "boundary": "This establishes product-local Button, ShareButton, and Scout-page owners. It does not yet select the Infinity-wide experience-system repository.",
       "nextGate": "Merge the boundary cleanup first, then use the product owner inventory as evidence for the shared experience-system decision."
+    },
+    {
+      "id": "mealscout-auth-owner",
+      "scope": "product-identity-boundary",
+      "product": "MealScout",
+      "repository": "infotradescout/MealScout",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/MealScout/pull/370",
+      "implementationOwner": "server/unifiedAuth.ts",
+      "evidence": [
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 371,
+          "url": "https://github.com/infotradescout/MealScout/pull/371",
+          "state": "open"
+        }
+      ],
+      "proof": {
+        "focusedContractsPassed": 14,
+        "typecheck": "passed",
+        "clientBuild": "passed",
+        "serverBuild": "passed",
+        "lintErrors": 0
+      },
+      "retired": [
+        "unreachable Facebook auth owner",
+        "unreachable restaurant auth owner",
+        "dormant TradeScout SSO endpoint",
+        "silent email-based cross-product account linking",
+        "unconsumed MealScout library entrypoint"
+      ],
+      "boundary": "This establishes MealScout's product-local authentication owner. It does not select the Infinity-wide human identity owner or remove retained database evidence before reconciliation.",
+      "nextGate": "Trace provider callbacks, token storage, recovery, logout, and every privileged mutation before changing live identity or permission data."
     }
   ]
 }

@@ -110,9 +110,15 @@ test("vocabulary separates identity, presentation, authority, and money", async 
 });
 
 test("identity remains unassigned until product boundaries are proved", async () => {
-  const identity = await readJson("./identity-boundaries.json");
+  const [identity, convergence] = await Promise.all([
+    readJson("./identity-boundaries.json"),
+    readJson("./convergence.json"),
+  ]);
   const systems = new Map(
     identity.currentSystems.map((entry) => [entry.repository, entry]),
+  );
+  const mealScoutAuth = convergence.records.find(
+    (record) => record.id === "mealscout-auth-owner",
   );
 
   assert.equal(identity.canonicalOwner, null);
@@ -128,4 +134,15 @@ test("identity remains unassigned until product boundaries are proved", async ()
     identity.invariants.some((rule) => /email coincidence/i.test(rule)),
   );
   assert.ok(identity.riskRegister.every((risk) => risk.requiredProof));
+  assert.equal(mealScoutAuth.implementationOwner, "server/unifiedAuth.ts");
+  assert.match(mealScoutAuth.dependsOn, /MealScout\/pull\/370$/);
+  assert.ok(
+    mealScoutAuth.retired.includes(
+      "silent email-based cross-product account linking",
+    ),
+  );
+  assert.match(
+    systems.get("infotradescout/MealScout").migrationEvidence,
+    /MealScout\/pull\/371$/,
+  );
 });

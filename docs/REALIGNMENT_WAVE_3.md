@@ -37,6 +37,14 @@ the evidence needed to choose safely. Infinity itself remains the ecosystem
 register and tenant API-key boundary; it does not become the human identity
 runtime merely because it holds this inventory.
 
+MealScout draft PR [\#371](https://github.com/infotradescout/MealScout/pull/371)
+now reduces that product to one active authentication owner, removes its dormant
+TradeScout SSO endpoint and silent email-based cross-product linking, and
+preserves the remaining database link field as migration evidence. Fourteen
+focused auth and boundary contracts, typechecking, linting, and both production
+builds passed. This is product-local convergence evidence, not an ecosystem
+identity-owner selection.
+
 ## Highest-risk evidence
 
 - MealScout links a local user to a TradeScout ID without an inspected

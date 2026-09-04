@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-04T18:02:52Z",
+  "generated_at": "2026-09-04T18:24:16Z",
   "source": {
     "kind": "git",
     "revision": "02050a38608adaf137b2bf2c24208ca1e2bd55ec",
     "dirty": true,
-    "inventory_sha256": "db01be44b666003fdce5c3fd43391627bfcae0e86385ce0163a7f796f4569784"
+    "inventory_sha256": "af3078f5fcba55bdf7642054fa8a1178ecfe60bf92f795796ee9dc35c991b331"
   },
   "inventory": {
     "directories": [
@@ -139,8 +139,8 @@
       {
         "path": "registry/registry.contract.test.mjs",
         "language": "mjs",
-        "sha256": "7c7420141dfe0b046efe87969825f195d24fa7c3810ceefc9ad3867c5ed03839",
-        "bytes": 4056
+        "sha256": "c00fcfb4b45478857fbf89945d9e656799f1bf8ea3f2f09da75fe4e712918cfe",
+        "bytes": 4614
       }
     ],
     "symbols": [
