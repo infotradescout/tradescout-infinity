@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-04T16:58:34Z",
+  "generated_at": "2026-09-04T17:56:06Z",
   "source": {
     "kind": "git",
-    "revision": "1cf46ca279171c46f0325e6af580d6f08cc65ac5",
+    "revision": "772a9bc77ca77a4564e8297bbb96481324882c93",
     "dirty": true,
-    "inventory_sha256": "86213cf40e7548c5a39ddbcf554f8d8d578faae224213121587da22e96119f61"
+    "inventory_sha256": "99414f0c5eefacfeeb4d17469f2400cb3f7df4fff2d40c93364c4bfcb4320fcd"
   },
   "inventory": {
     "directories": [
@@ -32,6 +32,10 @@
       },
       {
         "path": "packages/registry/test",
+        "source_file_count": 1
+      },
+      {
+        "path": "registry",
         "source_file_count": 1
       }
     ],
@@ -131,6 +135,12 @@
         "language": "ts",
         "sha256": "1cb6f4a51b7eb0cb0d38e4fbe0311161b99f8a285c298c6d56ef4e0dc1932ecb",
         "bytes": 2594
+      },
+      {
+        "path": "registry/registry.contract.test.mjs",
+        "language": "mjs",
+        "sha256": "d87488cc779d3c0c58f6f075777cb5a968222afa5581b99c2253e0803ce576eb",
+        "bytes": 2254
       }
     ],
     "symbols": [
@@ -574,6 +584,13 @@
         "path": "packages/registry/test/registry.test.ts",
         "line": 20,
         "exported": false
+      },
+      {
+        "name": "readJson",
+        "kind": "function",
+        "path": "registry/registry.contract.test.mjs",
+        "line": 4,
+        "exported": false
       }
     ],
     "ui": {
@@ -594,11 +611,11 @@
   "reuse_decisions": [],
   "findings": [],
   "summary": {
-    "directories": 6,
-    "source_files": 16,
-    "symbols": 63,
+    "directories": 7,
+    "source_files": 17,
+    "symbols": 64,
     "components": 0,
-    "functions_and_hooks": 16,
+    "functions_and_hooks": 17,
     "raw_ui_elements": 0,
     "errors": 0,
     "warnings": 0

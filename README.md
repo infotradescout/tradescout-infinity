@@ -27,8 +27,10 @@ preserves working value.
   evidence never directly triggers money movement.
 
 See [`registry/ecosystem.json`](registry/ecosystem.json),
-[`registry/capabilities.json`](registry/capabilities.json), and
-[`docs/REALIGNMENT_WAVE_1.md`](docs/REALIGNMENT_WAVE_1.md).
+[`registry/capabilities.json`](registry/capabilities.json),
+[`registry/convergence.json`](registry/convergence.json),
+[`docs/REALIGNMENT_WAVE_1.md`](docs/REALIGNMENT_WAVE_1.md), and
+[`docs/REALIGNMENT_WAVE_2.md`](docs/REALIGNMENT_WAVE_2.md).
 
 ## Transitional runtime in this repository
 

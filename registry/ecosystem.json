@@ -15,13 +15,17 @@
       "repository": "infotradescout/tradescout-infinity",
       "kind": "governance-registry",
       "disposition": "canonical",
-      "reviewState": "wave-1"
+      "reviewState": "wave-1-draft",
+      "evidence": [
+        "https://github.com/infotradescout/tradescout-infinity/pull/12"
+      ]
     },
     {
       "repository": "infotradescout/continuum",
       "kind": "product",
       "disposition": "canonical",
-      "reviewState": "wave-1",
+      "reviewState": "ownership-convergence-draft",
+      "evidence": ["https://github.com/infotradescout/continuum/pull/17"],
       "notes": "Media pilot company; canonical owner of Screen Pass, camera intelligence, and media recognition."
     },
     {
@@ -34,13 +38,21 @@
       "repository": "infotradescout/tradescoutAI",
       "kind": "product",
       "disposition": "retain-pending-review",
-      "reviewState": "initially-inspected"
+      "reviewState": "component-owner-convergence-draft",
+      "evidence": [
+        "https://github.com/infotradescout/tradescoutAI/pull/568",
+        "https://github.com/infotradescout/tradescoutAI/pull/569"
+      ]
     },
     {
       "repository": "infotradescout/MealScout",
       "kind": "product",
       "disposition": "retain-pending-review",
-      "reviewState": "initially-inspected"
+      "reviewState": "component-owner-convergence-draft",
+      "evidence": [
+        "https://github.com/infotradescout/MealScout/pull/369",
+        "https://github.com/infotradescout/MealScout/pull/370"
+      ]
     },
     {
       "repository": "infotradescout/NewsFilter",
