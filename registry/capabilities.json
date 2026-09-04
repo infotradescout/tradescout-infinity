@@ -11,7 +11,7 @@
     {
       "id": "screen-pass",
       "canonicalOwner": "infotradescout/continuum",
-      "state": "moved",
+      "state": "canonical-dormant",
       "boundary": "Issuance, resolution, revocation, visual payloads, provider adapters, and safe media actions."
     },
     {
