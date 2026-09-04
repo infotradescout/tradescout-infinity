@@ -1,0 +1,68 @@
+{
+  "$schemaVersion": "1.0",
+  "updatedAt": "2026-09-04",
+  "capabilities": [
+    {
+      "id": "ecosystem-register",
+      "canonicalOwner": "infotradescout/tradescout-infinity",
+      "state": "canonical",
+      "boundary": "Products, repositories, capabilities, ownership, relationships, evidence state, and convergence state."
+    },
+    {
+      "id": "screen-pass",
+      "canonicalOwner": "infotradescout/continuum",
+      "state": "migration-started",
+      "legacyHosts": ["infotradescout/tradescout-infinity"],
+      "boundary": "Issuance, resolution, revocation, visual payloads, provider adapters, and safe media actions."
+    },
+    {
+      "id": "camera-intelligence",
+      "canonicalOwner": "infotradescout/continuum",
+      "state": "canonical",
+      "boundary": "Camera capture, camera-assisted recognition, and media-source interpretation."
+    },
+    {
+      "id": "media-recognition",
+      "canonicalOwner": "infotradescout/continuum",
+      "state": "canonical",
+      "boundary": "Watermark, visible code, QR/barcode, metadata, perceptual, and AI recognition adapters."
+    },
+    {
+      "id": "selective-intelligence",
+      "canonicalOwner": "infotradescout/Selective-Intelligence",
+      "state": "migration-required",
+      "legacyHosts": ["infotradescout/tradescout-infinity"],
+      "boundary": "Evaluation engine, policy guard, sessions, councils, and evidence logic; products use thin adapters."
+    },
+    {
+      "id": "partner-attribution-evidence",
+      "canonicalOwner": "infotradescout/tradescout-infinity",
+      "state": "transitional-runtime",
+      "boundary": "Cross-brand evidence and assignment records only; no payout execution."
+    },
+    {
+      "id": "conversion-evidence",
+      "canonicalOwner": "infotradescout/tradescout-infinity",
+      "state": "transitional-runtime",
+      "boundary": "Cross-brand evidence records only; the product owns conversion meaning and money decisions."
+    },
+    {
+      "id": "payments-and-payouts",
+      "canonicalOwner": null,
+      "state": "product-owned-pending-ecosystem-decision",
+      "boundary": "A product-authorized operation; evidence or recognition cannot directly trigger money movement."
+    },
+    {
+      "id": "identity-permissions-consent",
+      "canonicalOwner": null,
+      "state": "owner-required",
+      "boundary": "Must be assigned before identity or permission convergence."
+    },
+    {
+      "id": "experience-system",
+      "canonicalOwner": null,
+      "state": "owner-required",
+      "boundary": "Design foundations, canonical components, vocabulary, accessibility, and drift prevention."
+    }
+  ]
+}
