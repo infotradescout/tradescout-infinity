@@ -33,7 +33,7 @@ PartnerProgram
 | MealScout signup/payment/booking event                             | `ConversionEvidence` before policy evaluation                     |
 | commission percentage logic                                        | tenant `rewardPolicyReference` and versioned evaluator            |
 | wallet, credits, withdrawals, payouts                              | product-owned payment subsystem                                   |
-| Screen Pass partner scope                                          | another verified carrier to the same partner/link                 |
+| Approved external source evidence                                  | opaque evidence reference on the touch                            |
 
 ## Program split
 
@@ -55,7 +55,7 @@ tenant adapter chooses its public presentation:
 
 - TradeScout may use a short redirect or query carrier.
 - MealScout may use its clean path-segment carrier.
-- Screen Pass carries the signed opaque pass ID.
+- Continuum may supply an opaque Screen Pass evidence reference.
 
 All resolve to the same registry object and evidence model. Presentation does
 not change assignment rules.

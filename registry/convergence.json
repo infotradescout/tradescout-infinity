@@ -1,0 +1,103 @@
+{
+  "$schemaVersion": "1.0",
+  "updatedAt": "2026-09-04",
+  "authority": "Infinity System Convergence Standard",
+  "deliveryRule": "Draft evidence is not merged, deployed, live, or aligned truth.",
+  "records": [
+    {
+      "id": "screen-pass-to-continuum",
+      "scope": "cross-repository-capability",
+      "capability": "screen-pass",
+      "canonicalOwner": "infotradescout/continuum",
+      "deliveryState": "draft",
+      "currentTruth": "No active Screen Pass consumer was found in the inspected repositories; the implementation is dormant.",
+      "intendedTruth": "Continuum exclusively owns Screen Pass, camera intelligence, media recognition, visual payloads, and safe media-resolution behavior.",
+      "evidence": [
+        {
+          "repository": "infotradescout/continuum",
+          "pullRequest": 17,
+          "url": "https://github.com/infotradescout/continuum/pull/17",
+          "state": "open"
+        },
+        {
+          "repository": "infotradescout/tradescout-infinity",
+          "pullRequest": 12,
+          "url": "https://github.com/infotradescout/tradescout-infinity/pull/12",
+          "state": "open"
+        },
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 568,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/568",
+          "state": "open"
+        },
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 369,
+          "url": "https://github.com/infotradescout/MealScout/pull/369",
+          "state": "open"
+        }
+      ],
+      "nextGate": "Merge the Continuum owner before retiring the Infinity duplicate and product-side stale claims."
+    },
+    {
+      "id": "tradescout-component-owners",
+      "scope": "product-component-ownership",
+      "product": "TradeScout",
+      "repository": "infotradescout/tradescoutAI",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/tradescoutAI/pull/568",
+      "evidence": [
+        {
+          "repository": "infotradescout/tradescoutAI",
+          "pullRequest": 569,
+          "url": "https://github.com/infotradescout/tradescoutAI/pull/569",
+          "state": "open"
+        }
+      ],
+      "selectiveIntelligence": {
+        "duplicateOwnerErrorsBefore": 15,
+        "duplicateOwnerErrorsAfter": 0,
+        "remainingInventoryWarnings": 5
+      },
+      "proof": {
+        "focusedTestFilesPassed": 14,
+        "focusedTestsPassed": 95,
+        "lintErrors": 0,
+        "productionClientBuild": "passed",
+        "staticHttpSurfaces": ["/", "/u/jw-stone", "/help-demo"]
+      },
+      "boundary": "This establishes product-local canonical owners and retires proven duplicates. It does not yet select the Infinity-wide experience-system repository.",
+      "nextGate": "Merge the boundary cleanup first, then verify browser interaction and inherited typecheck defects before treating the product branch as releasable."
+    },
+    {
+      "id": "mealscout-component-owners",
+      "scope": "product-component-ownership",
+      "product": "MealScout",
+      "repository": "infotradescout/MealScout",
+      "deliveryState": "draft",
+      "dependsOn": "https://github.com/infotradescout/MealScout/pull/369",
+      "evidence": [
+        {
+          "repository": "infotradescout/MealScout",
+          "pullRequest": 370,
+          "url": "https://github.com/infotradescout/MealScout/pull/370",
+          "state": "open"
+        }
+      ],
+      "selectiveIntelligence": {
+        "duplicateOwnerErrorsBefore": 2,
+        "duplicateOwnerErrorsAfter": 0,
+        "remainingInventoryWarnings": 5
+      },
+      "proof": {
+        "focusedContractsPassed": 7,
+        "typecheck": "passed",
+        "clientBuild": "passed",
+        "serverBuild": "passed"
+      },
+      "boundary": "This establishes product-local Button, ShareButton, and Scout-page owners. It does not yet select the Infinity-wide experience-system repository.",
+      "nextGate": "Merge the boundary cleanup first, then use the product owner inventory as evidence for the shared experience-system decision."
+    }
+  ]
+}

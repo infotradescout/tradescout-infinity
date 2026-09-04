@@ -2,25 +2,22 @@
 
 ## Boundary
 
-Infinity is a tenant-ready platform with provider-neutral contracts. Product
-applications publish objects, issue partner links or passes, record conversion
-evidence, and consume safe resolutions.
+Infinity is the ecosystem register with a bounded cross-product evidence
+service. Product applications register ownership, issue partner links, and
+record attribution and conversion evidence.
 
 ```text
 TradeScout / MealScout / external tenant
   -> Infinity SDK or API
   -> registry and attribution evidence
-  -> recognition providers
-  -> verified resolution and safe actions
 ```
 
 ## Foundation packages
 
-- `contracts`: tenant, partner program, link, touch, assignment, pass,
-  resolution, conversion, and reward-decision contracts plus runtime trust
-  guards.
-- `provider-core`: vendor-neutral overlay, embedding, detection, and health
-  interface.
+- `contracts`: tenant, partner program, link, touch, assignment, conversion, and
+  reward-decision contracts plus runtime trust guards.
+- `registry`: attribution-touch and conversion-evidence storage.
+- `registry/*.json`: ecosystem and capability ownership records.
 
 ## Application ownership
 
@@ -38,8 +35,8 @@ Public carriers use opaque identifiers or approved public vanity tags. Internal
 subject references stay in the secured registry. A vanity tag is presentation,
 not a security signature.
 
-## Resolution authority
+## Media boundary
 
-Signed watermark, validated short code, validated QR/barcode, and validated
-C2PA/metadata recovery may produce authoritative attribution. Perceptual and AI
-matches remain assistive until a separately verified pass is recovered.
+Screen Pass, camera intelligence, visual recognition, safe media actions, and
+provider adapters belong to Continuum. Infinity may store an opaque external
+evidence reference without implementing or reinterpreting the media result.

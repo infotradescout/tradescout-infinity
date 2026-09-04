@@ -14,8 +14,9 @@
 
 ## Carrier contract
 
-`?ref=`, a clean path segment, a redirect code, a cookie, a session, a clean
-owner view, and Screen Pass are carriers. They all resolve to the same
+`?ref=`, a clean path segment, a redirect code, a cookie, a session, and a clean
+owner view are native Infinity carriers. An approved Continuum Screen Pass
+result may be referenced as external evidence. All carriers resolve to the same
 `PartnerLink` or `PartnerIdentity`; they do not define separate attribution
 programs.
 

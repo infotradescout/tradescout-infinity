@@ -61,41 +61,13 @@ CREATE TABLE infinity_objects (
   CONSTRAINT infinity_objects_external_unique UNIQUE (tenant_id, object_type, external_object_id)
 );
 
-CREATE TABLE infinity_passes (
-  public_id varchar(80) PRIMARY KEY,
-  tenant_id varchar(64) NOT NULL REFERENCES infinity_tenants(id),
-  object_reference jsonb NOT NULL,
-  scopes jsonb NOT NULL,
-  action_ids jsonb NOT NULL,
-  attribution jsonb,
-  object_version varchar(120) NOT NULL,
-  rendered_at timestamptz NOT NULL,
-  expires_at timestamptz,
-  signature_version integer NOT NULL,
-  status varchar(24) NOT NULL DEFAULT 'active',
-  revoked_at timestamptz,
-  superseded_by varchar(80),
-  created_at timestamptz NOT NULL DEFAULT now()
-);
-CREATE INDEX infinity_passes_tenant_idx ON infinity_passes(tenant_id);
-CREATE INDEX infinity_passes_object_idx ON infinity_passes(tenant_id, object_version);
-
-CREATE TABLE infinity_pass_actions (
-  id varchar(80) PRIMARY KEY,
-  tenant_id varchar(64) NOT NULL,
-  pass_public_id varchar(80) NOT NULL REFERENCES infinity_passes(public_id) ON DELETE CASCADE,
-  action jsonb NOT NULL,
-  created_at timestamptz NOT NULL DEFAULT now()
-);
-CREATE INDEX infinity_pass_actions_pass_idx ON infinity_pass_actions(pass_public_id);
-
 CREATE TABLE infinity_attribution_touches (
   id varchar(64) PRIMARY KEY,
   tenant_id varchar(64) NOT NULL,
   program_id varchar(64) NOT NULL,
   partner_id varchar(64) NOT NULL,
   link_id varchar(64),
-  pass_public_id varchar(80),
+  source_evidence_reference varchar(160),
   carrier varchar(40) NOT NULL,
   target jsonb NOT NULL,
   occurred_at timestamptz NOT NULL,

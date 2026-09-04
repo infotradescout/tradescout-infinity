@@ -1,10 +1,10 @@
-# TradeScout Infinity Product Contract
+# Infinity Product Contract
 
 ## Decision
 
-TradeScout Infinity owns the reusable partner-program, affiliate-attribution,
-Screen Pass registry, recognition, conversion-evidence, and integration
-contracts used by TradeScout, MealScout, and future tenants.
+Infinity is the canonical ecosystem register. Its remaining runtime boundary
+holds reusable partner-program, attribution-evidence, conversion-evidence, and
+integration contracts used across products.
 
 TradeScout and MealScout keep their product behavior, customer journeys, and
 money execution. They integrate through thin adapters rather than maintaining
@@ -12,8 +12,8 @@ competing attribution engines.
 
 ## Product promise
 
-Screenshots and exported content can remain connected to the source object,
-current truth, original credit, and next safe action.
+Every product and shared capability has one visible purpose, owner, boundary,
+evidence state, and convergence status.
 
 ## Shared attribution model
 
@@ -32,14 +32,10 @@ Infinity standardizes seven objects:
 7. `RewardDecision`: a versioned policy result that still cannot execute
    payment.
 
-Screen Pass adds a new carrier to that model. It does not create a second
-affiliate system.
-
 ## Non-negotiable trust chain
 
 ```text
-Carrier recognition
-  -> verified attribution touch
+Verified attribution touch
   -> rule-based assignment
   -> idempotent conversion evidence
   -> versioned reward decision
@@ -50,9 +46,7 @@ No stage can silently skip the next stage.
 
 ## Not in the foundation
 
-- No proprietary production watermark algorithm.
-- No claim that a hidden mark survives screenshots or screen photography.
 - No payout execution.
-- No raw user, affiliate, email, customer, or private-object identifiers in
-  visual payloads.
 - No direct modification of TradeScout or MealScout.
+- No ownership of Screen Pass, camera intelligence, or media recognition;
+  Continuum owns those capabilities.

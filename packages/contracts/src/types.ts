@@ -1,7 +1,6 @@
 export type Brand<K, T extends string> = K & { readonly __brand: T };
 
 export type TenantId = Brand<string, "TenantId">;
-export type PublicPassId = Brand<string, "PublicPassId">;
 export type ObjectId = Brand<string, "ObjectId">;
 export type IdempotencyKey = Brand<string, "IdempotencyKey">;
 export type PartnerId = Brand<string, "PartnerId">;
@@ -32,10 +31,7 @@ export type AttributionCarrier =
   | "cookie"
   | "session"
   | "clean_owner_view"
-  | "screen_pass"
-  | "visible_code"
-  | "qr_or_barcode"
-  | "c2pa_or_metadata";
+  | "external_evidence";
 
 export interface PartnerProgram {
   id: ProgramId;
@@ -83,7 +79,7 @@ export interface AttributionTouch {
   programId: ProgramId;
   partnerId: PartnerId;
   linkId?: string;
-  passId?: PublicPassId;
+  sourceEvidenceReference?: string;
   carrier: AttributionCarrier;
   target: ShareTarget;
   occurredAt: string;
@@ -104,77 +100,11 @@ export interface AttributionAssignment {
   locked: boolean;
 }
 
-export type ScreenPassScope =
-  "content" | "screen" | "action" | "partner" | "version";
-
-export type ScreenPassActionKind =
-  | "open"
-  | "direct_connect"
-  | "order"
-  | "directions"
-  | "save"
-  | "check_availability";
-
-export interface ScreenPassAction {
-  id: string;
-  kind: ScreenPassActionKind;
-  label: string;
-  destination: string;
-}
-
-export interface ScreenPassAttribution {
-  affiliateReference?: string;
-  campaignReference?: string;
-  partnerReference?: string;
-}
-
-export interface ScreenPassVersion {
-  objectVersion: string;
-  renderedAt: string;
-  expiresAt?: string;
-  supersededBy?: PublicPassId;
-}
-
-export interface ScreenPass {
-  publicId: PublicPassId;
-  tenantId: TenantId;
-  object: InfinityObjectReference;
-  scopes: ScreenPassScope[];
-  actionIds: string[];
-  attribution?: ScreenPassAttribution;
-  version: ScreenPassVersion;
-  signatureVersion: number;
-  status: "active" | "expired" | "revoked" | "superseded";
-}
-
-export type ResolutionMethod =
-  | "signed_watermark"
-  | "visible_short_code"
-  | "qr_or_barcode"
-  | "c2pa_or_metadata"
-  | "perceptual_match"
-  | "ai_object_match";
-
-export type ResolutionConfidence =
-  "verified" | "likely" | "ambiguous" | "unresolved";
-
-export interface ScreenPassResolution {
-  tenantId: TenantId;
-  publicId?: PublicPassId;
-  method: ResolutionMethod;
-  confidence: ResolutionConfidence;
-  authoritative: boolean;
-  payableAttribution: boolean;
-  changed: boolean | null;
-  safeActionIds: string[];
-  reasons: string[];
-}
-
 export interface AttributionProof {
   proofId: string;
   tenantId: TenantId;
-  publicId: PublicPassId;
-  method: ResolutionMethod;
+  sourceEvidenceReference: string;
+  method: string;
   verifiedAt: string;
   affiliateReference?: string;
   campaignReference?: string;
@@ -211,10 +141,4 @@ export interface RewardDecision {
   amountMinor?: number;
   currency?: string;
   paymentTriggered: false;
-}
-
-export interface VisualPassPayload {
-  publicId: PublicPassId;
-  signatureVersion: number;
-  signature: string;
 }

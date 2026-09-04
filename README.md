@@ -1,38 +1,53 @@
-# TradeScout Infinity
+# Infinity ecosystem register
 
-TradeScout Infinity is tenant-ready attribution, conversion-proof, selective
-inheritance, and live-object recovery infrastructure. Screen Pass is its visual
-recognition capability.
+Infinity is the canonical register of the Infinity ecosystem: its brands,
+products, repositories, shared capabilities, owners, boundaries, relationships,
+evidence, exceptions, and convergence state.
 
-This repository contains the shared contracts, signed registry service,
-PostgreSQL persistence schema, and tenant-authenticated HTTP API. It does
-**not** contain a production watermark implementation and makes no durability
-claim about screenshots, crops, recompression, or screen photography.
+This repository is being realigned from an accumulated shared-runtime project
+into that register. Existing working code is evidence and a compatibility
+source; it is not permanent ownership authority.
 
-## Trust chains
+## Governing rule
 
-```text
-Recognition -> Attribution proof -> Conversion evidence -> Business policy -> Payout eligibility
-Recognition/source evidence -> Selective Inheritance policy -> Preview -> Product-authorized apply
-```
+The ecosystem is reconstructed from approved intended truth backward. When
+legacy implementation conflicts with the approved Infinity System Convergence
+Standard, the governing intent wins through a dependency-aware migration that
+preserves working value.
 
-No earlier stage can directly trigger a later money decision or product
-mutation.
+## Canonical ownership established in Wave 1
 
-## Workspace
+- Continuum owns Screen Pass, camera intelligence, and media recognition.
+- Selective Intelligence owns ecosystem-alignment method, repository
+  realignment, and drift prevention.
+- Infinity owns the ecosystem and capability register.
+- Products retain product-specific mutations, business rules, conversion
+  meaning, payments, and payouts.
+- Infinity may retain cross-brand attribution and conversion evidence, but
+  evidence never directly triggers money movement.
 
-- `packages/contracts`: shared domain types, Selective Inheritance evaluator,
-  and runtime trust guards.
-- `packages/provider-core`: provider-neutral watermark interface.
-- `packages/registry`: signed pass issuance, verification, revocation, and
-  conversion-evidence persistence.
-- `apps/api`: tenant-authenticated registry HTTP API.
-- `integrations/selective-intelligence`: immutable SI source metadata and
-  compatibility/drift verification. The SI engine and plugin remain canonical in
-  `Platynum-47/Selective-Intelligence`.
-- `migrations`: deployable PostgreSQL schema.
-- `docs`: product doctrine, security boundaries, ADRs, and application adapter
-  plans.
+See [`registry/ecosystem.json`](registry/ecosystem.json),
+[`registry/capabilities.json`](registry/capabilities.json),
+[`registry/convergence.json`](registry/convergence.json),
+[`docs/REALIGNMENT_WAVE_1.md`](docs/REALIGNMENT_WAVE_1.md), and
+[`docs/REALIGNMENT_WAVE_2.md`](docs/REALIGNMENT_WAVE_2.md).
+
+## Transitional runtime in this repository
+
+The current workspace contains:
+
+- `packages/contracts`: partner attribution and conversion evidence;
+- `packages/registry`: cross-product evidence persistence;
+- `apps/api`: tenant-authenticated evidence endpoints;
+- `integrations/selective-intelligence`: pinned SI source metadata and drift
+  checks;
+- `migrations`: the existing PostgreSQL schema.
+
+Screen Pass and its media-provider package have been removed from Infinity after
+an ecosystem-wide search found no consumers. Their canonical implementation now
+lives in Continuum. The unused central Selective Inheritance evaluator was also
+removed: product-specific inheritance stays with each product, while Selective
+Intelligence governs ecosystem alignment and drift prevention.
 
 ## Commands
 
@@ -42,17 +57,8 @@ pnpm check
 pnpm build
 ```
 
-## Current boundary
+## Safety boundary
 
-Infinity owns the portable Screen Pass and Selective Inheritance contracts.
-TradeScout and MealScout integrate through thin adapters and retain the
-separately authorized product operation that applies inherited values. During
-shadow rollout, their current attribution, payout, and profile mutation behavior
-remains authoritative while Infinity records compatible evidence and evaluations
-for comparison.
-
-Selective Intelligence is a separate canonical product capability. Infinity
-catalogs and composes a pinned SI release but does not vendor its engine,
-PolicyGuard, sessions, councils, evidence logic, MCP business logic, portable
-skill, or plugin package. See
-[`docs/capability-ownership.md`](docs/capability-ownership.md).
+Attribution evidence, conversion evidence, reward evaluation, payment, and
+product mutation are separate authorization steps. No earlier step may silently
+execute a later one.

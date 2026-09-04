@@ -43,8 +43,8 @@ repository-confirmed unless labeled otherwise.
 - Vanity tags as optional presentation.
 - Automatic tracked sharing for authenticated users.
 - Advisory-lock or database-backed idempotency for payment-adjacent events.
-- Product-specific credits, wallets, and payment execution outside Screen Pass
-  recognition.
+- Product-specific credits, wallets, and payment execution outside shared
+  evidence recording.
 
 ## Unresolved before application migration
 

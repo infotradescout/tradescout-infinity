@@ -1,0 +1,178 @@
+{
+  "$schemaVersion": "1.0",
+  "authority": {
+    "standard": "Infinity System Convergence Standard",
+    "approvedBy": "Thomas",
+    "approvedAt": "2026-09-04"
+  },
+  "registry": {
+    "name": "Infinity",
+    "repository": "infotradescout/tradescout-infinity",
+    "purpose": "Canonical register of the Infinity ecosystem, its products, capabilities, ownership, boundaries, and convergence state."
+  },
+  "repositories": [
+    {
+      "repository": "infotradescout/tradescout-infinity",
+      "kind": "governance-registry",
+      "disposition": "canonical",
+      "reviewState": "wave-1-draft",
+      "evidence": [
+        "https://github.com/infotradescout/tradescout-infinity/pull/12"
+      ]
+    },
+    {
+      "repository": "infotradescout/continuum",
+      "kind": "product",
+      "disposition": "canonical",
+      "reviewState": "ownership-convergence-draft",
+      "evidence": ["https://github.com/infotradescout/continuum/pull/17"],
+      "notes": "Media pilot company; canonical owner of Screen Pass, camera intelligence, and media recognition."
+    },
+    {
+      "repository": "infotradescout/Selective-Intelligence",
+      "kind": "shared-capability",
+      "disposition": "canonical",
+      "reviewState": "initially-inspected"
+    },
+    {
+      "repository": "infotradescout/tradescoutAI",
+      "kind": "product",
+      "disposition": "retain-pending-review",
+      "reviewState": "component-owner-convergence-draft",
+      "evidence": [
+        "https://github.com/infotradescout/tradescoutAI/pull/568",
+        "https://github.com/infotradescout/tradescoutAI/pull/569"
+      ]
+    },
+    {
+      "repository": "infotradescout/MealScout",
+      "kind": "product",
+      "disposition": "retain-pending-review",
+      "reviewState": "component-owner-convergence-draft",
+      "evidence": [
+        "https://github.com/infotradescout/MealScout/pull/369",
+        "https://github.com/infotradescout/MealScout/pull/370"
+      ]
+    },
+    {
+      "repository": "infotradescout/NewsFilter",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/AutoBott",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/LISA_Lane-Indexed_Signal_Adaptor",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/signalfactory",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/FactDeck",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/AssetOS",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/tradescout-info",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/tradescout-changelog",
+      "kind": "supporting-system",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/frontline",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/merlin-os-action-layer",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/sway.tips",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/Albion-AI-Council",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/business-links",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/RoundTable",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/CodeScout",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/davids-gift-of-love",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/platynum-47",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/skill-gaming-world",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/llmpire-4data",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    },
+    {
+      "repository": "infotradescout/ScoutBank",
+      "kind": "candidate",
+      "disposition": "classify",
+      "reviewState": "unreviewed"
+    }
+  ]
+}
