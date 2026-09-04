@@ -1,0 +1,177 @@
+{
+  "$schemaVersion": "1.0",
+  "updatedAt": "2026-09-04",
+  "decisionState": "draft-target-from-repository-evidence",
+  "authority": "Infinity System Convergence Standard sections 2, 5, 6, and 8",
+  "sources": [
+    {
+      "repository": "infotradescout/tradescoutAI",
+      "ref": "53edb56b522a244b487361de2a2e8f591b3ca685",
+      "paths": ["shared/schema.ts", "shared/schema/core.ts"]
+    },
+    {
+      "repository": "infotradescout/MealScout",
+      "ref": "430f7a39366cca292c8e3d182e41a5374e52d651",
+      "paths": ["shared/schema/legacy.ts", "shared/schema/core.ts"]
+    }
+  ],
+  "terms": [
+    {
+      "term": "person",
+      "meaning": "A human being, independent of credentials, products, roles, businesses, and public presentation.",
+      "classification": "same-concept-with-different-names-and-boundaries",
+      "currentEvidence": [
+        "TradeScout shared/schema.ts: users mixes login data, personal data, role state, active business/profile state, consent preferences, and referral ownership.",
+        "MealScout shared/schema/legacy.ts: users mixes login data, personal data, user type, product context, affiliate state, subscriptions, and public-profile settings."
+      ],
+      "migrationRule": "Preserve product user IDs as source identifiers; do not treat either product row as the ecosystem person record without reconciliation and consent proof."
+    },
+    {
+      "term": "account",
+      "meaning": "A credential and security boundary through which a person or service authenticates to a product.",
+      "classification": "different-concepts-incorrectly-combined",
+      "currentEvidence": [
+        "Both products store authentication and person/profile attributes in tables named users.",
+        "MealScout users.tradescoutId is a cross-product link beside MealScout-local authentication fields."
+      ],
+      "migrationRule": "Separate authentication linkage from person, role, business, profile, and commercial state before account convergence."
+    },
+    {
+      "term": "product-membership",
+      "meaning": "A person's scoped participation in one Infinity product, including status and product roles.",
+      "classification": "missing-canonical-concept",
+      "currentEvidence": [
+        "TradeScout stores role, roles, activeRole, and participationModes on users.",
+        "MealScout stores one userType and appContext on users."
+      ],
+      "migrationRule": "Model product participation as a relationship; a product role must not redefine the person or authentication account."
+    },
+    {
+      "term": "business",
+      "meaning": "An organization or commercial operator that can exist before it is claimed and can have owners, staff, locations, and product-specific capabilities.",
+      "classification": "same-concept-with-product-specific-presentations",
+      "currentEvidence": [
+        "TradeScout shared/schema.ts: businesses is a first-class, claimable record decoupled from users.",
+        "MealScout shared/schema/legacy.ts: restaurants also represents bars and food trucks; suppliers and hosts use separate owner-bearing tables."
+      ],
+      "migrationRule": "Retain restaurant, food-truck, supplier, and host behavior as product modules while mapping their organizational identity through one business boundary."
+    },
+    {
+      "term": "profile",
+      "meaning": "A public or private presentation of a person or business within a product; it is not the identity or ownership record.",
+      "classification": "different-concepts-incorrectly-sharing-one-name",
+      "currentEvidence": [
+        "TradeScout userProfiles represents participation intent and verification while profiles represents public website pages.",
+        "MealScout uses publicProfileSettings on users plus driverProfiles and workerProfiles for specialized product presentations."
+      ],
+      "migrationRule": "Name profile kinds explicitly and require every profile to reference its subject and product context."
+    },
+    {
+      "term": "role",
+      "meaning": "A scoped participation or authorization assignment; it is not a human type or business type.",
+      "classification": "different-concepts-incorrectly-combined",
+      "currentEvidence": [
+        "TradeScout uses role, roles, activeRole, roleContext, userIntent, and profile business type across user, business, and profile records.",
+        "MealScout userType combines customer participation, business/operator type, staff status, and administrative authority."
+      ],
+      "migrationRule": "Separate product role, business membership role, occupation/presentation, and privileged administrative authorization."
+    },
+    {
+      "term": "membership",
+      "meaning": "A relationship granting a person scoped participation in a business, group, property, or product with an explicit lifecycle.",
+      "classification": "same-word-used-for-separate-scopes",
+      "currentEvidence": [
+        "TradeScout contains accelerator, group, HOA, and procurement workspace memberships.",
+        "MealScout businessStaffMemberships grants permissions only in the restaurant-scoped business model."
+      ],
+      "migrationRule": "Keep membership types separate while sharing subject, scope, role, permission, status, provenance, and lifecycle semantics."
+    },
+    {
+      "term": "connection",
+      "meaning": "A consented relationship or communication permission between subjects, distinct from a recommendation, follow, assignment, or transaction.",
+      "classification": "same-concept-with-overlapping-implementations",
+      "currentEvidence": [
+        "TradeScout contactPermissions records requester, target, intent, authority gate, decision scope, and status.",
+        "TradeScout also has follows, professional partnerships, lead assignments, and conversation membership with different meanings."
+      ],
+      "migrationRule": "Do not collapse social follows, contact consent, business membership, assignments, and partnerships into one generic connection row."
+    },
+    {
+      "term": "request",
+      "meaning": "A typed expression of intent asking another subject or system for an outcome.",
+      "classification": "different-concepts-incorrectly-sharing-one-name",
+      "currentEvidence": [
+        "TradeScout has workRequests, verificationRequests, profileBookingRequests, marketplaceInquiries, and service requests.",
+        "MealScout has supplierRequests, locationRequests, verificationRequests, payout requests, and private-chef leads."
+      ],
+      "migrationRule": "Share request envelope semantics only; keep payload, authority, state machine, and owner with the product capability that fulfills the request."
+    },
+    {
+      "term": "job",
+      "meaning": "A work opportunity or accepted unit of labor with parties, scope, lifecycle, and compensation terms.",
+      "classification": "genuinely-separate-product-concepts-with-a-shared-family",
+      "currentEvidence": [
+        "TradeScout distinguishes tasks, employment posts, work requests, and commercial project bids.",
+        "MealScout distinguishes deliveryJobs from restaurant jobPosts and their separate applications."
+      ],
+      "migrationRule": "Do not merge job tables by name; first identify the shared lifecycle and the product-specific work contract."
+    },
+    {
+      "term": "project",
+      "meaning": "A bounded initiative with an owner, scope, lifecycle, and optional plans, documents, bids, or milestones.",
+      "classification": "same-word-used-for-separate-scopes",
+      "currentEvidence": [
+        "TradeScout has homeProjects and commercialProjects with different owners, states, documents, plans, and bidding behavior."
+      ],
+      "migrationRule": "Share project vocabulary and references without forcing home and commercial workflows into one lifecycle."
+    },
+    {
+      "term": "property",
+      "meaning": "A real-world place or real-estate subject; ownership, participation, condition records, projects, and listings are relationships or projections around it.",
+      "classification": "same-concept-with-overlapping-records",
+      "currentEvidence": [
+        "TradeScout has userHomes, propertyPrograms, propertyParticipants, listings, records, lifecycle events, and readiness snapshots."
+      ],
+      "migrationRule": "Select one durable property identity before joining homeowner records, listings, service history, or participant permissions."
+    },
+    {
+      "term": "asset",
+      "meaning": "A durable owned or managed object such as a vehicle or equipment item, distinct from its records, documents, listings, and transactions.",
+      "classification": "missing-shared-abstraction",
+      "currentEvidence": [
+        "TradeScout userVehicles separates the vehicle from records and documents; other inventory and listing records use their own identities."
+      ],
+      "migrationRule": "Introduce a shared asset reference only when two real consumers require it; retain product-specific attributes and lifecycles."
+    },
+    {
+      "term": "estimate",
+      "meaning": "A non-binding expected price or effort prepared before an agreement; it is not a quote, invoice, authorization, or payment.",
+      "classification": "missing-or-misnamed-canonical-concept",
+      "currentEvidence": [
+        "TradeScout stores pricing data for quote calculators and has conversation-scoped quotes.",
+        "MealScout uses preparation estimates but has no inspected shared commercial estimate owner."
+      ],
+      "migrationRule": "Do not alias estimate, quote, bid, invoice, and payment; approve their transitions and binding effect first."
+    },
+    {
+      "term": "payment",
+      "meaning": "An authorized movement of money against an obligation; it is separate from attribution, evidence, pricing, rewards, credits, and payout requests.",
+      "classification": "same-word-used-across-separate-money-flows",
+      "currentEvidence": [
+        "TradeScout has contractor payments, marketplace transactions, wallet transactions, donations, and support ledgers.",
+        "MealScout has pickup payments, host earnings, commissions, credits, withdrawals, settlements, and payout requests."
+      ],
+      "migrationRule": "Keep execution product-owned until policy, authorization, idempotency, reconciliation, and ledger ownership are approved per flow."
+    },
+    {
+      "term": "verification",
+      "meaning": "A time-bound decision about a specific subject and claim, backed by evidence and an accountable reviewer or provider.",
+      "classification": "same-word-used-for-different-claims-and-trust-levels",
+      "currentEvidence": [
+        "TradeScout stores verification state on users and userProfiles and in business, vendor, buyer, address, identity, and document records.",
+        "MealScout stores email and business verification booleans alongside verification requests, insurance review, identity views, and ordering approval."
+      ],
+      "migrationRule": "Never promote a generic verified boolean across claim types; require subject, claim, evidence, method, decision, reviewer, and expiry."
+    }
+  ]
+}
