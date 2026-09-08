@@ -5,10 +5,17 @@
   "type": "module",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src"
+  ],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
       "default": "./dist/src/index.js"
+    },
+    "./text": {
+      "types": "./dist/src/text.d.ts",
+      "default": "./dist/src/text.js"
     }
   },
   "scripts": {
