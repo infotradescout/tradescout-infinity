@@ -13,8 +13,11 @@
     "clean": "tsc -b --clean",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js packages/registry/dist/test/*.test.js integrations/selective-intelligence/compatibility.test.mjs",
-    "typecheck": "tsc -b --pretty false"
+    "test": "pnpm run build && node --test packages/contracts/dist/test/*.test.js packages/provider-core/dist/test/*.test.js packages/registry/dist/test/*.test.js packages/capability-catalog/dist/test/*.test.js integrations/selective-intelligence/compatibility.test.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "ecosystem:refresh": "pnpm --filter @tradescout-infinity/capability-catalog build && node packages/capability-catalog/dist/src/cli.js --from-catalog ecosystem/catalog.json",
+    "ecosystem:find": "pnpm --filter @tradescout-infinity/capability-catalog build && node packages/capability-catalog/dist/src/query-cli.js ecosystem/catalog.json",
+    "ecosystem:verify": "pnpm --filter @tradescout-infinity/capability-catalog build && node packages/capability-catalog/scripts/verify-snapshot.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

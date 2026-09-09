@@ -1,0 +1,1948 @@
+{
+  "schema_version": 1,
+  "index_version": "0.1.0",
+  "generated_at": "2026-09-09T05:15:55Z",
+  "source": {
+    "kind": "git",
+    "revision": "f22dd794a2f2081902bdd7e581243afda0de97cb",
+    "dirty": true,
+    "inventory_sha256": "06329e913065ea9d8ddbc1c87562a8b3e7e3695e08bd414b18201d747fda7357"
+  },
+  "inventory": {
+    "directories": [
+      {
+        "path": "apps/api/src",
+        "source_file_count": 4
+      },
+      {
+        "path": "integrations/selective-intelligence",
+        "source_file_count": 1
+      },
+      {
+        "path": "packages/capability-catalog/scripts",
+        "source_file_count": 1
+      },
+      {
+        "path": "packages/capability-catalog/src",
+        "source_file_count": 5
+      },
+      {
+        "path": "packages/capability-catalog/test",
+        "source_file_count": 2
+      },
+      {
+        "path": "packages/contracts/src",
+        "source_file_count": 4
+      },
+      {
+        "path": "packages/contracts/test",
+        "source_file_count": 2
+      },
+      {
+        "path": "packages/provider-core/src",
+        "source_file_count": 2
+      },
+      {
+        "path": "packages/provider-core/test",
+        "source_file_count": 1
+      },
+      {
+        "path": "packages/registry/src",
+        "source_file_count": 7
+      },
+      {
+        "path": "packages/registry/test",
+        "source_file_count": 2
+      }
+    ],
+    "files": [
+      {
+        "path": "apps/api/src/auth.ts",
+        "language": "ts",
+        "sha256": "abf9df4967fb1d4ad97874acc3c8cc3a80646537f2ed29267d4aa12a29a5a6c2",
+        "bytes": 1490
+      },
+      {
+        "path": "apps/api/src/main.ts",
+        "language": "ts",
+        "sha256": "8b63e3c4b96830df757f1446dea3d97d52c46eb079710e29f0e497f0778ea89c",
+        "bytes": 1254
+      },
+      {
+        "path": "apps/api/src/rateLimit.ts",
+        "language": "ts",
+        "sha256": "554aea20978226c144b3c1de5d415f38d1bd35857d3ae7e9d2ee4771561b3aa1",
+        "bytes": 859
+      },
+      {
+        "path": "apps/api/src/server.ts",
+        "language": "ts",
+        "sha256": "af2bc875da7ef3cac6f5c38669d14a69b94809b4ccffdcff2c2e87cc7f3ae237",
+        "bytes": 9938
+      },
+      {
+        "path": "integrations/selective-intelligence/compatibility.test.mjs",
+        "language": "mjs",
+        "sha256": "614faa21e29e236d8600f9443e78d7dd766befeb1c3b0e32ad0c0113ca5d6b62",
+        "bytes": 948
+      },
+      {
+        "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
+        "language": "mjs",
+        "sha256": "64eb6190447df8204d2e104f94304663f6e0edd0a3f1445423c822b2472c38f4",
+        "bytes": 6165
+      },
+      {
+        "path": "packages/capability-catalog/src/cli.ts",
+        "language": "ts",
+        "sha256": "4a94ceae8377253f5a5ff9671f0b666714c83be6b6664aafa926643b507b55d7",
+        "bytes": 6527
+      },
+      {
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "language": "ts",
+        "sha256": "f76ac8d253650a5d53cb0b8a8e5f6bcf56ddfea91c8cf9e401bf897fc4e8a777",
+        "bytes": 8270
+      },
+      {
+        "path": "packages/capability-catalog/src/index.ts",
+        "language": "ts",
+        "sha256": "6ec44bb0ee960719ad2c424135377c38e8a019fdae57a05c4533947f847b260f",
+        "bytes": 22970
+      },
+      {
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "language": "ts",
+        "sha256": "e336a92286132a42906166dddb8aa6186abcc87577804f7582d54fb581fdd1a7",
+        "bytes": 58976
+      },
+      {
+        "path": "packages/capability-catalog/src/query-cli.ts",
+        "language": "ts",
+        "sha256": "3d05e78512bc6ed9398f32cdcae2efc57177f15225413e4f8c1de7775821b43b",
+        "bytes": 2470
+      },
+      {
+        "path": "packages/capability-catalog/test/catalog.test.ts",
+        "language": "ts",
+        "sha256": "1b619d01f71d89138aa6c05df130ec432f6b38fb517449ac3520a8cae8bf9195",
+        "bytes": 25539
+      },
+      {
+        "path": "packages/capability-catalog/test/implementations.test.ts",
+        "language": "ts",
+        "sha256": "95b86ee3fa89b92856bee3a3e0c446c4bf8f2de9966ddc910b3c56c910655168",
+        "bytes": 9268
+      },
+      {
+        "path": "packages/contracts/src/guards.ts",
+        "language": "ts",
+        "sha256": "f6398a09ce81d6b56cfc2bf064626b25f4c3b9629f9a251407bd5b36fd7befb4",
+        "bytes": 4730
+      },
+      {
+        "path": "packages/contracts/src/index.ts",
+        "language": "ts",
+        "sha256": "877c14de85f2daf6c052c17df6a2755aaab21df423616ac049d833eef9452e9b",
+        "bytes": 103
+      },
+      {
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "language": "ts",
+        "sha256": "5290a7e86b650bc1de5e8024b17cd35a7d032fe9adf855be0cb53d47becc648c",
+        "bytes": 10425
+      },
+      {
+        "path": "packages/contracts/src/types.ts",
+        "language": "ts",
+        "sha256": "9d507f49065df9a20c1a8d2e6be1fea20ddec385b28d399a9d2b9e79ffb45c36",
+        "bytes": 5428
+      },
+      {
+        "path": "packages/contracts/test/contracts.test.ts",
+        "language": "ts",
+        "sha256": "1fdb330b6c5badad170fa687d5afd7a9f27b9d4375e79d45c00a7ee1b2da743a",
+        "bytes": 4999
+      },
+      {
+        "path": "packages/contracts/test/selectiveInheritance.test.ts",
+        "language": "ts",
+        "sha256": "405fd7dc36d45e66c42b4fa37666f724366cd3aebba3f43802c618691dcba3c8",
+        "bytes": 6012
+      },
+      {
+        "path": "packages/provider-core/src/index.ts",
+        "language": "ts",
+        "sha256": "d616058675fe265d5c6efce1ea3f62bb04600ad0ca41580a6a68cf043a628b00",
+        "bytes": 29
+      },
+      {
+        "path": "packages/provider-core/src/types.ts",
+        "language": "ts",
+        "sha256": "38849fb1066f0b8a32081f8282b4b5d7f803472d6a4b16c639bdf4fa132312ce",
+        "bytes": 1253
+      },
+      {
+        "path": "packages/provider-core/test/provider.test.ts",
+        "language": "ts",
+        "sha256": "a7358b3b64fb8a5524de1f55c6e8e8dffa3d310c5d3234cbab87b9f40c910ae7",
+        "bytes": 828
+      },
+      {
+        "path": "packages/registry/src/index.ts",
+        "language": "ts",
+        "sha256": "49d2f50f5775a46a62e4b312c9d6b5b48782a4518c4e84bfcf5d0a668bbaedc3",
+        "bytes": 193
+      },
+      {
+        "path": "packages/registry/src/memoryStore.ts",
+        "language": "ts",
+        "sha256": "7a2c38d8419c1a7b42ecd62351e721016dbc89aa0ec5b13f80ade6e72a178029",
+        "bytes": 2379
+      },
+      {
+        "path": "packages/registry/src/postgresStore.ts",
+        "language": "ts",
+        "sha256": "550ff9a3a9328aa435f4fc65efbb62f86fa4df5e6eddbf95b37d30646e7bc916",
+        "bytes": 6913
+      },
+      {
+        "path": "packages/registry/src/schema.ts",
+        "language": "ts",
+        "sha256": "a9dba4947e1e985ab529d95579c06600c2f98d7644bfeacb2b26c6e3a3f62569",
+        "bytes": 9755
+      },
+      {
+        "path": "packages/registry/src/service.ts",
+        "language": "ts",
+        "sha256": "c99014d98ae4c231cb78ad32d6db483e23b5b7b7125531e91a405e17267507bc",
+        "bytes": 10483
+      },
+      {
+        "path": "packages/registry/src/signing.ts",
+        "language": "ts",
+        "sha256": "e8c839650837a5e54748d0c77ef81a4afacd649307d879bdf7f3d38d9975ac34",
+        "bytes": 2886
+      },
+      {
+        "path": "packages/registry/src/store.ts",
+        "language": "ts",
+        "sha256": "dc3890072d7fecef2d98fc2f76e2c99d3fd71ed7df8c767bd1b080c9eb35a7a4",
+        "bytes": 945
+      },
+      {
+        "path": "packages/registry/test/jwStoneProof.test.ts",
+        "language": "ts",
+        "sha256": "a7e45688d1d537b7cc5a28e762bf645f38a4f7c54c373db1d4d05f3c4e141c0b",
+        "bytes": 3693
+      },
+      {
+        "path": "packages/registry/test/registry.test.ts",
+        "language": "ts",
+        "sha256": "0574b9dfdc6b1f90900e5febac592e0cb3a7e866b05b52accc7e2c1edcb050e4",
+        "bytes": 8381
+      }
+    ],
+    "symbols": [
+      {
+        "name": "AuthenticatedTenant",
+        "kind": "type",
+        "path": "apps/api/src/auth.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "ApiKeyAuthenticator",
+        "kind": "type",
+        "path": "apps/api/src/auth.ts",
+        "line": 13,
+        "exported": true
+      },
+      {
+        "name": "hashApiKey",
+        "kind": "function",
+        "path": "apps/api/src/auth.ts",
+        "line": 17,
+        "exported": true
+      },
+      {
+        "name": "PostgresApiKeyAuthenticator",
+        "kind": "class",
+        "path": "apps/api/src/auth.ts",
+        "line": 21,
+        "exported": true
+      },
+      {
+        "name": "SigningKey",
+        "kind": "type",
+        "path": "apps/api/src/main.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "required",
+        "kind": "function",
+        "path": "apps/api/src/main.ts",
+        "line": 13,
+        "exported": false
+      },
+      {
+        "name": "shutdown",
+        "kind": "function",
+        "path": "apps/api/src/main.ts",
+        "line": 38,
+        "exported": false
+      },
+      {
+        "name": "FixedWindowRateLimiter",
+        "kind": "class",
+        "path": "apps/api/src/rateLimit.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "IncomingMessage",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 3,
+        "exported": false
+      },
+      {
+        "name": "ServerResponse",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 4,
+        "exported": false
+      },
+      {
+        "name": "JsonObject",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 29,
+        "exported": false
+      },
+      {
+        "name": "sendJson",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 31,
+        "exported": false
+      },
+      {
+        "name": "readJson",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 42,
+        "exported": false
+      },
+      {
+        "name": "bearerToken",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 59,
+        "exported": false
+      },
+      {
+        "name": "authenticate",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 64,
+        "exported": false
+      },
+      {
+        "name": "asObjectReference",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 75,
+        "exported": false
+      },
+      {
+        "name": "createInfinityServer",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 90,
+        "exported": true
+      },
+      {
+        "name": "readJson",
+        "kind": "function",
+        "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
+        "line": 18,
+        "exported": false
+      },
+      {
+        "name": "hash",
+        "kind": "function",
+        "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
+        "line": 19,
+        "exported": false
+      },
+      {
+        "name": "retain",
+        "kind": "function",
+        "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
+        "line": 43,
+        "exported": false
+      },
+      {
+        "name": "Catalog",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/cli.ts",
+        "line": 20,
+        "exported": false
+      },
+      {
+        "name": "SourceRoot",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/cli.ts",
+        "line": 21,
+        "exported": false
+      },
+      {
+        "name": "writeAtomic",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/cli.ts",
+        "line": 23,
+        "exported": false
+      },
+      {
+        "name": "pathKey",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/cli.ts",
+        "line": 39,
+        "exported": false
+      },
+      {
+        "name": "stageOutput",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/cli.ts",
+        "line": 43,
+        "exported": false
+      },
+      {
+        "name": "ImplementationGroup",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 3,
+        "exported": true
+      },
+      {
+        "name": "ImplementationIndex",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "ImplementationSummary",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 33,
+        "exported": true
+      },
+      {
+        "name": "evidenceKey",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 39,
+        "exported": false
+      },
+      {
+        "name": "isTestContext",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 58,
+        "exported": true
+      },
+      {
+        "name": "declarationComparisonBlocker",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 64,
+        "exported": true
+      },
+      {
+        "name": "implementationIndex",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 84,
+        "exported": true
+      },
+      {
+        "name": "findImplementations",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 164,
+        "exported": true
+      },
+      {
+        "name": "implementationSummaryMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 172,
+        "exported": true
+      },
+      {
+        "name": "implementationMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/implementations.ts",
+        "line": 190,
+        "exported": true
+      },
+      {
+        "name": "ImplementationSummary",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "CatalogIdentity",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 13,
+        "exported": false
+      },
+      {
+        "name": "SourceRoot",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "Descriptor",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 24,
+        "exported": true
+      },
+      {
+        "name": "SourceRecord",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 40,
+        "exported": true
+      },
+      {
+        "name": "Catalog",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 56,
+        "exported": true
+      },
+      {
+        "name": "validateSourceRegistry",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 68,
+        "exported": true
+      },
+      {
+        "name": "sha256",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 139,
+        "exported": false
+      },
+      {
+        "name": "git",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 143,
+        "exported": false
+      },
+      {
+        "name": "gitState",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 155,
+        "exported": false
+      },
+      {
+        "name": "collectFiles",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 174,
+        "exported": false
+      },
+      {
+        "name": "visit",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 180,
+        "exported": false
+      },
+      {
+        "name": "entries",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 181,
+        "exported": false
+      },
+      {
+        "name": "categories",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 211,
+        "exported": false
+      },
+      {
+        "name": "riskFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 231,
+        "exported": false
+      },
+      {
+        "name": "dispositionFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 248,
+        "exported": false
+      },
+      {
+        "name": "importsFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 257,
+        "exported": false
+      },
+      {
+        "name": "lineAt",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 270,
+        "exported": false
+      },
+      {
+        "name": "descriptorsFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 273,
+        "exported": false
+      },
+      {
+        "name": "add",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 283,
+        "exported": false
+      },
+      {
+        "name": "scanCatalog",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 368,
+        "exported": true
+      },
+      {
+        "name": "catalogMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 504,
+        "exported": true
+      },
+      {
+        "name": "CatalogSummary",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 544,
+        "exported": true
+      },
+      {
+        "name": "CatalogQuery",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 565,
+        "exported": true
+      },
+      {
+        "name": "findCapabilities",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 574,
+        "exported": true
+      },
+      {
+        "name": "matchesCapability",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 583,
+        "exported": true
+      },
+      {
+        "name": "countBy",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 600,
+        "exported": false
+      },
+      {
+        "name": "catalogSummary",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 607,
+        "exported": true
+      },
+      {
+        "name": "catalogSummaryMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 640,
+        "exported": true
+      },
+      {
+        "name": "rows",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/index.ts",
+        "line": 642,
+        "exported": false
+      },
+      {
+        "name": "ImplementationSummary",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 7,
+        "exported": false
+      },
+      {
+        "name": "CatalogIdentity",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "catalogIdentity",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 20,
+        "exported": true
+      },
+      {
+        "name": "catalogIdentityMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 63,
+        "exported": true
+      },
+      {
+        "name": "NormalizationDecision",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 81,
+        "exported": true
+      },
+      {
+        "name": "NormalizationEvidence",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 89,
+        "exported": true
+      },
+      {
+        "name": "NormalizationGroup",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 99,
+        "exported": true
+      },
+      {
+        "name": "NormalizationCategory",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 118,
+        "exported": true
+      },
+      {
+        "name": "NormalizationReport",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 126,
+        "exported": true
+      },
+      {
+        "name": "ReusableCandidateIndex",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 151,
+        "exported": true
+      },
+      {
+        "name": "NormalizationMapLink",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 169,
+        "exported": true
+      },
+      {
+        "name": "NormalizedFamilyState",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 176,
+        "exported": true
+      },
+      {
+        "name": "NormalizedFamilyCapability",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 179,
+        "exported": true
+      },
+      {
+        "name": "NormalizedFamily",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 191,
+        "exported": true
+      },
+      {
+        "name": "NormalizedCapabilityIndex",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 211,
+        "exported": true
+      },
+      {
+        "name": "NormalizedPillarState",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 233,
+        "exported": true
+      },
+      {
+        "name": "NormalizedPillar",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 236,
+        "exported": true
+      },
+      {
+        "name": "NormalizedOverview",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 249,
+        "exported": true
+      },
+      {
+        "name": "FamilyDefinition",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 344,
+        "exported": false
+      },
+      {
+        "name": "OverviewDefinition",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 567,
+        "exported": false
+      },
+      {
+        "name": "familyTokens",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 657,
+        "exported": false
+      },
+      {
+        "name": "signalMatches",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 671,
+        "exported": false
+      },
+      {
+        "name": "familyFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 681,
+        "exported": false
+      },
+      {
+        "name": "categoryHits",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 689,
+        "exported": false
+      },
+      {
+        "name": "pathHits",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 692,
+        "exported": false
+      },
+      {
+        "name": "familyState",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 701,
+        "exported": false
+      },
+      {
+        "name": "emptyFamilyKinds",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 723,
+        "exported": false
+      },
+      {
+        "name": "emptyFamilyDecisions",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 730,
+        "exported": false
+      },
+      {
+        "name": "emptyFamilyRisks",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 736,
+        "exported": false
+      },
+      {
+        "name": "familyCapabilityScore",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 743,
+        "exported": false
+      },
+      {
+        "name": "normalizedCustomizationReasons",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 793,
+        "exported": false
+      },
+      {
+        "name": "isSharedUiPrimitive",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 817,
+        "exported": false
+      },
+      {
+        "name": "customizationReasonFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 826,
+        "exported": false
+      },
+      {
+        "name": "normalizeCapabilityName",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 873,
+        "exported": true
+      },
+      {
+        "name": "normalizationKey",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 877,
+        "exported": true
+      },
+      {
+        "name": "decisionFor",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 884,
+        "exported": false
+      },
+      {
+        "name": "groupDescriptors",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1021,
+        "exported": false
+      },
+      {
+        "name": "categoryMatrix",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1086,
+        "exported": false
+      },
+      {
+        "name": "decisionCounts",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1113,
+        "exported": false
+      },
+      {
+        "name": "normalizationReport",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1128,
+        "exported": true
+      },
+      {
+        "name": "FamilyBucket",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1182,
+        "exported": false
+      },
+      {
+        "name": "familyTotals",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1189,
+        "exported": false
+      },
+      {
+        "name": "familyCapabilities",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1216,
+        "exported": false
+      },
+      {
+        "name": "normalizedCapabilityIndex",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1252,
+        "exported": true
+      },
+      {
+        "name": "emptyOverviewStates",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1337,
+        "exported": false
+      },
+      {
+        "name": "pillarState",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1343,
+        "exported": false
+      },
+      {
+        "name": "normalizedOverview",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1355,
+        "exported": true
+      },
+      {
+        "name": "pillarDecisionSummary",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1439,
+        "exported": false
+      },
+      {
+        "name": "normalizedOverviewMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1446,
+        "exported": true
+      },
+      {
+        "name": "familyDecisionSummary",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1516,
+        "exported": false
+      },
+      {
+        "name": "normalizedCapabilityMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1523,
+        "exported": true
+      },
+      {
+        "name": "validateNormalizationMapLinks",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1584,
+        "exported": true
+      },
+      {
+        "name": "reusableCandidateIndex",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1640,
+        "exported": true
+      },
+      {
+        "name": "reusableCandidateMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1669,
+        "exported": true
+      },
+      {
+        "name": "tableRows",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1706,
+        "exported": false
+      },
+      {
+        "name": "normalizationMarkdown",
+        "kind": "function",
+        "path": "packages/capability-catalog/src/normalization.ts",
+        "line": 1719,
+        "exported": true
+      },
+      {
+        "name": "Catalog",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/query-cli.ts",
+        "line": 7,
+        "exported": false
+      },
+      {
+        "name": "CatalogQuery",
+        "kind": "type",
+        "path": "packages/capability-catalog/src/query-cli.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "Descriptor",
+        "kind": "type",
+        "path": "packages/capability-catalog/test/catalog.test.ts",
+        "line": 23,
+        "exported": false
+      },
+      {
+        "name": "commitFixture",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/catalog.test.ts",
+        "line": 25,
+        "exported": false
+      },
+      {
+        "name": "git",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/catalog.test.ts",
+        "line": 27,
+        "exported": false
+      },
+      {
+        "name": "refresh",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/catalog.test.ts",
+        "line": 350,
+        "exported": false
+      },
+      {
+        "name": "occurrence",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/implementations.test.ts",
+        "line": 18,
+        "exported": false
+      },
+      {
+        "name": "catalog",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/implementations.test.ts",
+        "line": 37,
+        "exported": false
+      },
+      {
+        "name": "run",
+        "kind": "function",
+        "path": "packages/capability-catalog/test/implementations.test.ts",
+        "line": 231,
+        "exported": false
+      },
+      {
+        "name": "isResolutionMethod",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 33,
+        "exported": true
+      },
+      {
+        "name": "methodCanBeAuthoritative",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 40,
+        "exported": true
+      },
+      {
+        "name": "validateVisualPayload",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 44,
+        "exported": true
+      },
+      {
+        "name": "assertResolutionTrust",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 84,
+        "exported": true
+      },
+      {
+        "name": "assertConversionEvidence",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 104,
+        "exported": true
+      },
+      {
+        "name": "assertPartnerProgram",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 113,
+        "exported": true
+      },
+      {
+        "name": "assertRewardDecision",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 131,
+        "exported": true
+      },
+      {
+        "name": "filterAllowlistedActions",
+        "kind": "function",
+        "path": "packages/contracts/src/guards.ts",
+        "line": 142,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceSourceKind",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceDecisionStatus",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceFieldRule",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 18,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritancePolicy",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 27,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceScreenPassEvidence",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 37,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceCandidate",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 43,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceOverride",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 55,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceRequest",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 64,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceFieldDecision",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 75,
+        "exported": true
+      },
+      {
+        "name": "SelectiveInheritanceEvaluation",
+        "kind": "type",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 85,
+        "exported": true
+      },
+      {
+        "name": "assertNonEmpty",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 107,
+        "exported": false
+      },
+      {
+        "name": "assertConfidence",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 113,
+        "exported": false
+      },
+      {
+        "name": "assertIsoDate",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 119,
+        "exported": false
+      },
+      {
+        "name": "assertSelectiveInheritancePolicy",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 125,
+        "exported": true
+      },
+      {
+        "name": "candidateReason",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 174,
+        "exported": false
+      },
+      {
+        "name": "rankCandidate",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 207,
+        "exported": false
+      },
+      {
+        "name": "compareCandidates",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 219,
+        "exported": false
+      },
+      {
+        "name": "evaluateSelectiveInheritance",
+        "kind": "function",
+        "path": "packages/contracts/src/selectiveInheritance.ts",
+        "line": 229,
+        "exported": true
+      },
+      {
+        "name": "Brand",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 1,
+        "exported": true
+      },
+      {
+        "name": "TenantId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 2,
+        "exported": true
+      },
+      {
+        "name": "PublicPassId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 4,
+        "exported": true
+      },
+      {
+        "name": "ObjectId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 5,
+        "exported": true
+      },
+      {
+        "name": "IdempotencyKey",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 6,
+        "exported": true
+      },
+      {
+        "name": "PartnerId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 7,
+        "exported": true
+      },
+      {
+        "name": "ProgramId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "AttributionTouchId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "AttributionAssignmentId",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 10,
+        "exported": true
+      },
+      {
+        "name": "Tenant",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 11,
+        "exported": true
+      },
+      {
+        "name": "InfinityObjectReference",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 18,
+        "exported": true
+      },
+      {
+        "name": "AttributionRule",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 24,
+        "exported": true
+      },
+      {
+        "name": "AttributionCarrier",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 27,
+        "exported": true
+      },
+      {
+        "name": "PartnerProgram",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 39,
+        "exported": true
+      },
+      {
+        "name": "PartnerIdentity",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 51,
+        "exported": true
+      },
+      {
+        "name": "ShareTarget",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 60,
+        "exported": true
+      },
+      {
+        "name": "PartnerLink",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 67,
+        "exported": true
+      },
+      {
+        "name": "AttributionTouch",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 79,
+        "exported": true
+      },
+      {
+        "name": "AttributionAssignment",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 93,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassScope",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 106,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassActionKind",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 109,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassAction",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 117,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassAttribution",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 124,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassVersion",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 130,
+        "exported": true
+      },
+      {
+        "name": "ScreenPass",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 137,
+        "exported": true
+      },
+      {
+        "name": "ResolutionMethod",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 149,
+        "exported": true
+      },
+      {
+        "name": "ResolutionConfidence",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 157,
+        "exported": true
+      },
+      {
+        "name": "ScreenPassResolution",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 160,
+        "exported": true
+      },
+      {
+        "name": "AttributionProof",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 172,
+        "exported": true
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 183,
+        "exported": true
+      },
+      {
+        "name": "RewardEvaluationRequest",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 195,
+        "exported": true
+      },
+      {
+        "name": "RewardDecision",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 202,
+        "exported": true
+      },
+      {
+        "name": "VisualPassPayload",
+        "kind": "type",
+        "path": "packages/contracts/src/types.ts",
+        "line": 215,
+        "exported": true
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 13,
+        "exported": false
+      },
+      {
+        "name": "PartnerProgram",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 14,
+        "exported": false
+      },
+      {
+        "name": "RewardDecision",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 15,
+        "exported": false
+      },
+      {
+        "name": "ScreenPassResolution",
+        "kind": "type",
+        "path": "packages/contracts/test/contracts.test.ts",
+        "line": 16,
+        "exported": false
+      },
+      {
+        "name": "SelectiveInheritancePolicy",
+        "kind": "type",
+        "path": "packages/contracts/test/selectiveInheritance.test.ts",
+        "line": 6,
+        "exported": false
+      },
+      {
+        "name": "SelectiveInheritanceRequest",
+        "kind": "type",
+        "path": "packages/contracts/test/selectiveInheritance.test.ts",
+        "line": 7,
+        "exported": false
+      },
+      {
+        "name": "request",
+        "kind": "function",
+        "path": "packages/contracts/test/selectiveInheritance.test.ts",
+        "line": 51,
+        "exported": false
+      },
+      {
+        "name": "IssueOverlayInput",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 2,
+        "exported": true
+      },
+      {
+        "name": "OverlayResult",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "EmbedAssetInput",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 15,
+        "exported": true
+      },
+      {
+        "name": "EmbeddedAssetResult",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 22,
+        "exported": true
+      },
+      {
+        "name": "DetectAssetInput",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 28,
+        "exported": true
+      },
+      {
+        "name": "WatermarkDetection",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 34,
+        "exported": true
+      },
+      {
+        "name": "ProviderHealth",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 41,
+        "exported": true
+      },
+      {
+        "name": "WatermarkProvider",
+        "kind": "type",
+        "path": "packages/provider-core/src/types.ts",
+        "line": 48,
+        "exported": true
+      },
+      {
+        "name": "copyPass",
+        "kind": "function",
+        "path": "packages/registry/src/memoryStore.ts",
+        "line": 9,
+        "exported": false
+      },
+      {
+        "name": "MemoryRegistryStore",
+        "kind": "class",
+        "path": "packages/registry/src/memoryStore.ts",
+        "line": 13,
+        "exported": true
+      },
+      {
+        "name": "RegistryDatabase",
+        "kind": "type",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 23,
+        "exported": false
+      },
+      {
+        "name": "rowToPass",
+        "kind": "function",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 25,
+        "exported": false
+      },
+      {
+        "name": "rowToEvidence",
+        "kind": "function",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 46,
+        "exported": false
+      },
+      {
+        "name": "PostgresRegistryStore",
+        "kind": "class",
+        "path": "packages/registry/src/postgresStore.ts",
+        "line": 69,
+        "exported": true
+      },
+      {
+        "name": "AttributionCarrier",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 8,
+        "exported": false
+      },
+      {
+        "name": "AttributionTouch",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 9,
+        "exported": false
+      },
+      {
+        "name": "ConversionEvidence",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 10,
+        "exported": false
+      },
+      {
+        "name": "InfinityObjectReference",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 11,
+        "exported": false
+      },
+      {
+        "name": "PartnerId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 12,
+        "exported": false
+      },
+      {
+        "name": "ProgramId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 13,
+        "exported": false
+      },
+      {
+        "name": "PublicPassId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 14,
+        "exported": false
+      },
+      {
+        "name": "ScreenPass",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 15,
+        "exported": false
+      },
+      {
+        "name": "ScreenPassAction",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 16,
+        "exported": false
+      },
+      {
+        "name": "ScreenPassAttribution",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 17,
+        "exported": false
+      },
+      {
+        "name": "ScreenPassResolution",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 18,
+        "exported": false
+      },
+      {
+        "name": "ScreenPassScope",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 19,
+        "exported": false
+      },
+      {
+        "name": "TenantId",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 20,
+        "exported": false
+      },
+      {
+        "name": "VisualPassPayload",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 21,
+        "exported": false
+      },
+      {
+        "name": "isSafeDestination",
+        "kind": "function",
+        "path": "packages/registry/src/service.ts",
+        "line": 35,
+        "exported": false
+      },
+      {
+        "name": "digestJson",
+        "kind": "function",
+        "path": "packages/registry/src/service.ts",
+        "line": 50,
+        "exported": false
+      },
+      {
+        "name": "IssuePassInput",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 54,
+        "exported": true
+      },
+      {
+        "name": "ResolvePassInput",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 65,
+        "exported": true
+      },
+      {
+        "name": "RecordAttributionTouchInput",
+        "kind": "type",
+        "path": "packages/registry/src/service.ts",
+        "line": 72,
+        "exported": true
+      },
+      {
+        "name": "RegistryService",
+        "kind": "class",
+        "path": "packages/registry/src/service.ts",
+        "line": 88,
+        "exported": true
+      },
+      {
+        "name": "SigningKey",
+        "kind": "type",
+        "path": "packages/registry/src/signing.ts",
+        "line": 8,
+        "exported": true
+      },
+      {
+        "name": "signingMessage",
+        "kind": "function",
+        "path": "packages/registry/src/signing.ts",
+        "line": 14,
+        "exported": false
+      },
+      {
+        "name": "SigningKeyRing",
+        "kind": "class",
+        "path": "packages/registry/src/signing.ts",
+        "line": 22,
+        "exported": true
+      },
+      {
+        "name": "StoredPass",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 9,
+        "exported": true
+      },
+      {
+        "name": "StoredConversionEvidence",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 14,
+        "exported": true
+      },
+      {
+        "name": "StoredAttributionTouch",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 19,
+        "exported": true
+      },
+      {
+        "name": "RegistryStore",
+        "kind": "type",
+        "path": "packages/registry/src/store.ts",
+        "line": 23,
+        "exported": true
+      },
+      {
+        "name": "service",
+        "kind": "function",
+        "path": "packages/registry/test/registry.test.ts",
+        "line": 25,
+        "exported": false
+      },
+      {
+        "name": "issue",
+        "kind": "function",
+        "path": "packages/registry/test/registry.test.ts",
+        "line": 39,
+        "exported": false
+      }
+    ],
+    "ui": {
+      "primitive_candidates": [],
+      "raw_elements": []
+    },
+    "duplicates": {
+      "exact_files": [],
+      "justified_generated_projections": [],
+      "exported_symbol_collisions": []
+    }
+  },
+  "canonical": {
+    "directories": [],
+    "ui_primitives": [],
+    "shared_symbols": []
+  },
+  "reuse_decisions": [],
+  "findings": [],
+  "summary": {
+    "directories": 11,
+    "source_files": 31,
+    "symbols": 239,
+    "components": 0,
+    "functions_and_hooks": 112,
+    "raw_ui_elements": 0,
+    "errors": 0,
+    "warnings": 0
+  }
+}
