@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "si.execution-contract.v1",
+  "binding": {
+    "projectId": "tradescout-infinity",
+    "releaseId": "catalog-grouping-recovery",
+    "releaseVersion": "local-review-20260909",
+    "buildId": "catalog-grouping-recovery",
+    "lockVersion": "recovery-boundary-1"
+  },
+  "phase": "continuation",
+  "wholeProduct": {
+    "preserved": true,
+    "summary": "Infinity remains an ecosystem encyclopedia and shared resource library, with library promotion and real consumer adoption tracked separately.",
+    "complexity": "multi_deliverable"
+  },
+  "deliverables": [
+    {
+      "id": "D-GROUPING",
+      "active": true,
+      "outcome": "Recover the existing grouped catalog as an isolated reviewable source slice and reopen its preserved local inventory.",
+      "entry": "Open the authorized saved catalog snapshot identified by its immutable hash.",
+      "ending": "Read regenerated grouped observations and query every retained source location with distinct variants preserved.",
+      "proof": [
+        {
+          "type": "automated_test",
+          "procedure": "Build and run the existing catalog tests, replay the saved snapshot, then run the partition, canonical-label and CLI verifier.",
+          "expected": "Nineteen catalog tests pass; every original observation is retained, uncertain evidence stays separate and the saved input hash is unchanged.",
+          "observed": "Nineteen existing catalog tests passed. Saved snapshot replay retained all 30666 observations in 17346 text groups and 1749 uncompared observations with unchanged input hash. The broader repository suite exposed one independent baseline registry replay defect, reproduced without the catalog package.",
+          "evidenceRef": "evidence.json"
+        }
+      ],
+      "journeySteps": [
+        "Recover the independent catalog package onto the current public repository baseline.",
+        "Retain the authorized saved input locally and regenerate readable grouped views without crawling source repositories.",
+        "Query grouped and uncompared observations, verify provenance and preserve a local source commit."
+      ],
+      "constraints": [
+        "The user corrected the claim that roughly thirty thousand observations were independent capabilities and asked to continue grouping them.",
+        "Reuse the existing grouping, normalization and query code; preserve all original WIP unchanged.",
+        "No behavioral equivalence, inheritance, consumer migration, registry change, merge, deployment or raw metadata publication is claimed."
+      ],
+      "requirementIds": ["CATALOG-GROUPING"],
+      "completionScope": "active_deliverable",
+      "completionClaims": [
+        {
+          "requirementId": "CATALOG-GROUPING",
+          "scope": "active_deliverable",
+          "claim": "The recovered local catalog can regenerate and query grouped observations while preserving source evidence and uncertainty."
+        }
+      ],
+      "excludedFromActive": [
+        "Earlier contracts, registry, auth, affiliate and UI-library work.",
+        "Raw cross-project metadata and large generated dumps in public source control.",
+        "Behavioral reuse proof, consumer migrations, source recrawls and release actions."
+      ],
+      "informationComplete": true,
+      "fitsExecutionWindow": true,
+      "endToEnd": true
+    },
+    {
+      "id": "D-PROMOTION",
+      "active": false,
+      "outcome": "Review and promote broader library/catalog changes and validate real consumer adoption under their own boundaries."
+    }
+  ],
+  "executionTarget": {
+    "kind": "established_repository",
+    "productionIntent": false,
+    "establishedApplicationAvailable": true,
+    "repositoryFit": "fit",
+    "sitesRole": "none",
+    "rationale": "The existing independent TypeScript package and CLI already implement the requested saved-catalog loop.",
+    "constraintsConsidered": [
+      "Public source repository; retain cross-project data as local evidence.",
+      "Current main has no catalog package; copy only its independent dependencies and preserve unrelated older WIP."
+    ],
+    "coreValueDependsOn": {
+      "persistentOperationalData": false,
+      "complexPermissions": false,
+      "substantialBackendWorkflows": false,
+      "repositoryIntegration": true,
+      "businessStateImageProcessing": false,
+      "multiStageBusinessLogic": false,
+      "migrationsAuditOrSystemOfRecord": false
+    }
+  }
+}
