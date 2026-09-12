@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "input": "ecosystem/catalog.json",
+  "inputTracked": false,
+  "sha256": "c8031f7eb96b1ce939ee2118d46dc2aac13e7332dee4ce89dc3119d4d6f65c3f",
+  "bytes": 29246586,
+  "catalogSchemaVersion": 2,
+  "snapshotGeneratedAt": "2026-09-04T15:05:09.288Z",
+  "sourceRecords": 16,
+  "observations": 30666,
+  "verifiedUniqueCapabilities": null,
+  "privacy": "The input contains cross-project source-location, symbol, import and hash metadata whose source visibility is unproven. It is retained locally and excluded from public source control together with derived views.",
+  "requiredAt": "Local snapshot replay and browsing only; synthetic tests and package build do not require portfolio data.",
+  "recovery": "Restore the exact authorized local snapshot, verify its SHA-256, then run ecosystem:refresh. No source recrawl is required."
+}

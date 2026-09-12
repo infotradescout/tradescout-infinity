@@ -6,3 +6,23 @@ dist/
 !.env.example
 coverage/
 .DS_Store
+
+# Local cross-project catalog evidence and reproducible derived views.
+/ecosystem/catalog.json
+/ecosystem/catalog.md
+/ecosystem/catalog-summary.json
+/ecosystem/catalog-summary.md
+/ecosystem/implementation-index.json
+/ecosystem/implementation-index.md
+/ecosystem/normalization-report.json
+/ecosystem/normalization-report.md
+/ecosystem/normalized-index.json
+/ecosystem/normalized-index.md
+/ecosystem/overview.json
+/ecosystem/overview.md
+/reusable/candidate-index.json
+/reusable/candidate-index.md
+/reusable/family-index.json
+/reusable/family-index.md
+/reusable/overview.json
+/reusable/overview.md

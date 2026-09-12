@@ -4,6 +4,7 @@
     { "path": "./packages/contracts" },
     { "path": "./packages/provider-core" },
     { "path": "./packages/registry" },
-    { "path": "./apps/api" }
+    { "path": "./apps/api" },
+    { "path": "./packages/capability-catalog" }
   ]
 }
