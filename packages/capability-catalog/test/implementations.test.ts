@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import { mkdtemp, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -265,4 +265,52 @@ test("query CLI preserves raw results and exposes grouped and uncompared occurre
     () => run("view=unknown"),
     /view must be occurrences or implementations/,
   );
+});
+
+test("query CLI rejects malformed filters without returning catalog results", async () => {
+  const root = await mkdtemp(join(tmpdir(), "infinity-invalid-query-"));
+  const filename = join(root, "catalog.json");
+  const cli = fileURLToPath(new URL("../src/query-cli.js", import.meta.url));
+  await writeFile(filename, JSON.stringify(catalog([occurrence()])));
+
+  const invalidFilters = [
+    { repositry: "alpha" },
+    { repository: false },
+    { repository: null },
+    { name: 0 },
+    { name: ["readValue"] },
+    { category: {} },
+    { risk: "" },
+    { disposition: "   " },
+    { kind: "unknown" },
+    { risk: "unknown" },
+    { disposition: "unknown" },
+  ];
+  for (const view of ["occurrences", "implementations"]) {
+    for (const filters of invalidFilters) {
+      const query = JSON.stringify({ view, ...filters });
+      const result = spawnSync(process.execPath, [cli, filename, query], {
+        encoding: "utf8",
+      });
+      assert.equal(result.status, 1, query);
+      assert.equal(result.stdout, "", query);
+      assert.match(result.stderr, /catalog query failed: query filter/, query);
+    }
+    for (const filter of [
+      "repositry=alpha",
+      "name=   ",
+      "kind=unknown",
+      "risk=unknown",
+      "disposition=unknown",
+    ]) {
+      const result = spawnSync(
+        process.execPath,
+        [cli, filename, `view=${view}`, filter],
+        { encoding: "utf8" },
+      );
+      assert.equal(result.status, 1, `${view}: ${filter}`);
+      assert.equal(result.stdout, "", `${view}: ${filter}`);
+      assert.match(result.stderr, /catalog query failed: query filter/);
+    }
+  }
 });

@@ -8,6 +8,36 @@ import {
   type CatalogQuery,
 } from "./index.js";
 
+const filterKeys = [
+  "repository",
+  "name",
+  "category",
+  "kind",
+  "risk",
+  "disposition",
+];
+const filterValues: Record<string, readonly string[]> = {
+  kind: ["function", "hook", "component", "class", "domain"],
+  risk: ["low", "medium", "high"],
+  disposition: ["candidate", "adapter-only", "product-owned"],
+};
+
+function validateQuery(
+  query: Record<string, unknown>,
+): asserts query is CatalogQuery {
+  for (const [key, value] of Object.entries(query)) {
+    if (!filterKeys.includes(key))
+      throw new Error(`query filter is unknown: ${key}`);
+    if (typeof value !== "string" || !value.trim())
+      throw new Error(`query filter ${key} must be a non-empty string`);
+    const allowed = filterValues[key];
+    if (allowed && !allowed.includes(value))
+      throw new Error(
+        `query filter ${key} must be one of: ${allowed.join(", ")}`,
+      );
+  }
+}
+
 try {
   const catalog = JSON.parse(
     await readFile(process.argv[2] ?? "ecosystem/catalog.json", "utf8"),
@@ -21,7 +51,7 @@ try {
     }
     return true;
   });
-  let query: CatalogQuery;
+  let query: Record<string, unknown>;
   if (args.length === 0) {
     query = {};
   } else if (args.length === 1 && args[0]!.trimStart().startsWith("{")) {
@@ -36,21 +66,12 @@ try {
     for (const argument of args) {
       const [key, ...parts] = argument.replace(/^--/, "").split("=");
       const value = parts.join("=");
-      if (
-        !value ||
-        ![
-          "repository",
-          "name",
-          "category",
-          "kind",
-          "risk",
-          "disposition",
-        ].includes(key!)
-      )
+      if (!value || !filterKeys.includes(key!))
         throw new Error(`query filter must be key=value: ${argument}`);
-      (query as Record<string, string>)[key!] = value;
+      query[key!] = value;
     }
   }
+  validateQuery(query);
   if (view !== "occurrences" && view !== "implementations")
     throw new Error("view must be occurrences or implementations");
   if (view === "implementations") {

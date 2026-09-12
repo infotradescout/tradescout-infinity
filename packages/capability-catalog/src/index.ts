@@ -1,7 +1,15 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { lstat, readdir, readFile, realpath } from "node:fs/promises";
-import { extname, isAbsolute, join, relative, resolve, sep } from "node:path";
+import {
+  extname,
+  isAbsolute,
+  join,
+  relative,
+  resolve,
+  sep,
+  win32,
+} from "node:path";
 import * as ts from "typescript";
 import {
   implementationIndex,
@@ -82,7 +90,7 @@ export function validateSourceRegistry(roots: unknown): string[] {
       errors.push(`source[${index}].repository must be a stable identifier`);
     if (typeof candidate.path !== "string" || !candidate.path.trim())
       errors.push(`source[${index}].path is required`);
-    else if (isAbsolute(candidate.path))
+    else if (isAbsolute(candidate.path) || win32.isAbsolute(candidate.path))
       errors.push(`source[${index}].path must be workspace-relative`);
     if (candidate.scan !== undefined && typeof candidate.scan !== "boolean")
       errors.push(`source[${index}].scan must be boolean`);

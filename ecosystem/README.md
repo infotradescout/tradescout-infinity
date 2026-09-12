@@ -34,6 +34,13 @@ smaller views. Query results include every location in a matching text group;
 filters must match the same observation. The default query view remains the raw
 occurrence list.
 
+Queries accept `repository`, `name`, `category`, `kind`, `risk` and
+`disposition` as `key=value` arguments or a JSON object. Both forms reject
+unknown keys, blank or nonstring values, and unsupported kind, risk or
+disposition values without printing catalog results. Source registrations reject
+absolute paths from either Windows or Unix, regardless of the machine running
+the catalog.
+
 For the saved snapshot, 30,666 observations yield 17,346 exact declaration-text
 groups and 1,749 uncompared observations. This folds 11,571 repeated
 declarations into their groups; it does not establish the number of unique

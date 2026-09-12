@@ -57,16 +57,29 @@ test("source registry rejects malformed and unsafe scan declarations", () => {
       "source[3] must set scan=false for a wip source",
     ],
   );
-  assert.deepEqual(
-    validateSourceRegistry([
-      {
-        repository: "canonical",
-        path: "C:/machine-specific/repo",
-        sourceKind: "canonical",
-      },
-    ]),
-    ["source[0].path must be workspace-relative"],
-  );
+  for (const path of [
+    "C:/machine-specific/repo",
+    "C:\\machine-specific\\repo",
+    "\\\\server\\share\\repo",
+    "\\machine-specific\\repo",
+    "//server/share/repo",
+    "/machine-specific/repo",
+  ])
+    assert.deepEqual(
+      validateSourceRegistry([
+        { repository: "canonical", path, sourceKind: "canonical" },
+      ]),
+      ["source[0].path must be workspace-relative"],
+      path,
+    );
+  for (const path of [".", "src/repo", "src\\repo", "../repo"])
+    assert.deepEqual(
+      validateSourceRegistry([
+        { repository: "canonical", path, sourceKind: "canonical" },
+      ]),
+      [],
+      path,
+    );
 });
 
 test("scans deterministically with provenance and exclusions", async () => {
