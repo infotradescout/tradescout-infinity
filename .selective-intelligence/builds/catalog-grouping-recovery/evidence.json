@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-09-09T05:20:11.622Z",
+  "state": "local_source_slice_verified_pending_independent_review",
+  "baseRevision": "f22dd794a2f2081902bdd7e581243afda0de97cb",
+  "recoveredOriginalRevision": "7fd9c3a972ece06a2ba746490f91180274322c3d",
+  "branch": "codex/infinity-catalog-grouping-recovery-20260909",
+  "sourceBoundary": {
+    "copiedPackageFiles": 9,
+    "allMatchFormattedOriginal": true,
+    "addedVerifier": "packages/capability-catalog/scripts/verify-snapshot.mjs",
+    "excludedOwners": [
+      "contracts",
+      "registry",
+      "provider-core",
+      "auth-core",
+      "affiliate-core",
+      "ui-core",
+      "apps/api"
+    ],
+    "rootChanges": [
+      "catalog scripts and test inclusion",
+      "catalog TypeScript project reference",
+      "existing dependency lock importer",
+      "local generated-data ignore patterns"
+    ]
+  },
+  "input": {
+    "sha256": "c8031f7eb96b1ce939ee2118d46dc2aac13e7332dee4ce89dc3119d4d6f65c3f",
+    "tracked": false,
+    "unchanged": true,
+    "sourceVisibility": "unproven",
+    "targetRepositoryVisibility": "PUBLIC"
+  },
+  "tests": {
+    "catalog": {
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0
+    },
+    "repositoryTypecheck": "pass",
+    "scopedFormatting": "pass",
+    "projectIndex": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "repositorySuite": {
+      "passed": 44,
+      "failed": 1,
+      "skipped": 0,
+      "result": "fail",
+      "failure": "JW Stone attributed Screen Pass idempotency replay"
+    },
+    "baseline": {
+      "revision": "f22dd794a2f2081902bdd7e581243afda0de97cb",
+      "ordinaryTests": {
+        "passed": 26,
+        "failed": 0
+      },
+      "delayedReplay": "Same registry error reproduced with identical input after 30 ms and no catalog package",
+      "cause": "The baseline includes a generated occurredAt timestamp in the replay payload digest."
+    }
+  },
+  "snapshot": {
+    "checkedAtUtc": "2026-09-09T05:14:48.288Z",
+    "inputSha256": "c8031f7eb96b1ce939ee2118d46dc2aac13e7332dee4ce89dc3119d4d6f65c3f",
+    "inputUnchanged": true,
+    "grouping": {
+      "observations": 30666,
+      "comparedObservations": 28917,
+      "exactTextGroups": 17346,
+      "repeatedTextGroups": 7046,
+      "repeatedObservations": 11571,
+      "uncomparedObservations": 1749,
+      "observationsAfterTextGrouping": 19095,
+      "verifiedUniqueCapabilities": null
+    },
+    "retainedObservations": 30666,
+    "nameGroupsWithDistinctText": 1915,
+    "canonicalGroupsChecked": 15,
+    "queryVariantGroups": 8,
+    "queryEvidenceLocations": 36,
+    "result": "pass",
+    "boundary": "Saved metadata replay only. No source recrawl, behavioral equivalence, consumer migration, or live integration is established."
+  },
+  "preservation": {
+    "dirtyStatusEntries": 68,
+    "expandedFilesChecked": 121,
+    "changedFiles": 0,
+    "statusUnchanged": true,
+    "headUnchanged": true
+  },
+  "controls": {
+    "executionContract": "validated with execution_contract.py",
+    "fullStartPack": "unclaimed; the recovered original contract contained unresolved placeholders",
+    "independentReview": "pending"
+  },
+  "remaining": [
+    "Independent review of this source slice",
+    "Separate baseline registry replay repair before a full release gate can be green",
+    "No push, merge, data publication, consumer migration or deployment performed"
+  ],
+  "localEvidence": {
+    "directory": "work/infinity-catalog-grouping in the recovery task workspace",
+    "files": [
+      {
+        "path": "catalog-tests.log",
+        "sha256": "ed2fbb3ac9a560b58e544f8d6c2c87637dbb793085a43ea6a2e31e3d0e41a2a2"
+      },
+      {
+        "path": "typecheck.log",
+        "sha256": "5e419d5756c7f39390f8b5cac48831a2cf6a3983f8bd0916f14fe67ee9087170"
+      },
+      {
+        "path": "format-check.log",
+        "sha256": "f20510a9da4717c51c4cffee6d0dd88d6c9a723d0a83711d01216f5b48961283"
+      },
+      {
+        "path": "snapshot-refresh.log",
+        "sha256": "dac5840f69eee43c3056ca2d05c32b13b8637d640316c7f2cc0b74d6fee7579c"
+      },
+      {
+        "path": "snapshot-verification.log",
+        "sha256": "1097645d8051f1d9678739890bb95020e8ab11da1582fff4240d1e44031d9c34"
+      },
+      {
+        "path": "repository-tests.log",
+        "sha256": "4d6e031403700e749ffe3a65cc2333f1a289a03336965f0597e7a121c168eb3e"
+      },
+      {
+        "path": "baseline-tests.log",
+        "sha256": "30ca3fd7ff111ea89975b687d83b819134a0c1a6032ca14fa959660956e8640f"
+      },
+      {
+        "path": "baseline-delayed-replay.json",
+        "sha256": "d103f47ab0091dc3ac2751717544ea4bedc5530c9d2ce2f210ae6490fbd37b4a"
+      },
+      {
+        "path": "reproduce-baseline-replay.mjs",
+        "sha256": "8f5b9ed76ababf16e0124f2687b7b1ac18169a5eae54d07b17118edcc745ef1f"
+      },
+      {
+        "path": "snapshot-data-inspection.json",
+        "sha256": "5480a6d9572dd24da997c44ddb0111456b45ef1bdeea9503f3a5ce0940633870"
+      },
+      {
+        "path": "original-wip-before.json",
+        "sha256": "b7075aeb807e22d379989f5904dddb3b8b220b530bc99df0f920b6606efe156f"
+      },
+      {
+        "path": "original-wip-after.json",
+        "sha256": "41aa8d2afe871ecd21dbb94f9e016c453e409611aea7678c9fb42defdf8a0931"
+      },
+      {
+        "path": "recovered-source-parity.json",
+        "sha256": "69cb3326af0a4134f546717b64beac7441df1c5afc22ac3b2633e0fdbd40945e"
+      }
+    ]
+  }
+}

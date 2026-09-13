@@ -29,7 +29,7 @@ mutation.
 - `apps/api`: tenant-authenticated registry HTTP API.
 - `integrations/selective-intelligence`: immutable SI source metadata and
   compatibility/drift verification. The SI engine and plugin remain canonical in
-  `Platynum-47/Selective-Intelligence`.
+  `infotradescout/Selective-Intelligence`.
 - `migrations`: deployable PostgreSQL schema.
 - `docs`: product doctrine, security boundaries, ADRs, and application adapter
   plans.
