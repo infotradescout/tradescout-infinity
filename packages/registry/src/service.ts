@@ -307,7 +307,7 @@ export class RegistryService {
       object: evidence.object,
       idempotencyKey: evidence.idempotencyKey,
       eventType: evidence.eventType,
-      occurredAt: evidence.occurredAt,
+      occurredAt: input.occurredAt ?? null,
       attributionProofId: evidence.attributionProofId ?? null,
       attributionAssignmentId: evidence.attributionAssignmentId ?? null,
     });

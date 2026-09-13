@@ -242,6 +242,65 @@ test("objects cannot cross authenticated tenant boundaries", async () => {
   );
 });
 
+test("conversion retries preserve evidence and server time after delay and concurrent replay", async () => {
+  const registry = service();
+  const input = {
+    tenantId: tenantA,
+    object: objectA,
+    idempotencyKey: "checkout:retry-without-clock",
+    eventType: "request_created",
+  };
+  const first = await registry.recordConversion(input);
+  await new Promise((resolve) => setTimeout(resolve, 30));
+  const retries = await Promise.all(
+    Array.from({ length: 8 }, () => registry.recordConversion(input)),
+  );
+  for (const retry of retries) {
+    assert.equal(retry.created, false);
+    assert.deepEqual(retry.evidence, first.evidence);
+  }
+  await assert.rejects(
+    registry.recordConversion({
+      ...input,
+      occurredAt: "2026-09-13T12:00:00.000Z",
+    }),
+    /different payload/,
+  );
+});
+
+test("conversion keys cannot collide across tenant and idempotency-key boundaries", async () => {
+  const registry = service();
+  const firstTenant = "tenant:division" as TenantId;
+  const secondTenant = "tenant" as TenantId;
+  const inputs = [
+    {
+      tenantId: firstTenant,
+      object: { ...objectA, tenantId: firstTenant },
+      idempotencyKey: "invoice123",
+      eventType: "request_created",
+    },
+    {
+      tenantId: secondTenant,
+      object: { ...objectA, tenantId: secondTenant },
+      idempotencyKey: "division:invoice123",
+      eventType: "request_created",
+    },
+  ];
+  const first = await registry.recordConversion(inputs[0]!);
+  const second = await registry.recordConversion(inputs[1]!);
+  assert.equal(first.created, true);
+  assert.equal(second.created, true);
+  assert.notEqual(first.evidence.evidenceId, second.evidence.evidenceId);
+  for (const [index, input] of inputs.entries()) {
+    const replay = await registry.recordConversion(input);
+    assert.equal(replay.created, false);
+    assert.equal(
+      replay.evidence.evidenceId,
+      [first, second][index]!.evidence.evidenceId,
+    );
+  }
+});
+
 test("attribution touches are tenant-bound and non-payable observations", async () => {
   const registry = service();
   const touch = await registry.recordAttributionTouch({
