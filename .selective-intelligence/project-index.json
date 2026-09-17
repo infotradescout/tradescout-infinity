@@ -1,18 +1,22 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-13T17:48:02Z",
+  "generated_at": "2026-09-17T15:59:56Z",
   "source": {
     "kind": "git",
-    "revision": "30eff03e3a0592eccfe5cc0317dde1a0ce5625ba",
+    "revision": "2a0b8705f6146d087bc4f1fb27f840d4d3d1a9d4",
     "dirty": false,
-    "inventory_sha256": "73d6fb9d8c21c8c6f1fdccebb1afb6328a78ff3e7d57aededaa053e2822b72dc"
+    "inventory_sha256": "ae69cf175e6696f7c9ebb942dc5fb311eb289f65cd0b509b8690b88dc1cc34a2"
   },
   "inventory": {
     "directories": [
       {
         "path": "apps/api/src",
         "source_file_count": 4
+      },
+      {
+        "path": "apps/api/test",
+        "source_file_count": 1
       },
       {
         "path": "integrations/selective-intelligence",
@@ -59,8 +63,8 @@
       {
         "path": "apps/api/src/auth.ts",
         "language": "ts",
-        "sha256": "1e10bcab367dcf371aa6acafc41f7c7ebe18a1b3e1d36e26baf442da2b323ba9",
-        "bytes": 1445
+        "sha256": "784219816844348734770d7f1c969c1eacb9d20aabfbb66cc92295c09a5aa706",
+        "bytes": 1624
       },
       {
         "path": "apps/api/src/main.ts",
@@ -79,6 +83,12 @@
         "language": "ts",
         "sha256": "3ad6f21b9f29ace31f23a9f5e3a2b7d8ed0bb8a29c21188be760a33740e6745e",
         "bytes": 9667
+      },
+      {
+        "path": "apps/api/test/installed.native.test.mjs",
+        "language": "mjs",
+        "sha256": "74602b1dd0fc35f0f617e75a292704c34c2782afbb1ad3bad72fbe54b69f60a2",
+        "bytes": 12294
       },
       {
         "path": "integrations/selective-intelligence/compatibility.test.mjs",
@@ -260,28 +270,28 @@
         "name": "AuthenticatedTenant",
         "kind": "type",
         "path": "apps/api/src/auth.ts",
-        "line": 8,
+        "line": 11,
         "exported": true
       },
       {
         "name": "ApiKeyAuthenticator",
         "kind": "type",
         "path": "apps/api/src/auth.ts",
-        "line": 13,
+        "line": 16,
         "exported": true
       },
       {
         "name": "hashApiKey",
         "kind": "function",
         "path": "apps/api/src/auth.ts",
-        "line": 17,
+        "line": 20,
         "exported": true
       },
       {
         "name": "PostgresApiKeyAuthenticator",
         "kind": "class",
         "path": "apps/api/src/auth.ts",
-        "line": 21,
+        "line": 24,
         "exported": true
       },
       {
@@ -374,6 +384,27 @@
         "path": "apps/api/src/server.ts",
         "line": 90,
         "exported": true
+      },
+      {
+        "name": "start",
+        "kind": "function",
+        "path": "apps/api/test/installed.native.test.mjs",
+        "line": 77,
+        "exported": false
+      },
+      {
+        "name": "stop",
+        "kind": "function",
+        "path": "apps/api/test/installed.native.test.mjs",
+        "line": 105,
+        "exported": false
+      },
+      {
+        "name": "request",
+        "kind": "function",
+        "path": "apps/api/test/installed.native.test.mjs",
+        "line": 155,
+        "exported": false
       },
       {
         "name": "readPinned",
@@ -1990,11 +2021,11 @@
   "reuse_decisions": [],
   "findings": [],
   "summary": {
-    "directories": 11,
-    "source_files": 33,
-    "symbols": 245,
+    "directories": 12,
+    "source_files": 34,
+    "symbols": 248,
     "components": 0,
-    "functions_and_hooks": 118,
+    "functions_and_hooks": 121,
     "raw_ui_elements": 0,
     "errors": 0,
     "warnings": 0
