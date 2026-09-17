@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-17T19:21:25Z",
+  "generated_at": "2026-09-17T19:30:20Z",
   "source": {
     "kind": "git",
-    "revision": "6218e9d0eef1ae65126ea1f515bb765050b34c9a",
-    "dirty": false,
-    "inventory_sha256": "debd05cfa4077a13f3453d592d479f9df99a6945c6f11824823ceb97f2d9da6a"
+    "revision": "1a35f0109c951219b623c98383c7ab9cf1445d9b",
+    "dirty": true,
+    "inventory_sha256": "a9e3722e0b52440ab1920ae45560f0ffcca5bdbb309d03c38be43e265afe8de6"
   },
   "inventory": {
     "directories": [
@@ -93,8 +93,8 @@
       {
         "path": "apps/api/test/installed.native.test.mjs",
         "language": "mjs",
-        "sha256": "74602b1dd0fc35f0f617e75a292704c34c2782afbb1ad3bad72fbe54b69f60a2",
-        "bytes": 12294
+        "sha256": "902e28ebe932baff7d0fe645c148ba7a00e1651e054d7ffebdc92f2d48136836",
+        "bytes": 12431
       },
       {
         "path": "integrations/selective-intelligence/compatibility.test.mjs",
@@ -402,21 +402,21 @@
         "name": "start",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 77,
+        "line": 80,
         "exported": false
       },
       {
         "name": "stop",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 105,
+        "line": 109,
         "exported": false
       },
       {
         "name": "request",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 155,
+        "line": 159,
         "exported": false
       },
       {

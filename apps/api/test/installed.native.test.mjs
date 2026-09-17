@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { fork } from "node:child_process";
-import { randomUUID, createHash } from "node:crypto";
+import { randomUUID, createHash, randomBytes } from "node:crypto";
 import { readFileSync, realpathSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join, sep } from "node:path";
@@ -39,11 +39,14 @@ const { createInfinityServer } = await import(
 const { PostgresApiKeyAuthenticator } = await import(
   pathToFileURL(join(installed, "dist/src/auth.js"))
 );
+const key =
+  process.env.INFINITY_ACCEPTANCE_SIGNING_KEY ??
+  randomBytes(32).toString("hex");
 const signingKeys = [
   {
     version: 1,
     status: "active",
-    secret: "synthetic-acceptance-only-not-a-production-key",
+    secret: key,
   },
 ];
 
@@ -76,6 +79,7 @@ if (process.argv.includes("--serve")) {
       const children = [];
       async function start() {
         const child = fork(import.meta.filename, ["--serve"], {
+          env: { ...process.env, INFINITY_ACCEPTANCE_SIGNING_KEY: key },
           stdio: ["ignore", "ignore", "pipe", "ipc"],
         });
         children.push(child);
