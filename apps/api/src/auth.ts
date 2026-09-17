@@ -4,7 +4,10 @@ import { and, eq, gt, isNull, or } from "drizzle-orm";
 import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 
 import type { TenantId } from "@tradescout-infinity/contracts";
-import { infinityApiKeys } from "@tradescout-infinity/registry/schema";
+import {
+  infinityApiKeys,
+  infinityTenants,
+} from "@tradescout-infinity/registry/schema";
 
 export interface AuthenticatedTenant {
   tenantId: TenantId;
@@ -27,10 +30,15 @@ export class PostgresApiKeyAuthenticator implements ApiKeyAuthenticator {
     const [key] = await this.db
       .select({ id: infinityApiKeys.id, tenantId: infinityApiKeys.tenantId })
       .from(infinityApiKeys)
+      .innerJoin(
+        infinityTenants,
+        eq(infinityApiKeys.tenantId, infinityTenants.id),
+      )
       .where(
         and(
           eq(infinityApiKeys.keyHash, hashApiKey(rawApiKey)),
           eq(infinityApiKeys.status, "active"),
+          eq(infinityTenants.status, "active"),
           or(
             isNull(infinityApiKeys.expiresAt),
             gt(infinityApiKeys.expiresAt, new Date()),
