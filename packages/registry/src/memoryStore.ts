@@ -47,7 +47,10 @@ export class MemoryRegistryStore implements RegistryStore {
   async recordConversionEvidence(
     record: StoredConversionEvidence,
   ): Promise<{ created: boolean; record: StoredConversionEvidence }> {
-    const key = `${record.evidence.tenantId}:${record.evidence.idempotencyKey}`;
+    const key = JSON.stringify([
+      record.evidence.tenantId,
+      record.evidence.idempotencyKey,
+    ]);
     const current = this.#conversionEvidence.get(key);
     if (current) {
       if (current.payloadDigest !== record.payloadDigest) {

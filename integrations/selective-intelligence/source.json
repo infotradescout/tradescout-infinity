@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "name": "selective-intelligence",
-  "source": "github:Platynum-47/Selective-Intelligence",
-  "expectedPluginVersion": "0.1.0",
-  "pinnedCommit": "66bec2c0107afe34368874c237c973b7b708dac7",
-  "status": "awaiting_canonical_release",
+  "source": "github:infotradescout/Selective-Intelligence",
+  "expectedPluginVersion": "1.0.8",
+  "pinnedCommit": "d15220aea58553b08d9f577cf527ff3118f42edf",
+  "status": "installation_unverified",
   "installable": false,
-  "blocker": "Canonical plugin commit is validated locally but not published because the GitHub integration cannot create refs in Platynum-47/Selective-Intelligence."
+  "blocker": "Canonical source is published and pinned. Installation and runtime use by this consumer have not been verified."
 }
