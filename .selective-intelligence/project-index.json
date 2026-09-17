@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-17T15:59:56Z",
+  "generated_at": "2026-09-17T19:21:25Z",
   "source": {
     "kind": "git",
-    "revision": "2a0b8705f6146d087bc4f1fb27f840d4d3d1a9d4",
+    "revision": "6218e9d0eef1ae65126ea1f515bb765050b34c9a",
     "dirty": false,
-    "inventory_sha256": "ae69cf175e6696f7c9ebb942dc5fb311eb289f65cd0b509b8690b88dc1cc34a2"
+    "inventory_sha256": "debd05cfa4077a13f3453d592d479f9df99a6945c6f11824823ceb97f2d9da6a"
   },
   "inventory": {
     "directories": [
@@ -16,7 +16,7 @@
       },
       {
         "path": "apps/api/test",
-        "source_file_count": 1
+        "source_file_count": 2
       },
       {
         "path": "integrations/selective-intelligence",
@@ -83,6 +83,12 @@
         "language": "ts",
         "sha256": "3ad6f21b9f29ace31f23a9f5e3a2b7d8ed0bb8a29c21188be760a33740e6745e",
         "bytes": 9667
+      },
+      {
+        "path": "apps/api/test/auth.query.test.mjs",
+        "language": "mjs",
+        "sha256": "37a37f63c28a26c787046dc87f6146f9c22ffd300d3eeb3730253c730e3d3f17",
+        "bytes": 4093
       },
       {
         "path": "apps/api/test/installed.native.test.mjs",
@@ -384,6 +390,13 @@
         "path": "apps/api/src/server.ts",
         "line": 90,
         "exported": true
+      },
+      {
+        "name": "harness",
+        "kind": "function",
+        "path": "apps/api/test/auth.query.test.mjs",
+        "line": 9,
+        "exported": false
       },
       {
         "name": "start",
@@ -2022,10 +2035,10 @@
   "findings": [],
   "summary": {
     "directories": 12,
-    "source_files": 34,
-    "symbols": 248,
+    "source_files": 35,
+    "symbols": 249,
     "components": 0,
-    "functions_and_hooks": 121,
+    "functions_and_hooks": 122,
     "raw_ui_elements": 0,
     "errors": 0,
     "warnings": 0
