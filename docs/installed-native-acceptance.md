@@ -12,14 +12,22 @@ rejects any host other than `127.0.0.1` and requires a database name beginning
 runner does not initialize or migrate a database.
 
 Build and install the API to a new versioned directory using the locked
-workspace dependencies:
+workspace dependencies and the repository's pinned pnpm 11.7.0. The runner
+rejects installations whose runtime packages resolve back into the workspace:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
 pnpm --filter @tradescout-infinity/api --prod deploy --legacy <new-install-directory>
 pnpm test:installed
+pnpm test:installed:neon
 ```
+
+The optional `test:installed:neon` mode runs the same scenarios through the
+installed default Neon Fetch entrypoint, including its module-scope pool, using
+a test-only loopback HTTP bridge. It uses the same disposable database guard and
+starts independent processes before checking restart recovery. This is native
+local transport evidence, not a hosted Neon deployment test.
 
 The declared SI compatibility checkout must be supplied through `SI_SOURCE_ROOT`
 at the exact version in `integrations/selective-intelligence/source.json`. Do

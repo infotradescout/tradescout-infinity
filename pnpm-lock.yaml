@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@neon/config':
+        specifier: ^1.6.0
+        version: 1.6.0
       '@types/node':
         specifier: ^24.0.0
         version: 24.13.3
@@ -20,6 +23,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@neon/functions':
+        specifier: ^0.8.0
+        version: 0.8.0
       '@tradescout-infinity/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
@@ -71,6 +77,18 @@ importers:
         version: 8.20.0
 
 packages:
+
+  '@neon/config@1.6.0':
+    resolution: {integrity: sha512-68uaHwhnYo+QhyYGjr8++2k8u6zu+XERpjEiwrFr9ieCaLz5gq0bE88b5YMhnvhbOCgGbU+jGs47VVqNHjpuPA==}
+    engines: {node: '>=20.19.0'}
+
+  '@neon/functions@0.8.0':
+    resolution: {integrity: sha512-571d10BHXi2aEgxDaKIVL7NnEb25Dx7aduMyfu2xdo1BPTaVEJ4vKs3JUOGpqx1gMzhX5gioRK0dN8tjuRkdUQ==}
+    engines: {node: '>=20.19.0'}
+
+  '@neon/sdk@6.0.0':
+    resolution: {integrity: sha512-ILfSjXGvCaR1zz9Z8y97Hwe6N4fAHDtab473GpMNbfUzAYMhZXJGuzW3KUEjX5U87OHF/+2RuJLZNI/L7ly5IQ==}
+    engines: {node: '>=20.19.0'}
 
   '@types/node@24.13.3':
     resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
@@ -170,6 +188,10 @@ packages:
       sqlite3:
         optional: true
 
+  jiti@2.7.0:
+    resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
+    hasBin: true
+
   pg-cloudflare@1.4.0:
     resolution: {integrity: sha512-Vo7z/6rrQYxpNRylp4Tlob2elzbh+N/MOQbxFVWCxS7oEx6jF53GTJFxK2WWpKuBRkmiin4Mt+xofFDjx09R0A==}
 
@@ -241,7 +263,20 @@ packages:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
     engines: {node: '>=0.4'}
 
+  zod@4.6.5:
+    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
+
 snapshots:
+
+  '@neon/config@1.6.0':
+    dependencies:
+      '@neon/sdk': 6.0.0
+      jiti: 2.7.0
+      zod: 4.6.5
+
+  '@neon/functions@0.8.0': {}
+
+  '@neon/sdk@6.0.0': {}
 
   '@types/node@24.13.3':
     dependencies:
@@ -257,6 +292,8 @@ snapshots:
     optionalDependencies:
       '@types/pg': 8.20.0
       pg: 8.22.0
+
+  jiti@2.7.0: {}
 
   pg-cloudflare@1.4.0:
     optional: true
@@ -312,3 +349,5 @@ snapshots:
   undici-types@7.18.2: {}
 
   xtend@4.0.2: {}
+
+  zod@4.6.5: {}

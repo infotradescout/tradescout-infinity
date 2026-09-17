@@ -1,22 +1,26 @@
 {
   "schema_version": 1,
   "index_version": "0.1.0",
-  "generated_at": "2026-09-17T19:30:20Z",
+  "generated_at": "2026-09-17T22:13:58Z",
   "source": {
     "kind": "git",
-    "revision": "1a35f0109c951219b623c98383c7ab9cf1445d9b",
+    "revision": "05c73f19a9bc6f67d1a6e289b4e5cdbe2aafe673",
     "dirty": true,
-    "inventory_sha256": "a9e3722e0b52440ab1920ae45560f0ffcca5bdbb309d03c38be43e265afe8de6"
+    "inventory_sha256": "831a75cf8f5096d5c05510955e90ce1240650f8b90001f45bbf7b98afbe8f05d"
   },
   "inventory": {
     "directories": [
       {
+        "path": ".",
+        "source_file_count": 1
+      },
+      {
         "path": "apps/api/src",
-        "source_file_count": 4
+        "source_file_count": 7
       },
       {
         "path": "apps/api/test",
-        "source_file_count": 2
+        "source_file_count": 3
       },
       {
         "path": "integrations/selective-intelligence",
@@ -67,10 +71,22 @@
         "bytes": 1624
       },
       {
+        "path": "apps/api/src/fetch.ts",
+        "language": "ts",
+        "sha256": "8c83e332cb60582e8c7f6e5a5b1497bcd9185704246714373c657a932f8a5edc",
+        "bytes": 1975
+      },
+      {
         "path": "apps/api/src/main.ts",
         "language": "ts",
-        "sha256": "dab87136ebe4d965db126edd43d07ac069e5552e8018bae016ce571fcad8484e",
-        "bytes": 1209
+        "sha256": "a91f776d24e865e176c0471ea80535e05098b484a611acec7f2e59c17ba5d985",
+        "bytes": 526
+      },
+      {
+        "path": "apps/api/src/neon.ts",
+        "language": "ts",
+        "sha256": "e455fa423b33a17ce75c12d46e8a4a52eae9f12118cf8423aa8cccde31a2d044",
+        "bytes": 476
       },
       {
         "path": "apps/api/src/rateLimit.ts",
@@ -79,10 +95,16 @@
         "bytes": 829
       },
       {
+        "path": "apps/api/src/runtime.ts",
+        "language": "ts",
+        "sha256": "7196122edd009becbbfb6d6aae2a635fd70b8730e19c6f92399d2b3ff2292853",
+        "bytes": 1097
+      },
+      {
         "path": "apps/api/src/server.ts",
         "language": "ts",
-        "sha256": "3ad6f21b9f29ace31f23a9f5e3a2b7d8ed0bb8a29c21188be760a33740e6745e",
-        "bytes": 9667
+        "sha256": "0713d88bbbab539fa6f531bc67455f169102605cb32396968ac85ec6f899c57d",
+        "bytes": 10552
       },
       {
         "path": "apps/api/test/auth.query.test.mjs",
@@ -91,16 +113,28 @@
         "bytes": 4093
       },
       {
+        "path": "apps/api/test/fetch.test.mjs",
+        "language": "mjs",
+        "sha256": "7c1aeaaccc449667f99d099d780df7684485d64cff11583c31ecf8731d00a9c1",
+        "bytes": 10931
+      },
+      {
         "path": "apps/api/test/installed.native.test.mjs",
         "language": "mjs",
-        "sha256": "902e28ebe932baff7d0fe645c148ba7a00e1651e054d7ffebdc92f2d48136836",
-        "bytes": 12431
+        "sha256": "0313ebadfbf085304c9b6cc49c6c5907f1950fb2242952e064f33a8692963a27",
+        "bytes": 13796
       },
       {
         "path": "integrations/selective-intelligence/compatibility.test.mjs",
         "language": "mjs",
         "sha256": "9c7f904d5bd2117ad8d4fb35435dba7b597f1cffb671a480778fd7e93ab6c0c4",
         "bytes": 1904
+      },
+      {
+        "path": "neon.ts",
+        "language": "ts",
+        "sha256": "e4b1a86dc5b3685a01a0614942b9cafdb2d20e9c2493c79ffb234934b0375ab8",
+        "bytes": 477
       },
       {
         "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
@@ -277,1743 +311,2080 @@
         "kind": "type",
         "path": "apps/api/src/auth.ts",
         "line": 11,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ApiKeyAuthenticator",
         "kind": "type",
         "path": "apps/api/src/auth.ts",
         "line": 16,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "hashApiKey",
         "kind": "function",
         "path": "apps/api/src/auth.ts",
         "line": 20,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PostgresApiKeyAuthenticator",
         "kind": "class",
         "path": "apps/api/src/auth.ts",
         "line": 24,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
-        "name": "SigningKey",
+        "name": "InfinityApiDependencies",
         "kind": "type",
-        "path": "apps/api/src/main.ts",
-        "line": 8,
-        "exported": false
+        "path": "apps/api/src/fetch.ts",
+        "line": 3,
+        "exported": false,
+        "defaultExport": false
       },
       {
-        "name": "required",
+        "name": "createInfinityFetchHandler",
         "kind": "function",
-        "path": "apps/api/src/main.ts",
-        "line": 13,
-        "exported": false
+        "path": "apps/api/src/fetch.ts",
+        "line": 25,
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "shutdown",
         "kind": "function",
         "path": "apps/api/src/main.ts",
-        "line": 38,
-        "exported": false
+        "line": 11,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "FixedWindowRateLimiter",
         "kind": "class",
         "path": "apps/api/src/rateLimit.ts",
         "line": 1,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
-        "name": "IncomingMessage",
+        "name": "SigningKey",
         "kind": "type",
-        "path": "apps/api/src/server.ts",
-        "line": 3,
-        "exported": false
+        "path": "apps/api/src/runtime.ts",
+        "line": 8,
+        "exported": false,
+        "defaultExport": false
       },
       {
-        "name": "ServerResponse",
-        "kind": "type",
-        "path": "apps/api/src/server.ts",
-        "line": 4,
-        "exported": false
+        "name": "required",
+        "kind": "function",
+        "path": "apps/api/src/runtime.ts",
+        "line": 12,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "createPostgresRuntime",
+        "kind": "function",
+        "path": "apps/api/src/runtime.ts",
+        "line": 21,
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "JsonObject",
         "kind": "type",
         "path": "apps/api/src/server.ts",
-        "line": 29,
-        "exported": false
+        "line": 25,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "InfinityHttpRequest",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 30,
+        "exported": true,
+        "defaultExport": false
+      },
+      {
+        "name": "InfinityHttpResponse",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 37,
+        "exported": true,
+        "defaultExport": false
+      },
+      {
+        "name": "InfinityApiDependencies",
+        "kind": "type",
+        "path": "apps/api/src/server.ts",
+        "line": 43,
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "sendJson",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 31,
-        "exported": false
+        "line": 49,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "readJson",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 42,
-        "exported": false
+        "line": 64,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "bearerToken",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 59,
-        "exported": false
+        "line": 81,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "authenticate",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 64,
-        "exported": false
+        "line": 86,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "asObjectReference",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 75,
-        "exported": false
+        "line": 97,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "createInfinityRequestHandler",
+        "kind": "function",
+        "path": "apps/api/src/server.ts",
+        "line": 112,
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "createInfinityServer",
         "kind": "function",
         "path": "apps/api/src/server.ts",
-        "line": 90,
-        "exported": true
+        "line": 293,
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "harness",
         "kind": "function",
         "path": "apps/api/test/auth.query.test.mjs",
         "line": 9,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "fixture",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 18,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "request",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 45,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "result",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 59,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "resolve",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 128,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "evidenceRequest",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 155,
+        "exported": false,
+        "defaultExport": false
+      },
+      {
+        "name": "invoke",
+        "kind": "function",
+        "path": "apps/api/test/fetch.test.mjs",
+        "line": 331,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "start",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 80,
-        "exported": false
+        "line": 115,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "stop",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 109,
-        "exported": false
+        "line": 144,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "request",
         "kind": "function",
         "path": "apps/api/test/installed.native.test.mjs",
-        "line": 159,
-        "exported": false
+        "line": 194,
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "readPinned",
         "kind": "function",
         "path": "integrations/selective-intelligence/compatibility.test.mjs",
         "line": 36,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "readJson",
         "kind": "function",
         "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
         "line": 18,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "hash",
         "kind": "function",
         "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
         "line": 19,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "retain",
         "kind": "function",
         "path": "packages/capability-catalog/scripts/verify-snapshot.mjs",
         "line": 43,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "Catalog",
         "kind": "type",
         "path": "packages/capability-catalog/src/cli.ts",
         "line": 20,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "SourceRoot",
         "kind": "type",
         "path": "packages/capability-catalog/src/cli.ts",
         "line": 21,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "writeAtomic",
         "kind": "function",
         "path": "packages/capability-catalog/src/cli.ts",
         "line": 23,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "pathKey",
         "kind": "function",
         "path": "packages/capability-catalog/src/cli.ts",
         "line": 39,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "stageOutput",
         "kind": "function",
         "path": "packages/capability-catalog/src/cli.ts",
         "line": 43,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ImplementationGroup",
         "kind": "type",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 3,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ImplementationIndex",
         "kind": "type",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 15,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ImplementationSummary",
         "kind": "type",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 33,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "evidenceKey",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 39,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "isTestContext",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 58,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "declarationComparisonBlocker",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 64,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "implementationIndex",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 84,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "findImplementations",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 164,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "implementationSummaryMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 172,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "implementationMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/implementations.ts",
         "line": 190,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ImplementationSummary",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 16,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "CatalogIdentity",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 21,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "SourceRoot",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 23,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "Descriptor",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 32,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SourceRecord",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 48,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "Catalog",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 64,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "validateSourceRegistry",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 76,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "sha256",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 147,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "git",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 151,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "gitState",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 163,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "collectFiles",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 182,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "visit",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 188,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "entries",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 189,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "categories",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 219,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "riskFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 239,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "dispositionFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 256,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "importsFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 265,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "lineAt",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 278,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "descriptorsFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 281,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "add",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 291,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "scanCatalog",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 376,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "catalogMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 512,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "CatalogSummary",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 552,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "CatalogQuery",
         "kind": "type",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 573,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "findCapabilities",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 582,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "matchesCapability",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 591,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "countBy",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 608,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "catalogSummary",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 615,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "catalogSummaryMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 648,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "rows",
         "kind": "function",
         "path": "packages/capability-catalog/src/index.ts",
         "line": 650,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ImplementationSummary",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 7,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "CatalogIdentity",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 9,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "catalogIdentity",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 20,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "catalogIdentityMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 63,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationDecision",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 81,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationEvidence",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 89,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationGroup",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 99,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationCategory",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 118,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationReport",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 126,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ReusableCandidateIndex",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 151,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizationMapLink",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 169,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedFamilyState",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 176,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedFamilyCapability",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 179,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedFamily",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 191,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedCapabilityIndex",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 211,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedPillarState",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 233,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedPillar",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 236,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "NormalizedOverview",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 249,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "FamilyDefinition",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 344,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "OverviewDefinition",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 567,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyTokens",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 657,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "signalMatches",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 671,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 681,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "categoryHits",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 689,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "pathHits",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 692,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyState",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 701,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "emptyFamilyKinds",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 723,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "emptyFamilyDecisions",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 730,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "emptyFamilyRisks",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 736,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyCapabilityScore",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 743,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizedCustomizationReasons",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 793,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "isSharedUiPrimitive",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 817,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "customizationReasonFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 826,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizeCapabilityName",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 873,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "normalizationKey",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 877,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "decisionFor",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 884,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "groupDescriptors",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1021,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "categoryMatrix",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1086,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "decisionCounts",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1113,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizationReport",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1128,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "FamilyBucket",
         "kind": "type",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1182,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyTotals",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1189,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "familyCapabilities",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1216,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizedCapabilityIndex",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1252,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "emptyOverviewStates",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1337,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "pillarState",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1343,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizedOverview",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1355,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "pillarDecisionSummary",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1439,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizedOverviewMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1446,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "familyDecisionSummary",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1516,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizedCapabilityMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1523,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "validateNormalizationMapLinks",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1584,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "reusableCandidateIndex",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1640,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "reusableCandidateMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1669,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "tableRows",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1706,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "normalizationMarkdown",
         "kind": "function",
         "path": "packages/capability-catalog/src/normalization.ts",
         "line": 1719,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "Catalog",
         "kind": "type",
         "path": "packages/capability-catalog/src/query-cli.ts",
         "line": 7,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "CatalogQuery",
         "kind": "type",
         "path": "packages/capability-catalog/src/query-cli.ts",
         "line": 8,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "validateQuery",
         "kind": "function",
         "path": "packages/capability-catalog/src/query-cli.ts",
         "line": 24,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "Descriptor",
         "kind": "type",
         "path": "packages/capability-catalog/test/catalog.test.ts",
         "line": 23,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "commitFixture",
         "kind": "function",
         "path": "packages/capability-catalog/test/catalog.test.ts",
         "line": 25,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "git",
         "kind": "function",
         "path": "packages/capability-catalog/test/catalog.test.ts",
         "line": 27,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "refresh",
         "kind": "function",
         "path": "packages/capability-catalog/test/catalog.test.ts",
         "line": 363,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "occurrence",
         "kind": "function",
         "path": "packages/capability-catalog/test/implementations.test.ts",
         "line": 18,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "catalog",
         "kind": "function",
         "path": "packages/capability-catalog/test/implementations.test.ts",
         "line": 37,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "run",
         "kind": "function",
         "path": "packages/capability-catalog/test/implementations.test.ts",
         "line": 231,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "isResolutionMethod",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 33,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "methodCanBeAuthoritative",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 40,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "validateVisualPayload",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 44,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "assertResolutionTrust",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 84,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "assertConversionEvidence",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 104,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "assertPartnerProgram",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 113,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "assertRewardDecision",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 131,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "filterAllowlistedActions",
         "kind": "function",
         "path": "packages/contracts/src/guards.ts",
         "line": 142,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceSourceKind",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 6,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceDecisionStatus",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 15,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceFieldRule",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 18,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritancePolicy",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 27,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceScreenPassEvidence",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 37,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceCandidate",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 43,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceOverride",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 55,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceRequest",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 64,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceFieldDecision",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 75,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceEvaluation",
         "kind": "type",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 85,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "assertNonEmpty",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 107,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "assertConfidence",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 113,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "assertIsoDate",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 119,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "assertSelectiveInheritancePolicy",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 125,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "candidateReason",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 174,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "rankCandidate",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 207,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "compareCandidates",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 219,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "evaluateSelectiveInheritance",
         "kind": "function",
         "path": "packages/contracts/src/selectiveInheritance.ts",
         "line": 229,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "cleanString",
         "kind": "function",
         "path": "packages/contracts/src/text.ts",
         "line": 2,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "collapseWhitespace",
         "kind": "function",
         "path": "packages/contracts/src/text.ts",
         "line": 12,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "compactWhitespace",
         "kind": "function",
         "path": "packages/contracts/src/text.ts",
         "line": 26,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "truncateWithEllipsis",
         "kind": "function",
         "path": "packages/contracts/src/text.ts",
         "line": 35,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "Brand",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 1,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "TenantId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 2,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PublicPassId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 4,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ObjectId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 5,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "IdempotencyKey",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 6,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PartnerId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 7,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ProgramId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 8,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionTouchId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 9,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionAssignmentId",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 10,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "Tenant",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 11,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "InfinityObjectReference",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 18,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionRule",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 24,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionCarrier",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 27,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PartnerProgram",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 39,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PartnerIdentity",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 51,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ShareTarget",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 60,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "PartnerLink",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 67,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionTouch",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 79,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionAssignment",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 93,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassScope",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 106,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassActionKind",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 109,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassAction",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 117,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassAttribution",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 124,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassVersion",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 130,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPass",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 137,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ResolutionMethod",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 149,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ResolutionConfidence",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 157,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassResolution",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 160,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionProof",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 172,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ConversionEvidence",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 183,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RewardEvaluationRequest",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 195,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RewardDecision",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 202,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "VisualPassPayload",
         "kind": "type",
         "path": "packages/contracts/src/types.ts",
         "line": 215,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ConversionEvidence",
         "kind": "type",
         "path": "packages/contracts/test/contracts.test.ts",
         "line": 13,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "PartnerProgram",
         "kind": "type",
         "path": "packages/contracts/test/contracts.test.ts",
         "line": 14,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "RewardDecision",
         "kind": "type",
         "path": "packages/contracts/test/contracts.test.ts",
         "line": 15,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassResolution",
         "kind": "type",
         "path": "packages/contracts/test/contracts.test.ts",
         "line": 16,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritancePolicy",
         "kind": "type",
         "path": "packages/contracts/test/selectiveInheritance.test.ts",
         "line": 6,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "SelectiveInheritanceRequest",
         "kind": "type",
         "path": "packages/contracts/test/selectiveInheritance.test.ts",
         "line": 7,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "request",
         "kind": "function",
         "path": "packages/contracts/test/selectiveInheritance.test.ts",
         "line": 51,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "IssueOverlayInput",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 2,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "OverlayResult",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 9,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "EmbedAssetInput",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 15,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "EmbeddedAssetResult",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 22,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "DetectAssetInput",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 28,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "WatermarkDetection",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 34,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ProviderHealth",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 41,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "WatermarkProvider",
         "kind": "type",
         "path": "packages/provider-core/src/types.ts",
         "line": 48,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "copyPass",
         "kind": "function",
         "path": "packages/registry/src/memoryStore.ts",
         "line": 9,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "MemoryRegistryStore",
         "kind": "class",
         "path": "packages/registry/src/memoryStore.ts",
         "line": 13,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RegistryDatabase",
         "kind": "type",
         "path": "packages/registry/src/postgresStore.ts",
         "line": 23,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "rowToPass",
         "kind": "function",
         "path": "packages/registry/src/postgresStore.ts",
         "line": 25,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "rowToEvidence",
         "kind": "function",
         "path": "packages/registry/src/postgresStore.ts",
         "line": 46,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "PostgresRegistryStore",
         "kind": "class",
         "path": "packages/registry/src/postgresStore.ts",
         "line": 69,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "AttributionCarrier",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 8,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "AttributionTouch",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 9,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ConversionEvidence",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 10,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "InfinityObjectReference",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 11,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "PartnerId",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 12,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ProgramId",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 13,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "PublicPassId",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 14,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPass",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 15,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassAction",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 16,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassAttribution",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 17,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassResolution",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 18,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "ScreenPassScope",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 19,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "TenantId",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 20,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "VisualPassPayload",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 21,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "isSafeDestination",
         "kind": "function",
         "path": "packages/registry/src/service.ts",
         "line": 35,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "digestJson",
         "kind": "function",
         "path": "packages/registry/src/service.ts",
         "line": 50,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "IssuePassInput",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 54,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "ResolvePassInput",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 65,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RecordAttributionTouchInput",
         "kind": "type",
         "path": "packages/registry/src/service.ts",
         "line": 72,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RegistryService",
         "kind": "class",
         "path": "packages/registry/src/service.ts",
         "line": 88,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "SigningKey",
         "kind": "type",
         "path": "packages/registry/src/signing.ts",
         "line": 8,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "signingMessage",
         "kind": "function",
         "path": "packages/registry/src/signing.ts",
         "line": 14,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "SigningKeyRing",
         "kind": "class",
         "path": "packages/registry/src/signing.ts",
         "line": 22,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "StoredPass",
         "kind": "type",
         "path": "packages/registry/src/store.ts",
         "line": 9,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "StoredConversionEvidence",
         "kind": "type",
         "path": "packages/registry/src/store.ts",
         "line": 14,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "StoredAttributionTouch",
         "kind": "type",
         "path": "packages/registry/src/store.ts",
         "line": 19,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "RegistryStore",
         "kind": "type",
         "path": "packages/registry/src/store.ts",
         "line": 23,
-        "exported": true
+        "exported": true,
+        "defaultExport": false
       },
       {
         "name": "service",
         "kind": "function",
         "path": "packages/registry/test/registry.test.ts",
         "line": 25,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       },
       {
         "name": "issue",
         "kind": "function",
         "path": "packages/registry/test/registry.test.ts",
         "line": 39,
-        "exported": false
+        "exported": false,
+        "defaultExport": false
       }
     ],
     "ui": {
@@ -2034,11 +2405,11 @@
   "reuse_decisions": [],
   "findings": [],
   "summary": {
-    "directories": 12,
-    "source_files": 35,
-    "symbols": 249,
+    "directories": 13,
+    "source_files": 40,
+    "symbols": 260,
     "components": 0,
-    "functions_and_hooks": 122,
+    "functions_and_hooks": 131,
     "raw_ui_elements": 0,
     "errors": 0,
     "warnings": 0

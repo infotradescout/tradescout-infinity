@@ -10,6 +10,7 @@
     "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
+    "@neon/functions": "^0.8.0",
     "@tradescout-infinity/contracts": "workspace:*",
     "@tradescout-infinity/registry": "workspace:*",
     "drizzle-orm": "^0.44.0",

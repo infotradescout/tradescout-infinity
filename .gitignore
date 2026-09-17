@@ -6,6 +6,7 @@ dist/
 !.env.example
 coverage/
 .DS_Store
+.neon
 
 # Local cross-project catalog evidence and reproducible derived views.
 /ecosystem/catalog.json
