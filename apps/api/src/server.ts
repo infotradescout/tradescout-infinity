@@ -1,8 +1,4 @@
-import {
-  createServer,
-  type IncomingMessage,
-  type ServerResponse,
-} from "node:http";
+import { createServer, type IncomingHttpHeaders } from "node:http";
 
 import { evaluateSelectiveInheritance } from "@tradescout-infinity/contracts";
 import type {
@@ -29,7 +25,33 @@ const MAX_BODY_BYTES = 1_000_000;
 
 type JsonObject = Record<string, unknown>;
 
-function sendJson(res: ServerResponse, status: number, body: unknown): void {
+// The route owner needs only this transport surface. Both node:http and the
+// Fetch adapter supply it, so authentication, limits and errors stay identical.
+export interface InfinityHttpRequest extends AsyncIterable<
+  Uint8Array | string
+> {
+  method?: string | undefined;
+  url?: string | undefined;
+  headers: IncomingHttpHeaders;
+}
+
+export interface InfinityHttpResponse {
+  setHeader(name: string, value: string): void;
+  writeHead(status: number, headers: Record<string, string | number>): void;
+  end(body: string): void;
+}
+
+export interface InfinityApiDependencies {
+  registry: RegistryService;
+  authenticator: ApiKeyAuthenticator;
+  rateLimiter?: FixedWindowRateLimiter;
+}
+
+function sendJson(
+  res: InfinityHttpResponse,
+  status: number,
+  body: unknown,
+): void {
   const payload = JSON.stringify(body);
   res.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
@@ -40,7 +62,7 @@ function sendJson(res: ServerResponse, status: number, body: unknown): void {
   res.end(payload);
 }
 
-async function readJson(req: IncomingMessage): Promise<JsonObject> {
+async function readJson(req: InfinityHttpRequest): Promise<JsonObject> {
   const chunks: Buffer[] = [];
   let length = 0;
   for await (const chunk of req) {
@@ -57,14 +79,14 @@ async function readJson(req: IncomingMessage): Promise<JsonObject> {
   return parsed as JsonObject;
 }
 
-function bearerToken(req: IncomingMessage): string {
+function bearerToken(req: InfinityHttpRequest): string {
   const header = String(req.headers.authorization || "");
   return header.startsWith("Bearer ") ? header.slice(7).trim() : "";
 }
 
 async function authenticate(
-  req: IncomingMessage,
-  res: ServerResponse,
+  req: InfinityHttpRequest,
+  res: InfinityHttpResponse,
   authenticator: ApiKeyAuthenticator,
 ): Promise<AuthenticatedTenant | null> {
   const token = bearerToken(req);
@@ -88,17 +110,16 @@ function asObjectReference(value: unknown): InfinityObjectReference {
   return candidate as unknown as InfinityObjectReference;
 }
 
-export function createInfinityServer(params: {
-  registry: RegistryService;
-  authenticator: ApiKeyAuthenticator;
-  rateLimiter?: FixedWindowRateLimiter;
-}) {
+export function createInfinityRequestHandler(params: InfinityApiDependencies) {
   const limiter = params.rateLimiter ?? new FixedWindowRateLimiter(120, 60_000);
 
-  return createServer(async (req, res) => {
+  return async (
+    req: InfinityHttpRequest,
+    res: InfinityHttpResponse,
+    clientKey = "unknown",
+  ): Promise<void> => {
     const method = req.method || "GET";
     const url = new URL(req.url || "/", "http://infinity.local");
-    const clientKey = String(req.socket.remoteAddress || "unknown");
     const rate = limiter.take(`${clientKey}:${url.pathname}`);
     if (!rate.allowed) {
       res.setHeader("retry-after", String(rate.retryAfterSeconds));
@@ -267,5 +288,12 @@ export function createInfinityServer(params: {
         error: safeCode,
       });
     }
+  };
+}
+
+export function createInfinityServer(params: InfinityApiDependencies) {
+  const handleRequest = createInfinityRequestHandler(params);
+  return createServer((req, res) => {
+    void handleRequest(req, res, req.socket.remoteAddress || "unknown");
   });
 }

@@ -1,17 +1,21 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { fork } from "node:child_process";
+import { createServer } from "node:http";
 import { randomUUID, createHash, randomBytes } from "node:crypto";
 import { readFileSync, realpathSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join, sep } from "node:path";
 import { pathToFileURL } from "node:url";
+import { Readable } from "node:stream";
 
 // This runner accepts only an explicitly selected disposable loopback database.
 const config = JSON.parse(
   readFileSync(".infinity-native-acceptance.json", "utf8"),
 );
 const database = new URL(config.databaseUrl);
+const transport = process.env.INFINITY_ACCEPTANCE_TRANSPORT ?? "node";
+assert.ok(["node", "neon"].includes(transport));
 assert.equal(config.disposable, true);
 assert.equal(database.hostname, "127.0.0.1");
 assert.match(database.pathname, /^\/infinity_acceptance_[a-z0-9_]+$/);
@@ -22,6 +26,7 @@ for (const name of [
   "pg",
   "drizzle-orm/node-postgres",
   "@tradescout-infinity/registry",
+  "@neon/functions",
 ]) {
   assert.ok(
     realpathSync(requireInstalled.resolve(name)).startsWith(installed + sep),
@@ -51,28 +56,58 @@ const signingKeys = [
 ];
 
 if (process.argv.includes("--serve")) {
-  const pool = new Pool({ connectionString: config.databaseUrl, max: 8 });
-  const db = drizzle(pool);
-  const registry = new registryModule.RegistryService(
-    new registryModule.PostgresRegistryStore(db),
-    new registryModule.SigningKeyRing(signingKeys),
-  );
-  const server = createInfinityServer({
-    registry,
-    authenticator: new PostgresApiKeyAuthenticator(db),
-  });
+  let pool;
+  let server;
+  if (transport === "neon") {
+    process.env.DATABASE_URL = config.databaseUrl;
+    process.env.INFINITY_SIGNING_KEYS_JSON = JSON.stringify(signingKeys);
+    const { default: handler } = await import(
+      pathToFileURL(join(installed, "dist/src/neon.js"))
+    );
+    // Only the test supplies a loopback socket. Exercise the installed default
+    // Fetch entrypoint, including its real module-scope pool and runtime wiring.
+    server = createServer(async (req, res) => {
+      try {
+        const response = await handler.fetch(
+          new Request(`http://infinity.local${req.url}`, {
+            method: req.method,
+            headers: req.headers,
+            ...(["GET", "HEAD"].includes(req.method)
+              ? {}
+              : { body: Readable.toWeb(req), duplex: "half" }),
+          }),
+        );
+        res.writeHead(response.status, Object.fromEntries(response.headers));
+        res.end(Buffer.from(await response.arrayBuffer()));
+      } catch {
+        res.writeHead(500);
+        res.end('{"error":"acceptance_transport_failure"}');
+      }
+    });
+  } else {
+    pool = new Pool({ connectionString: config.databaseUrl, max: 8 });
+    const db = drizzle(pool);
+    const registry = new registryModule.RegistryService(
+      new registryModule.PostgresRegistryStore(db),
+      new registryModule.SigningKeyRing(signingKeys),
+    );
+    server = createInfinityServer({
+      registry,
+      authenticator: new PostgresApiKeyAuthenticator(db),
+    });
+  }
   server.listen(0, "127.0.0.1", () =>
     process.send({ port: server.address().port, pid: process.pid }),
   );
   process.on("SIGTERM", () =>
     server.close(async () => {
-      await pool.end();
+      await pool?.end();
       process.exit(0);
     }),
   );
 } else {
   test(
-    "installed Infinity API with native persistence and process restart",
+    `installed Infinity ${transport} API with native persistence and process restart`,
     { timeout: 45000 },
     async (t) => {
       const pool = new Pool({ connectionString: config.databaseUrl, max: 4 });

@@ -26,7 +26,9 @@ mutation.
 - `packages/provider-core`: provider-neutral watermark interface.
 - `packages/registry`: signed pass issuance, verification, revocation, and
   conversion-evidence persistence.
-- `apps/api`: tenant-authenticated registry HTTP API.
+- `apps/api`: tenant-authenticated registry HTTP API. The existing Node server
+  and optional [Neon Functions entrypoint](docs/NEON_FUNCTIONS.md) share the
+  same routes.
 - `integrations/selective-intelligence`: immutable SI source metadata and
   compatibility/drift verification. The SI engine and plugin remain canonical in
   `infotradescout/Selective-Intelligence`.

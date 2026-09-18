@@ -8,8 +8,12 @@ registry-authorized actions.
 
 - `DATABASE_URL`: PostgreSQL connection string.
 - `INFINITY_SIGNING_KEYS_JSON`: JSON array of signing keys. Exactly one key must
-  have `status: "active"`; older keys can remain `verify-only` during rotation.
-- `PORT`: optional, defaults to `8080`.
+  have `status: "active"`; older keys can remain `verify_only` during rotation.
+- `PORT`: optional for the Node server, defaults to `4100`.
+
+The optional [Neon Functions transport](NEON_FUNCTIONS.md) uses the same API
+contract and Postgres owners. It preserves public signed-pass resolution and
+does not listen on `PORT`.
 
 Each signing secret must contain at least 32 characters. Store secrets in the
 deployment secret manager, never in source control.
@@ -24,7 +28,7 @@ deployment secret manager, never in source control.
   {
     "version": 1,
     "secret": "previous-secret-during-rotation",
-    "status": "verify-only"
+    "status": "verify_only"
   }
 ]
 ```
