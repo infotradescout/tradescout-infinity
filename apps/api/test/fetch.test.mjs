@@ -43,8 +43,12 @@ function fixture(rateLimiter) {
   };
 }
 
-function request(path, { method = "GET", body, key, headers = {} } = {}) {
-  return new Request(`https://infinity.test${path}`, {
+function request(
+  path,
+  { method = "GET", body, key, headers = {} } = {},
+  origin = "https://infinity.test",
+) {
+  return new Request(`${origin}${path}`, {
     method,
     headers: {
       "content-type": "application/json",
@@ -95,8 +99,9 @@ test("Node and Fetch return identical statuses, errors and security headers", as
     ]),
   ];
   for (const [path, options] of cases) {
-    const nativeRequest = request(path, options);
-    const native = await fetch(new Request(base + path, nativeRequest));
+    // Build from the same fixture bytes. Re-wrapping a Request makes its body
+    // a stream and Node 24's Undici can hide a real 401 behind a fetch error.
+    const native = await fetch(request(path, options, base));
     const standard = await handler.fetch(request(path, options));
     assert.deepEqual(await result(standard), await result(native), path);
   }
